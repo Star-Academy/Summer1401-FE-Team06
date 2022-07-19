@@ -1,18 +1,16 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
+import {NgxPopperjsModule} from 'ngx-popperjs';
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-
-import {HeaderModule} from './components/header/header.module';
-
 import {HomeModule} from './pages/home/home.module';
-
-import {PipesModule} from './pipes/pipes.module';
+import {NotFoundModule} from './pages/not-found/not-found.module';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, HeaderModule, HomeModule, PipesModule],
+    imports: [BrowserModule, NgxPopperjsModule, AppRoutingModule, HomeModule, NotFoundModule],
     providers: [],
     bootstrap: [AppComponent],
 })

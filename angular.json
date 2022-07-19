@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "boilera": {
+        "digikala": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -20,14 +20,14 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/boilera",
+                        "outputPath": "dist/digikala",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.scss"],
+                        "styles": ["src/assets/fonts/fontawesome-pro-6.1.1-web/css/all.min.css", "src/styles.scss"],
                         "scripts": []
                     },
                     "configurations": {
@@ -55,10 +55,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "boilera:build:production"
+                            "browserTarget": "digikala:build:production"
                         },
                         "development": {
-                            "browserTarget": "boilera:build:development"
+                            "browserTarget": "digikala:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -66,7 +66,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "boilera:build"
+                        "browserTarget": "digikala:build"
                     }
                 },
                 "test": {
@@ -78,7 +78,7 @@
                         "karmaConfig": "karma.conf.js",
                         "inlineStyleLanguage": "scss",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.scss"],
+                        "styles": ["src/assets/fonts/fontawesome-pro-6.1.1-web/css/all.min.css", "src/styles.scss"],
                         "scripts": []
                     }
                 },
@@ -91,7 +91,7 @@
             }
         }
     },
-    "defaultProject": "boilera",
+    "defaultProject": "digikala",
     "cli": {
         "defaultCollection": "@angular-eslint/schematics"
     }

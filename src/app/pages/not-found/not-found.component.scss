@@ -1,0 +1,14 @@
+.content-wrapper {
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+
+    min-height: 100vh;
+
+    a {
+        color: var(--color--primary);
+
+        text-align: center;
+        text-decoration: underline;
+    }
+}
