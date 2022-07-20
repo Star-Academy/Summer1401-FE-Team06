@@ -1,0 +1,21 @@
+.first-navbar{
+
+  padding: 2rem 0rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+  .logo-container{
+    flex: 0 0 50%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    p{
+      font-size: 0.75rem;
+    }
+  }
+  app-search-box{
+    flex: 0 0 50%;
+    width: 100%;
+  }
+}
