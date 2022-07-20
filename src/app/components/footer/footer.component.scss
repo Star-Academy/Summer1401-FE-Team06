@@ -1,0 +1,32 @@
+footer {
+  color: #fff;
+  font-family: "Shabnam", sans-serif;
+  margin-top: 3rem;
+}
+
+.copyright,
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+.copyright {
+  border-top: 1px solid #fff;
+}
+
+.copyright span:last-child {
+  font-size: 0.7rem;
+}
+
+.wrapper div:last-child i {
+  cursor: pointer;
+}
+
+.wrapper div * {
+  padding: 0 2px;
+}
+
+img{
+  width: 10rem;
+}
