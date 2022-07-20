@@ -1,14 +1,14 @@
 .contain {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: center;
-    gap: 3rem;
-    color: #fff;
-    font-family: 'Shabnam', sans-serif;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  gap: 3rem;
+  color: hsl(0, 0%, 100%);
+  font-family: 'Shabnam', sans-serif;
+  margin-top: 2rem;
 }
 
 .more {
   margin: 2rem 17% 0 0;
-    cursor: pointer;
+  cursor: pointer;
 }

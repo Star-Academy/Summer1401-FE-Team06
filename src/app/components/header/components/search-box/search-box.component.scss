@@ -1,8 +1,8 @@
 .input-box{
-  --input-color: #5C7EA0;
+  --input-color: hsl(210, 27%, 49%);
   max-width: 27rem;
   width: 100%;
-  margin: 0 auto;
+  margin-right: auto;
   position: relative;
   i{
     color: var(--input-color);
@@ -17,7 +17,7 @@
     background-color: transparent;
     padding: 0.5rem 2.5rem 0.5rem 0.75rem;
     border-radius: 0.75rem;
-    color: white;
+    color: hsl(0, 0%, 100%);
     border: 2px solid var(--input-color);
     font-size: 1.25rem;
     &::placeholder{

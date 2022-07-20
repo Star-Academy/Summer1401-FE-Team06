@@ -4,10 +4,16 @@
   display: grid;
   place-items: center;
   border-radius: 0.25rem;
-  background-color: #1E1E2A;
+  background-color: hsl(240, 17%, 14%);
+  cursor: pointer;
   i{
     width: 20px;
     height: 20px;
     text-align: center;
   }
+}
+
+.icon-container.bgColorIcon{
+    background-color: hsl(3, 86%, 58%);
+
 }

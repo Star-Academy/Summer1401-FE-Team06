@@ -6,5 +6,6 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./icon.component.scss'],
 })
 export class IconComponent {
-    @Input() public iconClass: string = ' ';
+    @Input() public iconClass: string = '';
+    @Input() public bgColor: string = '';
 }

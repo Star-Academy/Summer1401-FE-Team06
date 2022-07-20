@@ -1,6 +1,6 @@
 .navbar{
   background-color: var(--nav-bg);
-  padding: 1.5rem 0.25rem;
+  padding: 0.75rem 0.25rem;
   &-container {
     display: flex;
     align-items: center;
@@ -9,10 +9,27 @@
     ul {
       display: flex;
       gap: 2rem;
+      li{
+        a{
+          transition: all 0.3s ease;
+        }
+        &:hover{
+          a{
+            color: #F04137;
+          }
+        }
+      }
     }
   }
   &-links{
     display: flex;
     gap: 1.5rem;
+    a{
+      transition: all 0.3s ease;
+      &:hover{
+        color: #F04137;
+      }
+    }
+
   }
 }

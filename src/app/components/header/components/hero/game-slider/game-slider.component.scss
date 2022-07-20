@@ -1,0 +1,53 @@
+.game-slider{
+  flex: 0 0 60%;
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+
+  width: 32rem;
+  height: 24rem;
+
+  &_container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    p{
+      font-size: 0.75rem;
+      flex: 1;
+    }
+    a{
+
+      padding: 0.75rem 1rem;
+      text-align: center;
+      background-color: hsl(3, 86%, 58%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover{
+
+        background-color: hsl(3, 71%, 28%);
+      }
+    }
+  }
+  img{
+    width: 14rem;
+    height: 100%;
+  }
+  &_dots{
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1.5rem;
+    div{
+      cursor: pointer;
+      width: 1rem ;
+      height: 1rem;
+      border-radius: 999rem;
+      border: 2px solid hsl(3, 86%, 58%);
+    }
+    div.active{
+      background-color: hsl(3, 86%, 58%);
+    }
+  }
+}

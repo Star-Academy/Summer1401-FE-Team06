@@ -1,0 +1,8 @@
+.slider{
+
+  display: flex;
+  justify-content:space-between;
+  app-slider-card{
+    flex: 0 0 calc((100% / 4) - 1.5rem);
+  }
+}
