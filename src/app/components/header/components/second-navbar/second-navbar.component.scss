@@ -1,7 +1,8 @@
 .navbar {
     background-color: var(--nav-bg);
-    padding: 1.25rem 0;
     &-container {
+        padding: 1.25rem 0;
+        border-top: 1px solid #1a1919;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -15,7 +16,7 @@
                 }
                 &:hover {
                     a {
-                        color: hsl(3, 86%, 58%);
+                        color: var(--secondary-color);
                     }
                 }
             }
@@ -23,11 +24,20 @@
     }
     &-links {
         display: flex;
-        gap: 1.5rem;
+        gap: 2.5rem;
+        align-items: center;
+        .icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .auth {
+            display: flex;
+            gap: 0.5rem;
+        }
         a {
             transition: color 0.3s ease;
             &:hover {
-                color: hsl(3, 86%, 58%);
+                color: var(--secondary-color);
             }
         }
     }

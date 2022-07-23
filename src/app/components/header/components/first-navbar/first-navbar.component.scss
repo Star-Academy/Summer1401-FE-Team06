@@ -1,20 +1,23 @@
 .first-navbar {
-    padding: 1rem 0rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .logo-container {
-        flex: 0 0 50%;
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        p {
-            font-size: 0.75rem;
-        }
-    }
-    app-search-box {
-        flex: 0 0 50%;
+    background-color: var(--nav-bg);
+    .container {
+        padding: 1rem 0;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo-container {
+            flex: 0 0 50%;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            p {
+                font-size: 0.75rem;
+            }
+        }
+        app-search-box {
+            flex: 0 0 50%;
+            width: 100%;
+        }
     }
 }

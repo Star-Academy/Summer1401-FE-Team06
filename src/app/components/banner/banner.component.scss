@@ -6,9 +6,8 @@
     padding: 0 16%;
     gap: 3.75rem;
     font-size: 1rem;
-    color: hsl(0, 0%, 100%);
+    color: var(--primary-text-color);
     font-family: 'Shabnam', sans-serif;
-    margin-top: 5rem;
 }
 
 .wrapper div {
@@ -23,7 +22,7 @@ img {
     border-radius: 1.25rem;
     width: 50%;
     height: 80%;
-    transition: transform 0.5s;
+    transition: transform 0.3s;
 }
 
 img:hover {
@@ -34,14 +33,14 @@ a {
     position: absolute;
     margin: 0.625rem 0;
     padding: 0.8125rem;
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--primary-text-color);
     border-radius: 0.5rem;
-    color: hsl(0, 0%, 0%);
+    color: var(--secondary-section);
     cursor: pointer;
-    transition: color 0.5s, background-color 0.5s;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 a:hover {
-    background-color: hsl(0, 100%, 50%);
-    color: hsl(0, 0%, 100%);
+    background-color: var(--secondary-color);
+    color: var(--primary-text-color);
 }

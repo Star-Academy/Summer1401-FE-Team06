@@ -4,15 +4,26 @@
     display: grid;
     place-items: center;
     border-radius: 0.25rem;
-    background-color: hsl(240, 17%, 14%);
+    color: var(--defualt-icon-color);
+    background-color: var(--defualt-icon-bg);
     cursor: pointer;
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(1.05);
+    }
     i {
         width: 20px;
         height: 20px;
         text-align: center;
+        display: grid;
+        place-items: center;
     }
 }
 
 .icon-container.bgColorIcon {
-    background-color: hsl(3, 86%, 58%);
+    background-color: var(--secondary-color);
+    i {
+        width: 24px;
+        height: 24px;
+    }
 }
