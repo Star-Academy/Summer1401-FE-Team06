@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "digikala": {
+        "SeeTo": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -20,7 +20,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/digikala",
+                        "outputPath": "dist/SeeTo",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -55,10 +55,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "digikala:build:production"
+                            "browserTarget": "SeeTo:build:production"
                         },
                         "development": {
-                            "browserTarget": "digikala:build:development"
+                            "browserTarget": "SeeTo:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -66,7 +66,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "digikala:build"
+                        "browserTarget": "SeeTo:build"
                     }
                 },
                 "test": {
@@ -91,7 +91,7 @@
             }
         }
     },
-    "defaultProject": "digikala",
+    "defaultProject": "SeeTo",
     "cli": {
         "defaultCollection": "@angular-eslint/schematics"
     }

@@ -3,4 +3,3 @@ export interface Product {
     oldPrice: string;
     imageUrl: string;
 }
-

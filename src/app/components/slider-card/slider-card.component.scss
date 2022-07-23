@@ -1,58 +1,55 @@
-.card{
-  --border-radius-card: 0.5rem;
-  height: 16rem;
-  border-radius: var(--border-radius-card);
-  background-color: hsl(0, 0%, 17%);
-  overflow: hidden;
-  box-shadow: 18px 14px 23px hsla(0, 0%, 0%, 0.25);
-  &:hover{
-    .card{
-      &_img{
-        opacity: 0.5;
-      }
-      &_buttons{
-        opacity: 1;
-      }
+.card {
+    --border-radius-card: 0.5rem;
+    height: 16rem;
+    border-radius: var(--border-radius-card);
+    background-color: hsl(0, 0%, 17%);
+    overflow: hidden;
+    box-shadow: 18px 14px 23px hsla(0, 0%, 0%, 0.25);
+    &:hover {
+        .card {
+            &_img {
+                opacity: 0.5;
+            }
+            &_buttons {
+                opacity: 1;
+            }
+        }
     }
-  }
-  &_img{
-
-    border-top-left-radius: var(--border-radius-card);
-    border-top-right-radius: var(--border-radius-card);
-    position: relative;
-    height: 80%;
-    transition: all ease 0.3s;
-    img{
-      height: 100%;
-
+    &_img {
+        border-top-left-radius: var(--border-radius-card);
+        border-top-right-radius: var(--border-radius-card);
+        position: relative;
+        height: 80%;
+        transition: opacity ease 0.3s;
+        img {
+            height: 100%;
+        }
     }
-  }
-  &_buttons{
-    position: absolute;
-    display: grid;
-    place-items: center;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: all ease 0.3s;
-  }
-  &_desc{
-    padding: 0.75rem 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    p{
-      span{
-        font-weight: bold;
-        color: hsl(3, 86%, 58%);
-      }
+    &_buttons {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: opacity ease 0.3s;
+        .wrapper {
+            display: flex;
+            gap: 1rem;
+        }
     }
-  }
-
-}
-.wrapper{
-  display: flex;
-  gap: 1rem;
+    &_desc {
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p {
+            span {
+                font-weight: bold;
+                color: hsl(3, 86%, 58%);
+            }
+        }
+    }
 }

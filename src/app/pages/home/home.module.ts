@@ -5,7 +5,7 @@ import {HeaderModule} from '../../components/header/header.module';
 import {MainCardsModule} from '../../components/main-cards/main-cards.module';
 import {FooterModule} from '../../components/footer/footer.module';
 import {BannerModule} from '../../components/banner/banner.module';
-import {MainModule} from "../../components/main/main.module";
+import {MainModule} from '../../components/main/main.module';
 
 @NgModule({
     declarations: [HomeComponent],

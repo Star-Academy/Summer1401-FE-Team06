@@ -1,47 +1,44 @@
-@import url("https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css");
-*{
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css');
+* {
     box-sizing: border-box;
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0;
 }
-:root{
+:root {
     --secondary-color: hsl(3, 86%, 58%);
     --primary-font: 'Shabnam', sans-serif;
     --nav-bg: hsla(240, 100%, 0%, 0.37);
-    --primary-color: #2B2B2B;
+    --primary-color: hsl(0, 0%, 17%);
     --secondary-section: hsla(240, 100%, 0%, 0.37);
 }
-body{
+body {
     font-family: var(--primary-font);
     background: linear-gradient(180deg, hsl(224, 54%, 15%) 0%, hsl(222, 100%, 2%) 100%);
     color: hsl(0, 0%, 100%);
-
 }
 
-
-
-.container{
+.container {
     max-width: 75rem;
     width: 100%;
     margin: 0 auto;
 }
-.secondary-style{
+.secondary-style {
     color: var(--secondary-color);
 }
-.secondary-section{
+.secondary-section {
     background-color: var(--secondary-section);
 }
-img{
+img {
     width: 100%;
-    //height: 100%;
     object-fit: cover;
 }
-li{
+li {
     list-style-type: none;
 }
-a{
+a {
     text-decoration: none;
-    color: white;
+    color: hsl(0, 0%, 100%);
 }
-.section{
-    padding: 4rem 0rem;
+.section {
+    padding: 4rem 0;
 }

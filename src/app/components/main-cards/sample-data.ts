@@ -1,6 +1,6 @@
-import {Product} from "./models/product";
+import {Product} from './models/product';
 
-export const Products :Product[]=[
+export const Products: Product[] = [
     {oldPrice: '60000', newPrice: '46000', imageUrl: '/../../../../assets/images/card1.avif'},
     {oldPrice: '40000', newPrice: '24000', imageUrl: '/../../../../assets/images/card2.avif'},
     {oldPrice: '28000', newPrice: '20000', imageUrl: '/../../../../assets/images/card3.avif'},

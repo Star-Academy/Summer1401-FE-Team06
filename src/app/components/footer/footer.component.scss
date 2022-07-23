@@ -1,32 +1,32 @@
 footer {
-  color: hsl(0, 0%, 100%);
-  font-family: "Shabnam", sans-serif;
-  margin-top: 3rem;
+    color: hsl(0, 0%, 100%);
+    font-family: 'Shabnam', sans-serif;
+    margin-top: 3rem;
 }
 
 .copyright,
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
 }
 .copyright {
-  border-top: 1px solid hsl(0, 0%, 100%);
+    border-top: 1px solid hsl(0, 0%, 100%);
 }
 
 .copyright span:last-child {
-  font-size: 0.7rem;
+    font-size: 0.7rem;
 }
 
 .wrapper div:last-child i {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .wrapper div * {
-  padding: 0 0.125rem;
+    padding: 0 0.125rem;
 }
 
-img{
-  width: 10rem;
+img {
+    width: 10rem;
 }

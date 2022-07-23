@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, Output} from '@angular/core';
 import {Product} from './models/product';
-import {Products} from "./sample-data";
+import {Products} from './sample-data';
 
 @Component({
     selector: 'app-main-cards',
