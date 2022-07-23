@@ -9,13 +9,17 @@
     --primary-font: 'Shabnam', sans-serif;
     --nav-bg: hsla(240, 100%, 0%, 0.37);
     --primary-color: hsl(0, 0%, 17%);
-    --secondary-section: hsla(240, 100%, 0%, 0.37);
+    //--primary-color: hsl(0, 0%, 5%);
+    //--secondary-section: hsla(240, 100%, 0%, 0.37);
+    --secondary-section: hsl(0, 0%, 11%);
 }
 body {
     font-family: var(--primary-font);
-    background: linear-gradient(180deg, hsl(224, 54%, 15%) 0%, hsl(222, 100%, 2%) 100%);
+    //background: linear-gradient(180deg, hsl(224, 54%, 15%) 0%, hsl(222, 100%, 2%) 100%);
+    background-color: hsl(0, 0%, 5%);
     color: hsl(0, 0%, 100%);
 }
+
 
 .container {
     max-width: 75rem;

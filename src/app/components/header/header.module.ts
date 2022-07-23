@@ -10,6 +10,7 @@ import {SecondNavbarComponent} from './components/second-navbar/second-navbar.co
 import {IconModule} from '../icon/icon.module';
 import {HeroComponent} from './components/hero/hero.component';
 import {GameSliderComponent} from './components/hero/game-slider/game-slider.component';
+import {SlidebarModule} from "../slidebar/slidebar.module";
 // import {HeroComponent} from './components/hero/hero.component';
 // import {HeroModule} from './components/hero/hero.module';
 
@@ -23,6 +24,6 @@ import {GameSliderComponent} from './components/hero/game-slider/game-slider.com
         GameSliderComponent,
     ],
     exports: [HeaderComponent],
-    imports: [CommonModule, RouterModule, FormsModule, IconModule],
+    imports: [CommonModule, RouterModule, FormsModule, IconModule, SlidebarModule],
 })
 export class HeaderModule {}
