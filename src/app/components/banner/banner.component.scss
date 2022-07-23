@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     width: 100%;
-    height: 25rem;
+    height: 20rem;
     justify-content: center;
     padding: 0 16%;
     gap: 3.75rem;
@@ -11,17 +11,17 @@
 }
 
 .wrapper div {
-    margin: 1.25rem 0;
+    padding: 1.25rem 0;
 }
 .wrapper div h2,
 p {
-    margin: 1.875rem 0;
+    padding: 1.3rem 0;
 }
 
 img {
     border-radius: 1.25rem;
     width: 50%;
-    height: 80%;
+    height: 100%;
     transition: transform 0.3s;
 }
 

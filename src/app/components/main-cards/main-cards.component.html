@@ -3,8 +3,5 @@
     <div class="contain">
         <app-card *ngFor="let card of cards" [product]="card"></app-card>
     </div>
-    <div class="more">
-        <span>بیشتر </span>
-        <i class="fa-solid fa-angles-left"></i>
-    </div>
+    <app-more-button></app-more-button>
 </div>

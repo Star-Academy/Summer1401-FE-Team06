@@ -1,14 +1,10 @@
 .contain {
     display: grid;
-    grid-template-columns: auto auto auto;
+    //grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, max-content));
     justify-content: center;
     gap: 3rem;
     color: hsl(0, 0%, 100%);
     font-family: 'Shabnam', sans-serif;
-    margin-top: 2rem;
-}
-
-.more {
-    margin: 2rem 17% 0 0;
-    cursor: pointer;
+    padding: 0 8rem;
 }
