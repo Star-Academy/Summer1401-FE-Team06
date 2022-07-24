@@ -1,5 +1,5 @@
 .input-box {
-    --input-color: hsl(210, 27%, 49%);
+    --input-color: hsla(36, 100%, 50%, 0.3);
     max-width: 27rem;
     width: 100%;
     margin-right: auto;
@@ -17,15 +17,19 @@
         background-color: transparent;
         padding: 0.5rem 2.5rem 0.5rem 0.75rem;
         border-radius: 0.75rem;
-        color: hsl(0, 0%, 100%);
+        color: var(--input-color);
         border: 2px solid var(--input-color);
         font-size: 1.25rem;
         &::placeholder {
-            color: var(--input-color);
+            color: hsla(36, 100%, 50%, 0.3);
             font-style: var(--primary-font);
         }
         &:focus {
             outline: none;
+            --input-color: hsla(36, 100%, 50%, 0.8);
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px solid var(--input-color);
         }
     }
 }
