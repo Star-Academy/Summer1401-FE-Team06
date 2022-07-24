@@ -1,6 +1,10 @@
+<p align="center">
+   ![See-to](src/assets/images/logo.png)
+</p>
 
-![See-to](src/assets/images/logo.png)
-[فروشگاه سی تو](https://star-academy.github.io/Summer1401-FE-Team06/)
+
+
+[برای مشاهده وبسایت کلیک کنید](https://star-academy.github.io/Summer1401-FE-Team06/)
 
 
 # درباره فروشگاه
