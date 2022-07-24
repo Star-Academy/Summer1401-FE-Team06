@@ -1,0 +1,32 @@
+.first-navbar {
+    background-color: var(--nav-bg);
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        .logo-container {
+            flex: 0 0 50%;
+
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            p {
+                font-size: 0.75rem;
+            }
+        }
+
+        app-search-box {
+            flex: 0 0 50%;
+
+            width: 100%;
+        }
+    }
+}

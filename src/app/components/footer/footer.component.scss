@@ -1,0 +1,36 @@
+footer {
+    color: hsl(0deg 0% 100%);
+}
+
+.copyright,
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.5rem;
+}
+
+.copyright {
+    border-top: 0.0625rem solid hsl(0deg 0% 100%);
+}
+
+.copyright span {
+    opacity: 0.8;
+
+    font-size: 0.7rem;
+}
+
+.wrapper div * {
+    padding: 0 0.125rem;
+}
+
+img {
+    width: 10rem;
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}

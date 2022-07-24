@@ -1,0 +1,32 @@
+.slider {
+    --card-per-col: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    app-slider-card {
+        flex: 0 0 calc((100% / var(--card-per-col)) - 1.5rem);
+
+        margin-bottom: 2.5rem;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .slider {
+        --card-per-col: 3;
+    }
+}
+@media screen and (max-width: 944px) {
+    .slider {
+        --card-per-col: 2;
+    }
+}
+@media screen and (max-width: 656px) {
+    .slider {
+        app-slider-card {
+            flex: 0 0 70%;
+
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}

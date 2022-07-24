@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-text-color: hsl(0deg 0% 88%);
+    --secondary-text-color: hsl(0deg 0% 62%);
+    --primary-font: "Shabnam", sans-serif;
+    --nav-bg: hsl(0deg 0% 13%);
+
+    --primary-section: hsl(0deg 0% 5%);
+    --secondary-color: hsl(36deg 100% 50%);
+
+    --secondary-section: hsl(0deg 0% 11%);
+
+    --border-radius-card: 0.5rem;
+    --card-color: hsl(0deg 0% 17%);
+
+    --img-height: 16rem;
+
+    --defualt-icon-bg: hsl(0deg 0% 20%);
+    --defualt-icon-color: hsl(0deg 0% 93%);
+}
+
+html {
+    font-family: var(--primary-font);
+}
+
+body {
+    background-color: var(--secondary-section);
+    color: var(--primary-text-color);
+}
+
+input,
+label,
+select,
+textarea,
+button,
+fieldset,
+legend,
+datalist,
+output,
+option,
+optgroup {
+    font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-transform: capitalize;
+}
+
+.container {
+    width: 100%;
+    max-width: 75rem;
+
+    margin: 0 auto;
+}
+@media screen and (max-width: 1280px) {
+    .container {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+
+.secondary-style {
+    color: var(--secondary-color);
+}
+
+.secondary-section {
+    background-color: var(--secondary-section) !important;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color: var(--primary-text-color);
+
+    text-decoration: none;
+}
+
+.section {
+    background-color: var(--primary-section);
+
+    padding: 4rem 0;
+}

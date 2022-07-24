@@ -1,0 +1,48 @@
+.input-box {
+    --input-color: hsl(36deg 100% 50% / 30%);
+    position: relative;
+
+    width: 100%;
+    max-width: 27rem;
+
+    margin-right: auto;
+
+    i {
+        color: var(--input-color);
+
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-start: 1rem;
+
+        transform: translate(0, -50%);
+
+        font-size: 1.125rem;
+    }
+
+    input {
+        background-color: transparent;
+        color: var(--input-color);
+
+        width: 100%;
+
+        padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+
+        border: 0.125rem solid var(--input-color);
+        border-radius: 0.75rem;
+
+        font-size: 1.25rem;
+
+        &::placeholder {
+            color: hsl(36deg 100% 50% / 30%);
+        }
+
+        &:focus {
+            --input-color: hsl(36deg 100% 50% / 80%);
+            border: none;
+            border-bottom: 0.125rem solid var(--input-color);
+            border-radius: 0;
+
+            outline: none;
+        }
+    }
+}

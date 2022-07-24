@@ -1,0 +1,58 @@
+.wrapper {
+    background-color: var(--card-color);
+    color: var(--primary-text-color);
+
+    width: 100%;
+
+    border-radius: 0.3125rem;
+
+    transition: transform 0.3s;
+
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.wrapper img {
+    width: 100%;
+    height: var(--img-height);
+
+    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
+}
+
+.bottom-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.5rem 0.75rem;
+}
+
+.bottom-cart div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 6.25rem;
+    height: 100%;
+}
+
+.bottom-cart div:first-child {
+    width: 2.5rem;
+}
+
+.old-price {
+    color: var(--secondary-text-color);
+
+    font-size: 0.875rem;
+
+    text-decoration: line-through;
+}
+
+.new-price {
+    color: var(--secondary-color);
+
+    font-weight: 600;
+}
