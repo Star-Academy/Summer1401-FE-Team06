@@ -1,5 +1,5 @@
 export interface Product {
-    newPrice: string;
-    oldPrice: string;
+    newPrice: number;
+    oldPrice: number;
     imageUrl: string;
 }
