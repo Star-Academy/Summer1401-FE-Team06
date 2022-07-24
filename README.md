@@ -1,27 +1,62 @@
-# See to project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.17.
+![See-to](src/assets/images/logo.png)
+[فروشگاه سی تو](https://star-academy.github.io/Summer1401-FE-Team06/)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# درباره فروشگاه
+فروشگاه سی تو فروشگاه آنلاین خرید بازی که به زودی در دسترس قرار خواهد گرفت
 
-## Code scaffolding
+---
+---
+ 
+## تکنولوژی های استفاده شده
+##### داخل پروژه
+| [Angular](https://angular.io/guide/npm-packages/)
+| [Swiperjs](https://swiperjs.com/) 
+| [Pretter](https://prettier.io/)
+| [Eslint](https://eslint.org/)
+| [TypeScript](https://www.typescriptlang.org/)
+---
+##### طراحی
+| [Figma](http://figma.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
+---
+ 
+## مشاهده پروژه
+- [وبسایت](https://star-academy.github.io/Summer1401-FE-Team0)
+- [طرح وبسایت](https://www.figma.com/file/PN5XaxWxzlb1gwGGu5CtiU/Intern-code-star-1401?node-id=0%3A1)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
+---
+# نحوه اجرای پروژه بر سرور محلی
+1. کلون کردن پروژه بر دستگاه شخصی
+`git clone https://github.com/Star-Academy/Summer1401-FE-Team06`
 
-## Running unit tests
+1. نصب پکیج های مورد نیاز
+`npm install`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. اجرای پروژه 
+`ng serve`
 
-## Running end-to-end tests
+---
+---
+# ویژگی های پروژه 
+[ ] بازدید از بازی ها با ژانر های مختلف
+[ ] ساخت حساب کاربری و داشتن لیست علاقه مندی
+[ ] خرید بازی انتخابی
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+---
+---
+## توسعه‌دهندگان
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[Ali Zoghi](https://github.com/AliZoghi2)
+[Aref Habibi](https://github.com/arefhbbi)
+
+---
+---
+
+## همکاری در پروژه
+برای همکاری به فایل CONTRIBUTING.md مراجعه کنید.
