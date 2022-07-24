@@ -12,11 +12,11 @@
             gap: 2rem;
             li {
                 a {
-                    transition: color 0.3s ease;
+                    transition: opacity 0.3s ease;
                 }
                 &:hover {
                     a {
-                        color: var(--secondary-color);
+                        opacity: 0.8;
                     }
                 }
             }
@@ -35,9 +35,9 @@
             gap: 0.5rem;
         }
         a {
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
             &:hover {
-                color: var(--secondary-color);
+                opacity: 0.8;
             }
         }
     }

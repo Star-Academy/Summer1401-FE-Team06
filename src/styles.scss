@@ -1,4 +1,3 @@
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css');
 * {
     box-sizing: border-box;
     padding: 0;
@@ -23,10 +22,18 @@
     --defualt-icon-bg: hsl(0, 0%, 20%);
     --defualt-icon-color: hsl(0, 0%, 93%);
 }
-body {
+
+html {
     font-family: var(--primary-font);
+}
+
+body {
     background-color: var(--secondary-section);
     color: var(--primary-text-color);
+}
+
+input::placeholder {
+    font-family: var(--primary-font);
 }
 
 .container {
@@ -34,8 +41,8 @@ body {
     width: 100%;
     margin: 0 auto;
 }
-@media screen and (max-width: 80rem){
-    .container{
+@media screen and (max-width: 80rem) {
+    .container {
         padding-left: 2rem !important;
         padding-right: 2rem !important;
     }

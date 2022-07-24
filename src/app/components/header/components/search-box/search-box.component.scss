@@ -22,7 +22,6 @@
         font-size: 1.25rem;
         &::placeholder {
             color: hsla(36, 100%, 50%, 0.3);
-            font-style: var(--primary-font);
         }
         &:focus {
             outline: none;

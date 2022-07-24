@@ -37,10 +37,9 @@ a {
     border-radius: 0.5rem;
     color: var(--secondary-section);
     cursor: pointer;
-    transition: color 0.3s, background-color 0.3s;
+    transition: opacity 0.3s;
 }
 
 a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-text-color);
+    opacity: 0.8;
 }
