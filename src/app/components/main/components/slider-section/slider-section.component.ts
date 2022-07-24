@@ -7,5 +7,5 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SliderSectionComponent {
     @Input() public primaryTitle: string = ' ';
-    @Input() public bgColor: string = '';
+    @Input() public backgroundColorClassName: string = '';
 }

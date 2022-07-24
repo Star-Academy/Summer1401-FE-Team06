@@ -6,5 +6,5 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./banner.component.scss'],
 })
 export class BannerComponent {
-    @Input() public bgColor: string = '';
+    @Input() public backgroundColorClassName: string = '';
 }

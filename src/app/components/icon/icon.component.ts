@@ -7,5 +7,5 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class IconComponent {
     @Input() public iconClass: string = '';
-    @Input() public bgColor: string = '';
+    @Input() public backgroundColorClassName: string = '';
 }

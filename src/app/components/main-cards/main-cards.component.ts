@@ -9,7 +9,7 @@ import {Products} from './sample-data';
 })
 export class MainCardsComponent implements OnInit {
     public cards: Product[] = Products;
-    @Input() public bgColor: string = '';
+    @Input() public backgroundColorClassName: string = '';
     constructor() {}
 
     ngOnInit(): void {}
