@@ -20,6 +20,7 @@
 | [Pretter](https://prettier.io/)
 | [Eslint](https://eslint.org/)
 | [TypeScript](https://www.typescriptlang.org/)
+
 ---
 ##### طراحی
 | [Figma](http://figma.com/)
