@@ -22,7 +22,7 @@
     border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
 }
 
-.bottom_cart {
+.bottom-cart {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,7 +30,7 @@
     padding: 0.5rem 0.75rem;
 }
 
-.bottom_cart div {
+.bottom-cart div {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,7 +39,7 @@
     height: 100%;
 }
 
-.bottom_cart div:first-child {
+.bottom-cart div:first-child {
     width: 2.5rem;
 }
 
