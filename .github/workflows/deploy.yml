@@ -45,4 +45,4 @@ jobs:
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: gh-pages
-                  FOLDER: deploy_dist/SeeTo
+                  FOLDER: deploy_dist/Summer1401-FE-Team06
