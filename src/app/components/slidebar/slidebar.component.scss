@@ -1,31 +1,32 @@
-@import 'swiper/css';
-@import 'swiper/css/pagination';
-@import 'swiper/css/navigation';
-.harchi {
-    color: green;
-}
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
+
 .swiper {
     width: 100%;
     height: 100%;
 }
 
 .swiper-slide {
-    text-align: center;
-    font-size: 1.125rem;
-    background: hsl(68, 100%, 50%);
+    background: hsl(68deg 100% 50%);
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    font-size: 1.125rem;
+
+    text-align: center;
 }
 
 .swiper-slide img {
     display: block;
+
     width: 100%;
-    object-fit: cover;
     height: 27rem;
+    object-fit: cover;
 }
 
 .slider_item {
     cursor: pointer;
-
 }

@@ -1,27 +1,37 @@
 .icon-container {
-    width: 3rem;
-    height: 2rem;
+    background-color: var(--defualt-icon-bg);
+    color: var(--defualt-icon-color);
+
     display: grid;
     place-items: center;
+
+    width: 3rem;
+    height: 2rem;
+
     border-radius: 0.25rem;
-    color: var(--defualt-icon-color);
-    background-color: var(--defualt-icon-bg);
-    cursor: pointer;
+
     transition: transform 0.3s ease;
+
+    cursor: pointer;
+
     &:hover {
         transform: scale(1.05);
     }
+
     i {
-        width: 1.25rem;
-        height: 1.25rem;
-        text-align: center;
         display: grid;
         place-items: center;
+
+        width: 1.25rem;
+        height: 1.25rem;
+
+        text-align: center;
     }
 }
 
-.icon-container.bgColorIcon {
+.icon-container.icon-color-secondary {
     background-color: var(--secondary-color);
+
     i {
         width: 1.5rem;
         height: 1.5rem;

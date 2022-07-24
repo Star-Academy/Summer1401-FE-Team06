@@ -1,10 +1,14 @@
 .wrapper {
-    color: var(--primary-text-color);
     background-color: var(--card-color);
+    color: var(--primary-text-color);
+
     width: 100%;
+
     border-radius: 0.3125rem;
-    cursor: pointer;
+
     transition: transform 0.3s;
+
+    cursor: pointer;
 }
 
 .wrapper:hover {
@@ -14,22 +18,25 @@
 .wrapper img {
     width: 100%;
     height: var(--img-height);
+
     border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
 }
 
 .bottom_cart {
     display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0.75rem;
     align-items: center;
+    justify-content: space-between;
+
+    padding: 0.5rem 0.75rem;
 }
 
 .bottom_cart div {
     display: flex;
-    justify-content: space-between;
-    height: 100%;
-    width: 6.25rem;
     align-items: center;
+    justify-content: space-between;
+
+    width: 6.25rem;
+    height: 100%;
 }
 
 .bottom_cart div:first-child {
@@ -37,12 +44,15 @@
 }
 
 .old-price {
-    text-decoration: line-through;
     color: var(--secondary-text-color);
+
     font-size: 0.875rem;
+
+    text-decoration: line-through;
 }
 
 .new-price {
     color: var(--secondary-color);
+
     font-weight: 600;
 }

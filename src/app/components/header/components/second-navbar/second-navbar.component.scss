@@ -1,19 +1,25 @@
 .navbar {
     background-color: var(--nav-bg);
+
     &-container {
-        padding: 1.25rem 0;
-        border-top: 0.0625rem solid #1a1919;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+
+        border-top: 0.0625rem solid hsl(0deg 2% 10%);
+
         ul {
             display: flex;
             gap: 2rem;
+
             li {
                 a {
                     transition: opacity 0.3s ease;
                 }
+
                 &:hover {
                     a {
                         opacity: 0.8;
@@ -22,20 +28,25 @@
             }
         }
     }
+
     &-links {
         display: flex;
-        gap: 2.5rem;
         align-items: center;
+        gap: 2.5rem;
+
         .icons {
             display: flex;
             gap: 0.5rem;
         }
+
         .auth {
             display: flex;
             gap: 0.5rem;
         }
+
         a {
             transition: opacity 0.3s ease;
+
             &:hover {
                 opacity: 0.8;
             }

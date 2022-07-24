@@ -1,34 +1,48 @@
 .input-box {
-    --input-color: hsla(36, 100%, 50%, 0.3);
-    max-width: 27rem;
-    width: 100%;
-    margin-right: auto;
+    --input-color: hsl(36deg 100% 50% / 30%);
     position: relative;
+
+    width: 100%;
+    max-width: 27rem;
+
+    margin-right: auto;
+
     i {
         color: var(--input-color);
+
         position: absolute;
-        inset-block-start:50%;
-        inset-inline-start:1rem;
+        inset-block-start: 50%;
+        inset-inline-start: 1rem;
+
         transform: translate(0, -50%);
+
         font-size: 1.125rem;
     }
+
     input {
-        width: 100%;
         background-color: transparent;
-        padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-        border-radius: 0.75rem;
         color: var(--input-color);
+
+        width: 100%;
+
+        padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+
         border: 0.125rem solid var(--input-color);
+        border-radius: 0.75rem;
+
         font-size: 1.25rem;
+
         &::placeholder {
-            color: hsla(36, 100%, 50%, 0.3);
+            color: hsl(36deg 100% 50% / 30%);
         }
+
         &:focus {
-            --input-color: hsla(36, 100%, 50%, 0.8);
-            outline: none;
+            --input-color: hsl(36deg 100% 50% / 80%);
             border: none;
-            border-radius: 0;
             border-bottom: 0.125rem solid var(--input-color);
+            border-radius: 0;
+
+            outline: none;
         }
     }
 }

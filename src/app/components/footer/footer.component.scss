@@ -1,21 +1,24 @@
 footer {
-    color: hsl(0, 0%, 100%);
+    color: hsl(0deg 0% 100%);
 }
 
 .copyright,
 .wrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
     padding: 0.5rem;
 }
+
 .copyright {
-    border-top: 0.0625rem solid hsl(0, 0%, 100%);
+    border-top: 0.0625rem solid hsl(0deg 0% 100%);
 }
 
 .copyright span {
-    font-size: 0.7rem;
     opacity: 0.8;
+
+    font-size: 0.7rem;
 }
 
 .wrapper div * {
@@ -28,6 +31,6 @@ img {
 
 .social-media {
     display: flex;
-    gap: 0.4rem;
     align-items: center;
+    gap: 0.4rem;
 }

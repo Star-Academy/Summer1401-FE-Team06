@@ -1,26 +1,28 @@
 * {
     box-sizing: border-box;
-    padding: 0;
+
     margin: 0;
+    padding: 0;
 }
+
 :root {
-    --primary-text-color: hsl(0, 0%, 88%);
-    --secondary-text-color: hsl(0, 0%, 62%);
-    --primary-font: 'Shabnam', sans-serif;
-    --nav-bg: hsl(0, 0%, 13%);
+    --primary-text-color: hsl(0deg 0% 88%);
+    --secondary-text-color: hsl(0deg 0% 62%);
+    --primary-font: "Shabnam", sans-serif;
+    --nav-bg: hsl(0deg 0% 13%);
 
-    --primary-section: hsl(0, 0%, 5%);
-    --secondary-color: hsl(36, 100%, 50%);
+    --primary-section: hsl(0deg 0% 5%);
+    --secondary-color: hsl(36deg 100% 50%);
 
-    --secondary-section: hsl(0, 0%, 11%);
+    --secondary-section: hsl(0deg 0% 11%);
 
     --border-radius-card: 0.5rem;
-    --card-color: hsl(0, 0%, 17%);
+    --card-color: hsl(0deg 0% 17%);
 
     --img-height: 16rem;
 
-    --defualt-icon-bg: hsl(0, 0%, 20%);
-    --defualt-icon-color: hsl(0, 0%, 93%);
+    --defualt-icon-bg: hsl(0deg 0% 20%);
+    --defualt-icon-color: hsl(0deg 0% 93%);
 }
 
 html {
@@ -45,38 +47,52 @@ option,
 optgroup {
     font-family: inherit;
 }
-h1,h2,h3,h4{
+
+h1,
+h2,
+h3,
+h4 {
     text-transform: capitalize;
 }
+
 .container {
-    max-width: 75rem;
     width: 100%;
+    max-width: 75rem;
+
     margin: 0 auto;
 }
-@media screen and (max-width: 80rem) {
+@media screen and (max-width: 1280px) {
     .container {
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 }
+
 .secondary-style {
     color: var(--secondary-color);
 }
+
 .secondary-section {
     background-color: var(--secondary-section) !important;
 }
+
 img {
     width: 100%;
     object-fit: cover;
 }
+
 li {
     list-style-type: none;
 }
+
 a {
-    text-decoration: none;
     color: var(--primary-text-color);
+
+    text-decoration: none;
 }
+
 .section {
-    padding: 4rem 0;
     background-color: var(--primary-section);
+
+    padding: 4rem 0;
 }
