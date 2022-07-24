@@ -14,15 +14,15 @@
 
  
 ## تکنولوژی های استفاده شده
-##### داخل پروژه
+##### داخل پروژه:
 | [Angular](https://angular.io/guide/npm-packages/)
 | [Swiperjs](https://swiperjs.com/) 
 | [Pretter](https://prettier.io/)
 | [Eslint](https://eslint.org/)
 | [TypeScript](https://www.typescriptlang.org/)
 
----
-##### طراحی
+
+##### طراحی:
 | [Figma](http://figma.com/)
 
 ---
