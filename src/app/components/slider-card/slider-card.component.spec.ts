@@ -1,6 +1,8 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SliderCardComponent} from './slider-card.component';
+import {CommonModule} from '@angular/common';
+import {IconModule} from '../icon/icon.module';
 
 describe('SliderCardComponent', () => {
     let component: SliderCardComponent;
@@ -9,6 +11,7 @@ describe('SliderCardComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [SliderCardComponent],
+            imports: [CommonModule, IconModule],
         }).compileComponents();
     });
 
