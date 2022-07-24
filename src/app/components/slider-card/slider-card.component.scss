@@ -30,8 +30,8 @@
         position: absolute;
         display: grid;
         place-items: center;
-        top: 0;
-        left: 0;
+        inset-block-top:0;
+        inset-inline-start: 0;
         height: 100%;
         width: 100%;
         opacity: 0;

@@ -32,8 +32,18 @@ body {
     color: var(--primary-text-color);
 }
 
-input::placeholder {
-    font-family: var(--primary-font);
+input,
+label,
+select,
+textarea,
+button,
+fieldset,
+legend,
+datalist,
+output,
+option,
+optgroup {
+    font-family: inherit;
 }
 
 .container {

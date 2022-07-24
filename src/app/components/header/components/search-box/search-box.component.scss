@@ -7,8 +7,8 @@
     i {
         color: var(--input-color);
         position: absolute;
-        top: 50%;
-        right: 1rem;
+        inset-block-start:50%;
+        inset-inline-start:1rem;
         transform: translate(0, -50%);
         font-size: 1.125rem;
     }
@@ -24,8 +24,8 @@
             color: hsla(36, 100%, 50%, 0.3);
         }
         &:focus {
-            outline: none;
             --input-color: hsla(36, 100%, 50%, 0.8);
+            outline: none;
             border: none;
             border-radius: 0;
             border-bottom: 2px solid var(--input-color);
