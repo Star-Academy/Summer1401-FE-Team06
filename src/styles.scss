@@ -45,7 +45,9 @@ option,
 optgroup {
     font-family: inherit;
 }
-
+h1,h2,h3,h4{
+    text-transform: capitalize;
+}
 .container {
     max-width: 75rem;
     width: 100%;

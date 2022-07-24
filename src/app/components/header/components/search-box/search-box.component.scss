@@ -18,7 +18,7 @@
         padding: 0.5rem 2.5rem 0.5rem 0.75rem;
         border-radius: 0.75rem;
         color: var(--input-color);
-        border: 2px solid var(--input-color);
+        border: 0.125rem solid var(--input-color);
         font-size: 1.25rem;
         &::placeholder {
             color: hsla(36, 100%, 50%, 0.3);
@@ -28,7 +28,7 @@
             outline: none;
             border: none;
             border-radius: 0;
-            border-bottom: 2px solid var(--input-color);
+            border-bottom: 0.125rem solid var(--input-color);
         }
     }
 }

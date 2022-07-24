@@ -7,10 +7,7 @@ import {Products} from './sample-data';
     templateUrl: './main-cards.component.html',
     styleUrls: ['./main-cards.component.scss'],
 })
-export class MainCardsComponent implements OnInit {
+export class MainCardsComponent {
     public cards: Product[] = Products;
     @Input() public backgroundColorClassName: string = '';
-    constructor() {}
-
-    ngOnInit(): void {}
 }
