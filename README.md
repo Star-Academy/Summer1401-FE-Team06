@@ -1,6 +1,6 @@
-<p align="center">
+
    ![See-to](src/assets/images/logo.png)
-</p>
+
 
 
 
