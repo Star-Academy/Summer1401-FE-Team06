@@ -1,0 +1,118 @@
+
+.wrapper {
+    display: grid;
+    place-items: center;
+    max-width: 32rem;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 10rem;
+    //height: 100vh;
+}
+.contact {
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        .button {
+            padding: 0.6rem 0;
+            font-size: 1rem;
+            background-color: transparent;
+            border-radius: 5px;
+            border: 2px solid var(--secondary-color);;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            opacity: 0.6;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    &__title {
+        text-align: center;
+        padding: 2rem 0;
+        font-size: 2.5rem;
+    }
+    &__group {
+        position: relative;
+        // overflow-x: hidden;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        &:hover {
+            opacity: 1;
+            label {
+                right: 3.5rem;
+                //color: var(--title-color);
+            }
+            input {
+                //border-color: var(--title-color);
+            }
+        }
+        label {
+            position: absolute;
+            top: -0.5rem;
+            right: 50%;
+            transform: translateX(50%);
+            font-size: var(--smaller-font-size);
+            color: var(--primary-text-color);
+            padding: 0 0.5rem;
+            background-color: var(--secondary-section);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        input {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            border: 3px solid var(--primary-text-color);
+            background-color: transparent;
+            color: var(--primary-text-color);
+            transition: all 0.3s ease;
+            &::placeholder {
+                color: var(--primary-text-color);
+            }
+
+            &:focus {
+                outline: none;
+            }
+            &:valid {
+                ~ label {
+                    right: 3.5rem;
+                }
+                ~ i {
+                    transform: translate(0);
+                    opacity: 1;
+                }
+            }
+        }
+        &-icon {
+            position: absolute;
+            left: 1rem;
+            top: -0.5rem;
+            padding: 0 0.5rem;
+            color: var(--primary-text-color);
+            background-color: var(--secondary-section);
+            transition: all 0.3s cubic-bezier(0.39, 0.32, 0.45, 1.49);
+            opacity: 0;
+            transform: translateX(-3rem);
+        }
+
+    }
+    &__buttons{
+        display: flex;
+        gap: 1rem;
+        > .button{
+            flex: 1;
+            &.active{
+                flex: 2 ;
+                font-size: 1.6rem;
+                background-color: var(--secondary-color);
+                color: var(--secondary-section);
+            }
+        }
+
+    }
+}
