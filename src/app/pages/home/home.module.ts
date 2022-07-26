@@ -6,7 +6,7 @@ import {MainCardsModule} from '../../components/main-cards/main-cards.module';
 import {FooterModule} from '../../components/footer/footer.module';
 import {BannerModule} from '../../components/banner/banner.module';
 import {MainModule} from '../../components/main/main.module';
-import {AuthModule} from "../auth/auth.module";
+import {AuthModule} from '../auth/auth.module';
 
 @NgModule({
     declarations: [HomeComponent],

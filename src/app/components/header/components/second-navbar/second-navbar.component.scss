@@ -42,13 +42,16 @@
         .auth {
             display: flex;
             gap: 0.5rem;
-        }
-
-        a {
+            border: 0.2rem solid var(--secondary-color);
+            background-color: var(--secondary-section);
+            color: var(--secondary-color);
+            padding: 0.4rem 0.6rem;
+            border-radius: var(--border-radius-card);
+            font-weight: 600;
+            opacity: 0.8;
             transition: opacity 0.3s ease;
-
             &:hover {
-                opacity: 0.8;
+                opacity: 1;
             }
         }
     }

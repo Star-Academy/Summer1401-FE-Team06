@@ -1,0 +1,16 @@
+.result-message{
+  color: var(--primary-text-color);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  padding: 0.8rem 0;
+  width: 100%;
+  text-align: center;
+  &.success{
+    border-color: hsl(117, 100%, 40%);
+    background-color: hsla(117, 100%, 40%,0.2);
+  }
+  &.error{
+    border-color: hsl(0, 100%, 27%);
+    background-color: hsla(0, 100%, 50%,0.2);
+  }
+}

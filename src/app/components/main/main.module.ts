@@ -6,7 +6,7 @@ import {SliderCardModule} from '../slider-card/slider-card.module';
 import {PrimaryTitleModule} from '../primary-title/primary-title.module';
 import {BannerModule} from '../banner/banner.module';
 import {MainCardsModule} from '../main-cards/main-cards.module';
-import {SlidebarModule} from "../slidebar/slidebar.module";
+import {SlidebarModule} from '../slidebar/slidebar.module';
 
 @NgModule({
     declarations: [MainComponent, SliderSectionComponent],

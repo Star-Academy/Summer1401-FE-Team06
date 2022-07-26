@@ -10,11 +10,17 @@
                 <app-icon iconClass="fa-light fa-heart"></app-icon>
                 <app-icon iconClass="fa-light fa-cart-shopping"></app-icon>
             </div>
-            <div class="auth">
-                <a href="#">ورود</a>
-                /
-                <a href="#">ثبت نام</a>
-            </div>
+            <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
+                <a routerLink="/profile" class="auth"> پروفایل </a>
+            </ng-container>
+
+            <ng-template #notLoggedInTemplate>
+                <a routerLink="/auth" class="auth">
+                    <span>ورود</span>
+                    /
+                    <span>ثبت نام</span>
+                </a>
+            </ng-template>
         </div>
     </div>
 </div>
