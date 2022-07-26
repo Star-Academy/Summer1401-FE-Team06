@@ -1,71 +1,104 @@
-
 .wrapper {
     display: grid;
     place-items: center;
-    max-width: 32rem;
+    align-content: center;
+    gap: 1rem;
+
+    block-size: 100vh;
+
     width: 80%;
+    max-width: 32rem;
+
     margin: 0 auto;
-    padding-top: 10rem;
-    gap: 2rem;
 }
+
 .contact {
     &__form {
-        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+
+        width: 100%;
+
         .button {
-            padding: 0.6rem 0;
-            font-size: 1rem;
             background-color: transparent;
-            border-radius: var(--border-radius-card);
-            border: 2px solid var(--secondary-color);;
             color: var(--secondary-color);
-            cursor: pointer;
-            transition: opacity 0.3s ease;
             opacity: 0.6;
-            &:hover{
+
+            padding: 0.6rem 0;
+
+            border: 0.125rem solid var(--secondary-color);
+            border-radius: var(--border-radius-card);
+
+            font-size: 1rem;
+
+            transition: opacity 0.3s ease;
+
+            cursor: pointer;
+
+            &:hover {
                 opacity: 1;
             }
         }
     }
+
     &__title {
-        text-align: center;
         padding: 2rem 0;
+
         font-size: 2.5rem;
+
+        text-align: center;
     }
+
     &__group {
-        position: relative;
         opacity: 0.5;
+
+        position: relative;
+
         transition: opacity 0.3s ease;
+
         &:hover {
             opacity: 1;
+
             label {
-                right: 5.5rem;
+                inset-inline-start: 5.5rem;
             }
         }
+
         label {
-            position: absolute;
-            top: -0.5rem;
-            right: 50%;
-            transform: translateX(50%);
-            font-size: var(--smaller-font-size);
-            color: var(--primary-text-color);
-            padding: 0 0.5rem;
             background-color: var(--secondary-section);
+            color: var(--primary-text-color);
+
+            position: absolute;
+            inset-block-start: -0.5rem;
+            inset-inline-start: 50%;
+
+            padding: 0 0.5rem;
+
+            transform: translateX(50%);
+
+            font-size: var(--smaller-font-size);
             font-weight: 700;
+
             transition: all 0.3s ease;
         }
+
         input {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            width: 100%;
-            height: 100%;
-            border-radius: var(--border-radius-card);
-            border: 3px solid var(--primary-text-color);
             background-color: transparent;
             color: var(--primary-text-color);
+
+            width: 100%;
+            height: 100%;
+
+            padding: 1rem 2rem;
+
+            border: 0.2rem solid var(--primary-text-color);
+            border-radius: var(--border-radius-card);
+
+            font-size: 1.2rem;
+
             transition: all 0.3s ease;
+
             &::placeholder {
                 color: var(--primary-text-color);
             }
@@ -73,44 +106,56 @@
             &:focus {
                 outline: none;
             }
+
             &:valid {
                 ~ label {
-                    right: 5.5rem;
+                    inset-inline-start: 5.5rem;
                 }
+
                 ~ i {
-                    transform: translate(0);
                     opacity: 1;
+
+                    transform: translate(0);
                 }
             }
         }
-        &-icon {
-            position: absolute;
-            left: 1rem;
-            top: -0.5rem;
-            padding: 0 0.5rem;
-            color: var(--primary-text-color);
-            background-color: var(--secondary-section);
-            transition: all 0.3s cubic-bezier(0.39, 0.32, 0.45, 1.49);
-            opacity: 0;
-            transform: translateX(-3rem);
-        }
 
+        &-icon {
+            background-color: var(--secondary-section);
+            color: var(--primary-text-color);
+            opacity: 0;
+
+            position: absolute;
+            inset-block-start: -0.5rem;
+            inset-inline-end: 1rem;
+
+            padding: 0 0.5rem;
+
+            transform: translateX(-3rem);
+
+            transition: all 0.3s cubic-bezier(0.39, 0.32, 0.45, 1.49);
+        }
     }
-    &__buttons{
+
+    &__buttons {
         display: flex;
         gap: 1rem;
-        > .button{
+
+        > .button {
             flex: 1;
-            &.active{
-                flex: 2 ;
-                font-size: 1.6rem;
+
+            &.active {
+                flex: 2;
+
                 background-color: var(--secondary-color);
                 color: var(--secondary-section);
+
+                font-size: 1.6rem;
             }
         }
-
     }
 }
-app-result-message{
+
+app-result-message {
     width: 100%;
 }

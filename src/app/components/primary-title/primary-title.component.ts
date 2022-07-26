@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ResultMessageService} from '../../services/result-message.service';
 
 @Component({
     selector: 'app-primary-title',

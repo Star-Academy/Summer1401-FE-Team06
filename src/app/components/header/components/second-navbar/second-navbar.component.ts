@@ -13,7 +13,6 @@ export class SecondNavbarComponent {
     }
 
     private async initializeVariables(): Promise<void> {
-        console.log('salam');
         this.isLoggedIn = await this.authService.isLoggedIn();
     }
 }

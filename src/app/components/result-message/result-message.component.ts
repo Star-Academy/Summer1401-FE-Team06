@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ResultMessageService} from '../../services/result-message.service';
 
 @Component({
     selector: 'app-result-message',
@@ -6,6 +7,13 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./result-message.component.scss'],
 })
 export class ResultMessageComponent {
-    @Input() public backgroundColorResultMessage: string = '';
-    @Input() public resultMessage: string = 'اشتباه زدید';
+    public backgroundColorResultMessage: string | null = '';
+    public message: string | null = '';
+    public constructor(private resultMessageService: ResultMessageService) {
+        this.resultMessageService.initComponent(this);
+    }
+    public show(message: string, colorType?: string): void {
+        this.message = message;
+        this.backgroundColorResultMessage = colorType || null;
+    }
 }

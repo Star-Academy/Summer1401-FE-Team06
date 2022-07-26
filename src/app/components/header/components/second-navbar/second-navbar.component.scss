@@ -40,16 +40,22 @@
         }
 
         .auth {
-            display: flex;
-            gap: 0.5rem;
-            border: 0.2rem solid var(--secondary-color);
             background-color: var(--secondary-section);
             color: var(--secondary-color);
-            padding: 0.4rem 0.6rem;
-            border-radius: var(--border-radius-card);
-            font-weight: 600;
             opacity: 0.8;
+
+            display: flex;
+            gap: 0.5rem;
+
+            padding: 0.4rem 0.6rem;
+
+            border: 0.2rem solid var(--secondary-color);
+            border-radius: var(--border-radius-card);
+
+            font-weight: 600;
+
             transition: opacity 0.3s ease;
+
             &:hover {
                 opacity: 1;
             }

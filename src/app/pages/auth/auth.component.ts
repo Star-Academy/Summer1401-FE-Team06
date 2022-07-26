@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user.model';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {ResultMessageService} from '../../services/result-message.service';
 
 @Component({
     selector: 'app-auth',
@@ -10,7 +11,6 @@ import {AuthService} from '../../services/auth.service';
 })
 export class AuthComponent {
     public isLogin: boolean = true;
-    public errorMessage: string | null = null;
     public user: User = {
         firstName: '',
         lastName: '',
@@ -21,7 +21,11 @@ export class AuthComponent {
     public changeIsLogin(): void {
         this.isLogin = !this.isLogin;
     }
-    public constructor(private router: Router, private authService: AuthService) {}
+    public constructor(
+        private router: Router,
+        private authService: AuthService,
+        private resultMessageService: ResultMessageService
+    ) {}
 
     public async formSubmitHandler(): Promise<void> {
         if (this.isLogin) {
@@ -33,6 +37,7 @@ export class AuthComponent {
     public async loginUser(): Promise<void> {
         const isLoggedIn = await this.authService.login(this.user);
         if (isLoggedIn) await this.router.navigateByUrl('/');
+        this.resultMessageService.show('رمز وارد شده اشتباه است', 'error');
     }
     public async signUpUser(): Promise<void> {
         const signedUp = await this.authService.singUp(this.user);

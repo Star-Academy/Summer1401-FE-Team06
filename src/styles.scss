@@ -7,7 +7,7 @@
 
 :root {
     --primary-text-color: hsl(0deg 0% 88%);
-    --primary-text-color-5: hsl(0, 38%, 80%);
+    --primary-text-color-5: hsl(0deg 38% 80%);
 
     --secondary-text-color: hsl(0deg 0% 62%);
     --primary-font: "Shabnam", sans-serif;
@@ -24,48 +24,6 @@
 
     --defualt-icon-bg: hsl(0deg 0% 20%);
     --defualt-icon-color: hsl(0deg 0% 93%);
-
-
-//    ------------
-    --header-height: 3rem;
-    /*========== Colors ==========*/
-    --hue: 202; //  Yellow: 45   | Red: 4 | Orange: 18  | Green: 118
-    --title-color: hsl(var(--hue), 61%, 77%); // #hsl(202,61%,77%)
-    --text-color: hsl(var(--hue), 75%, 65%);  // #hsl(202,75%,65%)
-    --body-color: hsl(var(--hue), 100%, 5%);  // #hsl(202,100%,5%)
-    --nav-color: hsl(var(--hue), 100%, 4%);   // #hsl(202,100%,4%)
-    //--card-color: hsl(var(--hue), 100%, 10%); // #hsl(202,100%,10%)
-    --scroll-bar-color: hsl(var(--hue), 100%, 25%); // #hsl(202,100%,25%)
-    --scroll-thumb-color: hsl(var(--hue), 100%, 15%); // #hsl(202,100%,15%)
-    --form-color: hsl(var(--hue), 35%, 15%);   // #hsl(202,5%,15%)
-
-    /*========== Font and typography ==========*/
-    --body-font: 'Poppins', sans-serif;
-    --title-font: 'Ruda', sans-serif;
-    --biggest-font-size: 3rem;
-    --h2-font-size: 1.75rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
-
-
-    /*========== Font weight ==========*/
-    --font-semi-bold: 600;
-    --font-bold: 700;
-
-    /*========== Margenes ==========*/
-    --mb-0-5: .5rem;
-    --mb-0-75: .75rem;
-    --mb-1: 1rem;
-    --mb-1-5: 1.5rem;
-    --mb-2: 2rem;
-
-    /*========== z index ==========*/
-    --z-tooltip: 10;
-    --z-fixed: 100;
-
-
 }
 
 html {
