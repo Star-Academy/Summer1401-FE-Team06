@@ -22,13 +22,11 @@ export class AuthService {
 
     public async isLoggedIn(): Promise<boolean> {
         const token = localStorage.getItem('token') || '';
-
         const data = await this.apiService.post<IdObject>(API_USER_AUTH, {token});
         return !!data;
     }
     public async singUp(user: User): Promise<boolean> {
         const data = await this.apiService.post<TokenObject>(API_USER_REGISTER, user);
-        console.log(data);
         if (data?.token && data?.id) {
             localStorage.setItem('token', data.token);
             localStorage.setItem('id', data.id.toString());
