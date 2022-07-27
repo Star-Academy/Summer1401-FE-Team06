@@ -30,11 +30,8 @@ export class AuthComponent {
     ) {}
 
     public async formSubmitHandler(): Promise<void> {
-        if (this.isLogin) {
-            await this.loginUser();
-        } else {
-            await this.signUpUser();
-        }
+        if (this.isLogin) await this.loginUser();
+        else await this.signUpUser();
     }
     public async loginUser(): Promise<void> {
         const isLoggedIn = await this.authService.login(this.user);

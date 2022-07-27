@@ -9,6 +9,7 @@ import {ResultMessageService} from '../../services/result-message.service';
 export class ResultMessageComponent {
     public backgroundColorResultMessage: string | null = '';
     public message: string | null = '';
+
     public constructor(private resultMessageService: ResultMessageService) {
         this.resultMessageService.initComponent(this);
     }

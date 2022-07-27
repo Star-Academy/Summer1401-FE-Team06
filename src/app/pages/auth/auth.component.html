@@ -60,8 +60,8 @@
                 id="password"
                 placeholder="شامل حروف لاتین و عدد و نماد"
                 name="password"
-                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                required
+                [attr.pattern]="isLogin ? null : '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'"
+                [attr.required]="!isLogin"
                 [(ngModel)]="user.password"
             />
             <i class="far fa-check-circle contact__group-icon"></i>
