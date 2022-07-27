@@ -1,17 +1,24 @@
 .result-message {
     color: var(--primary-text-color);
+
     width: 100%;
+
     padding: 0.8rem 0;
+
     border: 0.125rem solid transparent;
     border-radius: var(--border-radius-card);
+
     text-align: center;
+
     &.success {
         background-color: var(--success-bg-color);
+
         border-color: var(--success-border-color);
     }
 
     &.error {
         background-color: var(--error-bg-color);
+
         border-color: var(--error-border-color);
     }
 }
