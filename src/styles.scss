@@ -24,6 +24,7 @@
 
     --defualt-icon-bg: hsl(0deg 0% 20%);
     --defualt-icon-color: hsl(0deg 0% 93%);
+    --transition-time: var(--transition-time);
 }
 
 html {
@@ -47,6 +48,10 @@ output,
 option,
 optgroup {
     font-family: inherit;
+}
+
+input:focus{
+    outline: none;
 }
 
 h1,

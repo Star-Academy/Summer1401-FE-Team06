@@ -17,7 +17,7 @@
 
             li {
                 a {
-                    transition: opacity 0.3s ease;
+                    transition: opacity var(--transition-time) ease;
                 }
 
                 &:hover {
@@ -54,7 +54,7 @@
 
             font-weight: 600;
 
-            transition: opacity 0.3s ease;
+            transition: opacity var(--transition-time) ease;
 
             &:hover {
                 opacity: 1;

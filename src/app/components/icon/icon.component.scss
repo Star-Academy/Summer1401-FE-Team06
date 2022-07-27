@@ -10,7 +10,7 @@
 
     border-radius: 0.25rem;
 
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-time) ease;
 
     cursor: pointer;
 
