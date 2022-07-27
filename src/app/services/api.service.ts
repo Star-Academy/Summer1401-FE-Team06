@@ -16,7 +16,7 @@ export class ApiService {
 
         const response = await fetch(url, options);
         const data = await response.json();
-        if (response.status >= 200 && response.status < 300) return data as T;
+        if (response.ok) return data as T;
 
         return null;
     }

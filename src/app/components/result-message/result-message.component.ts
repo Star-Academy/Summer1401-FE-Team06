@@ -12,8 +12,8 @@ export class ResultMessageComponent {
     public constructor(private resultMessageService: ResultMessageService) {
         this.resultMessageService.initComponent(this);
     }
-    public show(message: string, colorType?: string): void {
-        this.message = message;
+    public show(message?: string, colorType?: string): void {
+        this.message = message || null;
         this.backgroundColorResultMessage = colorType || null;
     }
 }

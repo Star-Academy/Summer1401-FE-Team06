@@ -13,7 +13,6 @@
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
                 <a routerLink="/profile" class="auth"> پروفایل </a>
             </ng-container>
-
             <ng-template #notLoggedInTemplate>
                 <a routerLink="/auth" class="auth">
                     <span>ورود</span>

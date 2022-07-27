@@ -21,7 +21,6 @@
                 id="lastName"
                 name="lastName"
                 placeholder="نام خانوادگی خود را وارد کنید"
-                required
                 [(ngModel)]="user.lastName"
             />
             <label for="lastName">نام خانوادگی</label>
@@ -67,6 +66,20 @@
             />
             <i class="far fa-check-circle contact__group-icon"></i>
             <label for="password">رمز عبور</label>
+        </div>
+        <div class="contact__group" *ngIf="!isLogin">
+            <input
+                class="contact__input"
+                type="password"
+                id="twoStepPassword"
+                placeholder="تکرار رمز عبور"
+                name="twoStepPassword"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                required
+                [(ngModel)]="twoStepPassword"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="twoStepPassword">تکرار رمز عبور</label>
         </div>
         <div class="contact__buttons">
             <button type="submit" class="button active">

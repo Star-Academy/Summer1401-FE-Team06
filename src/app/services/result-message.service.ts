@@ -13,4 +13,7 @@ export class ResultMessageService {
     public show(message: string, colorType?: string): void {
         this.resultMessageComponent.show(message, colorType);
     }
+    public reset(): void {
+        this.resultMessageComponent.show();
+    }
 }

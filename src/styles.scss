@@ -24,6 +24,11 @@
 
     --defualt-icon-bg: hsl(0deg 0% 20%);
     --defualt-icon-color: hsl(0deg 0% 93%);
+
+    --success-bg-color: hsl(117deg 100% 40% / 20%);
+    --success-border-color: hsl(117deg 100% 40%);
+    --error-bg-color: hsl(0deg 100% 50% / 20%);
+    --error-border-color: hsl(0deg 100% 27%);
 }
 
 html {
@@ -49,7 +54,7 @@ optgroup {
     font-family: inherit;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
