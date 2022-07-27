@@ -17,7 +17,7 @@
 
             li {
                 a {
-                    transition: opacity 0.3s ease;
+                    transition: opacity 300ms ease;
                 }
 
                 &:hover {
@@ -40,15 +40,24 @@
         }
 
         .auth {
+            background-color: var(--secondary-section);
+            color: var(--secondary-color);
+            opacity: 0.8;
+
             display: flex;
             gap: 0.5rem;
-        }
 
-        a {
-            transition: opacity 0.3s ease;
+            padding: 0.4rem 0.6rem;
+
+            border: 0.2rem solid var(--secondary-color);
+            border-radius: var(--border-radius-card);
+
+            font-weight: 600;
+
+            transition: opacity 300ms ease;
 
             &:hover {
-                opacity: 0.8;
+                opacity: 1;
             }
         }
     }

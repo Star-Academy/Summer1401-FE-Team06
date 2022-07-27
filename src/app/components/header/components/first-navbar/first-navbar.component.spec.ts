@@ -11,24 +11,4 @@ import {FormsModule} from '@angular/forms';
 import {IconModule} from '../../../icon/icon.module';
 import {SlidebarModule} from '../../../slidebar/slidebar.module';
 
-describe('FirstNavbarComponent', () => {
-    let component: FirstNavbarComponent;
-    let fixture: ComponentFixture<FirstNavbarComponent>;
-
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [HeaderComponent, SearchBoxComponent, FirstNavbarComponent, SecondNavbarComponent],
-            imports: [CommonModule, RouterTestingModule, RouterModule, FormsModule, IconModule, SlidebarModule],
-        }).compileComponents();
-    });
-
-    beforeEach(() => {
-        fixture = TestBed.createComponent(FirstNavbarComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
-});
+describe('FirstNavbarComponent', () => {});

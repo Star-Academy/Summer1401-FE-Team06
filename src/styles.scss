@@ -7,22 +7,28 @@
 
 :root {
     --primary-text-color: hsl(0deg 0% 88%);
+    --primary-text-color-5: hsl(0deg 38% 80%);
+
     --secondary-text-color: hsl(0deg 0% 62%);
     --primary-font: "Shabnam", sans-serif;
     --nav-bg: hsl(0deg 0% 13%);
-
     --primary-section: hsl(0deg 0% 5%);
     --secondary-color: hsl(36deg 100% 50%);
 
     --secondary-section: hsl(0deg 0% 11%);
 
-    --border-radius-card: 0.5rem;
+    --border-radius-card: 0.25rem;
     --card-color: hsl(0deg 0% 17%);
 
     --img-height: 16rem;
 
     --defualt-icon-bg: hsl(0deg 0% 20%);
     --defualt-icon-color: hsl(0deg 0% 93%);
+
+    --success-bg-color: hsl(117deg 100% 40% / 20%);
+    --success-border-color: hsl(117deg 100% 40%);
+    --error-bg-color: hsl(0deg 100% 50% / 20%);
+    --error-border-color: hsl(0deg 100% 27%);
 }
 
 html {
@@ -46,6 +52,10 @@ output,
 option,
 optgroup {
     font-family: inherit;
+}
+
+input:focus {
+    outline: none;
 }
 
 h1,
