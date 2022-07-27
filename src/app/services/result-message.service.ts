@@ -10,9 +10,11 @@ export class ResultMessageService {
     public initComponent(resultMessageComponent: ResultMessageComponent): void {
         this.resultMessageComponent = resultMessageComponent;
     }
+
     public show(message: string, colorType?: string): void {
         this.resultMessageComponent.show(message, colorType);
     }
+
     public reset(): void {
         this.resultMessageComponent.show();
     }

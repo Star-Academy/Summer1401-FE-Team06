@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
 
 @Component({
@@ -8,6 +8,7 @@ import {AuthService} from '../../../../services/auth.service';
 })
 export class SecondNavbarComponent {
     public isLoggedIn: boolean = false;
+
     public constructor(private authService: AuthService) {
         this.initializeVariables().then();
     }

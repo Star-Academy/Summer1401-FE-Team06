@@ -5,11 +5,13 @@
             <li><a routerLink="#">بازی ها</a></li>
             <li><a routerLink="#">پشتیبانی</a></li>
         </ul>
+
         <div class="navbar-links">
             <div class="icons">
                 <app-icon iconClass="fa-light fa-heart"></app-icon>
                 <app-icon iconClass="fa-light fa-cart-shopping"></app-icon>
             </div>
+
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
                 <a routerLink="/profile" class="auth"> پروفایل </a>
             </ng-container>

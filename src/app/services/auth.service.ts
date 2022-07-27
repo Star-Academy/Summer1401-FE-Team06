@@ -12,25 +12,27 @@ export class AuthService {
     public constructor(private apiService: ApiService) {}
 
     public async login(user: User): Promise<boolean> {
-        const data = await this.apiService.post<TokenObject>(API_USER_LOGIN, user);
-
+        const data = (await this.apiService.post<TokenObject>(API_USER_LOGIN, user)) as TokenObject;
         if (data?.token) {
-            localStorage.setItem('token', data?.token);
+            localStorage.setItem('token', data.token);
         }
+
         return !!data;
     }
 
     public async isLoggedIn(): Promise<boolean> {
         const token = localStorage.getItem('token') || '';
-        const data = await this.apiService.post<IdObject>(API_USER_AUTH, {token});
+        const data = (await this.apiService.post<IdObject>(API_USER_AUTH, {token})) as IdObject;
         return !!data;
     }
+
     public async singUp(user: User): Promise<boolean> {
         const data = await this.apiService.post<TokenObject>(API_USER_REGISTER, user);
         if (data?.token && data?.id) {
             localStorage.setItem('token', data.token);
             localStorage.setItem('id', data.id.toString());
         }
+
         return !!data;
     }
 }

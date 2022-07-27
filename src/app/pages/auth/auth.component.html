@@ -1,6 +1,7 @@
 <div class="wrapper">
     <form class="contact__form" ngNativeValidate (ngSubmit)="formSubmitHandler()">
         <h1 class="contact__title">{{ isLogin ? 'ورود به سایت' : 'عضویت در سایت' }}</h1>
+
         <div class="contact__group" *ngIf="!isLogin">
             <input
                 class="contact__input"
@@ -14,6 +15,7 @@
             <label for="firstName">نام</label>
             <i class="far fa-check-circle contact__group-icon"></i>
         </div>
+
         <div class="contact__group" *ngIf="!isLogin">
             <input
                 class="contact__input"
@@ -26,6 +28,7 @@
             <label for="lastName">نام خانوادگی</label>
             <i class="far fa-check-circle contact__group-icon"></i>
         </div>
+
         <div class="contact__group" *ngIf="!isLogin">
             <input
                 class="contact__input"
@@ -40,6 +43,7 @@
             <label for="username">نام کاربری (حرف لاتین)</label>
             <i class="far fa-check-circle contact__group-icon"></i>
         </div>
+
         <div class="contact__group">
             <input
                 class="contact__input"
@@ -53,6 +57,7 @@
             <i class="far fa-check-circle contact__group-icon"></i>
             <label for="email">ایمیل</label>
         </div>
+
         <div class="contact__group">
             <input
                 class="contact__input"
@@ -67,6 +72,7 @@
             <i class="far fa-check-circle contact__group-icon"></i>
             <label for="password">رمز عبور</label>
         </div>
+
         <div class="contact__group" *ngIf="!isLogin">
             <input
                 class="contact__input"
@@ -81,6 +87,7 @@
             <i class="far fa-check-circle contact__group-icon"></i>
             <label for="twoStepPassword">تکرار رمز عبور</label>
         </div>
+
         <div class="contact__buttons">
             <button type="submit" class="button active">
                 {{ isLogin ? 'ورود' : 'عضویت' }}
@@ -90,5 +97,6 @@
             </button>
         </div>
     </form>
+
     <app-result-message></app-result-message>
 </div>
