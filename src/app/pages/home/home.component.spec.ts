@@ -9,32 +9,4 @@ import {BannerModule} from '../../components/banner/banner.module';
 import {MainModule} from '../../components/main/main.module';
 import {RouterTestingModule} from '@angular/router/testing';
 
-describe('HomeComponent', () => {
-    let component: HomeComponent;
-    let fixture: ComponentFixture<HomeComponent>;
-
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [HomeComponent],
-            imports: [
-                CommonModule,
-                RouterTestingModule,
-                HeaderModule,
-                MainCardsModule,
-                FooterModule,
-                BannerModule,
-                MainModule,
-            ],
-        }).compileComponents();
-    });
-
-    beforeEach(() => {
-        fixture = TestBed.createComponent(HomeComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
-});
+describe('HomeComponent', () => {});

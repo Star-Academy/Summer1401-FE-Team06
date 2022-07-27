@@ -11,24 +11,4 @@ import {IconModule} from '../icon/icon.module';
 import {SlidebarModule} from '../slidebar/slidebar.module';
 import {RouterTestingModule} from '@angular/router/testing';
 
-describe('HeaderComponent', () => {
-    let component: HeaderComponent;
-    let fixture: ComponentFixture<HeaderComponent>;
-
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [HeaderComponent, SearchBoxComponent, FirstNavbarComponent, SecondNavbarComponent],
-            imports: [CommonModule, RouterTestingModule, RouterModule, FormsModule, IconModule, SlidebarModule],
-        }).compileComponents();
-    });
-
-    beforeEach(() => {
-        fixture = TestBed.createComponent(HeaderComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
-});
+describe('HeaderComponent', () => {});

@@ -9,24 +9,4 @@ import {SliderCardModule} from '../../../slider-card/slider-card.module';
 import {BannerModule} from '../../../banner/banner.module';
 import {MainCardsModule} from '../../../main-cards/main-cards.module';
 
-describe('SliderSectionComponent', () => {
-    let component: SliderSectionComponent;
-    let fixture: ComponentFixture<SliderSectionComponent>;
-
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [SliderSectionComponent],
-            imports: [CommonModule, SliderCardModule, PrimaryTitleModule, BannerModule, MainCardsModule],
-        }).compileComponents();
-    });
-
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SliderSectionComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
-});
+describe('SliderSectionComponent', () => {});
