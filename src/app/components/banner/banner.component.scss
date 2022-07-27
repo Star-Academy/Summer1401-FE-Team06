@@ -28,7 +28,7 @@ img {
 
     border-radius: 1.25rem;
 
-    transition: transform var(--transition-time);
+    transition: transform 300ms;
 }
 
 img:hover {
@@ -46,7 +46,7 @@ a {
 
     border-radius: 0.5rem;
 
-    transition: opacity var(--transition-time);
+    transition: opacity 300ms;
 
     cursor: pointer;
 }
