@@ -19,16 +19,17 @@ export class AuthComponent {
         email: '',
         password: '',
     };
-    public changeIsLogin(): void {
-        this.resetUserField();
-        this.isLogin = !this.isLogin;
-    }
+
     public constructor(
         private router: Router,
         private authService: AuthService,
         private resultMessageService: ResultMessageService
     ) {}
 
+    public changeIsLogin(): void {
+        this.resetUserField();
+        this.isLogin = !this.isLogin;
+    }
     public async formSubmitHandler(): Promise<void> {
         if (this.isLogin) await this.loginUser();
         else await this.signUpUser();
