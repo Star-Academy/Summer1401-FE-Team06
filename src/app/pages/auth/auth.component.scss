@@ -3,12 +3,9 @@
     place-items: center;
     align-content: center;
     gap: 1rem;
-
     block-size: 100vh;
-
     width: 80%;
     max-width: 32rem;
-
     margin: 0 auto;
 }
 
@@ -17,25 +14,17 @@
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-
         width: 100%;
-
         .button {
             background-color: transparent;
             color: var(--secondary-color);
             opacity: 0.6;
-
             padding: 0.6rem 0;
-
             border: 0.125rem solid var(--secondary-color);
             border-radius: var(--border-radius-card);
-
             font-size: 1rem;
-
             transition: opacity 0.3s ease;
-
             cursor: pointer;
-
             &:hover {
                 opacity: 1;
             }
@@ -44,22 +33,16 @@
 
     &__title {
         padding: 2rem 0;
-
         font-size: 2.5rem;
-
         text-align: center;
     }
 
     &__group {
         opacity: 0.5;
-
         position: relative;
-
         transition: opacity 0.3s ease;
-
         &:hover {
             opacity: 1;
-
             label {
                 inset-inline-start: 5.5rem;
             }
@@ -68,53 +51,37 @@
         label {
             background-color: var(--secondary-section);
             color: var(--primary-text-color);
-
             position: absolute;
             inset-block-start: -0.5rem;
             inset-inline-start: 50%;
-
             padding: 0 0.5rem;
-
             transform: translateX(50%);
-
             font-size: var(--smaller-font-size);
             font-weight: 700;
-
-            transition: all 0.3s ease;
+            transition: inset-inline-start 0.3s ease;
         }
 
         input {
             background-color: transparent;
             color: var(--primary-text-color);
-
             width: 100%;
             height: 100%;
-
             padding: 1rem 2rem;
-
             border: 0.2rem solid var(--primary-text-color);
             border-radius: var(--border-radius-card);
-
             font-size: 1.2rem;
-
-            transition: all 0.3s ease;
-
             &::placeholder {
                 color: var(--primary-text-color);
             }
-
             &:focus {
                 outline: none;
             }
-
             &:valid {
                 ~ label {
                     inset-inline-start: 5.5rem;
                 }
-
                 ~ i {
                     opacity: 1;
-
                     transform: translate(0);
                 }
             }
@@ -124,32 +91,24 @@
             background-color: var(--secondary-section);
             color: var(--primary-text-color);
             opacity: 0;
-
             position: absolute;
             inset-block-start: -0.5rem;
             inset-inline-end: 1rem;
-
             padding: 0 0.5rem;
-
             transform: translateX(-3rem);
-
-            transition: all 0.3s cubic-bezier(0.39, 0.32, 0.45, 1.49);
+            transition: transform 0.3s cubic-bezier(0.39, 0.32, 0.45, 1.49);
         }
     }
 
     &__buttons {
         display: flex;
         gap: 1rem;
-
         > .button {
             flex: 1;
-
             &.active {
                 flex: 2;
-
                 background-color: var(--secondary-color);
                 color: var(--secondary-section);
-
                 font-size: 1.6rem;
             }
         }
