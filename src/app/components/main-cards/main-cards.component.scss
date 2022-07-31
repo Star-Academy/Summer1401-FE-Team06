@@ -1,12 +1,13 @@
 .contain {
-    color: hsl(0deg 0% 100%);
+  color: hsl(0deg 0% 100%);
 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(22rem, max-content));
-    justify-content: center;
-    gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, max-content));
+  justify-content: center;
+  gap: 3rem;
+  font-family: Shabnam, sans-serif;
 
-    padding: 0 8rem;
-
-    font-family: Shabnam, sans-serif;
+  app-more-button {
+    grid-column: 1;
+  }
 }
