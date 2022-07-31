@@ -105,4 +105,7 @@ a {
     background-color: var(--primary-section);
 
     padding: 4rem 0;
+    &.secondary-section{
+        background-color: var(--secondary-section);
+    }
 }

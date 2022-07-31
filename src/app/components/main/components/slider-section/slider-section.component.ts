@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Products} from '../../../main-cards/sample-data';
+import {Product} from '../../../main-cards/models/product';
 
 @Component({
     selector: 'app-slider-section',
@@ -6,6 +8,5 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./slider-section.component.scss'],
 })
 export class SliderSectionComponent {
-    @Input() public primaryTitle: string = ' ';
-    @Input() public backgroundColorClassName: string = '';
+    public cards: Product[] = Products;
 }

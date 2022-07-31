@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {IconType} from '../../enum/icon-type.enum';
 
 @Component({
     selector: 'app-icon',
@@ -6,6 +7,6 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./icon.component.scss'],
 })
 export class IconComponent {
-    @Input() public iconClass: string = '';
+    @Input() public iconClass: IconType = IconType.SHOP;
     @Input() public backgroundColorClassName: string = '';
 }

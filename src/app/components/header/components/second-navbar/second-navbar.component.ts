@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
+import {IconType} from '../../../../enum/icon-type.enum';
 
 @Component({
     selector: 'app-second-navbar',
@@ -8,7 +9,7 @@ import {AuthService} from '../../../../services/auth.service';
 })
 export class SecondNavbarComponent {
     public isLoggedIn: boolean = false;
-
+    public iconType = IconType;
     public constructor(private authService: AuthService) {
         this.initializeVariables().then();
     }

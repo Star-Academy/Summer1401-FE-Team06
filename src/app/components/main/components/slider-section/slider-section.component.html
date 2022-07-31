@@ -1,11 +1,5 @@
-<div [class]="backgroundColorClassName" class="section">
-    <div class="container">
-        <app-primary-title [title]="primaryTitle"></app-primary-title>
-        <div class="slider">
-            <app-slider-card></app-slider-card>
-            <app-slider-card></app-slider-card>
-            <app-slider-card></app-slider-card>
-            <app-slider-card></app-slider-card>
-        </div>
+<div class="container">
+    <div class="slider">
+        <app-slider-card *ngFor="let card of cards | slice: 0:4" [product]="card"></app-slider-card>
     </div>
 </div>
