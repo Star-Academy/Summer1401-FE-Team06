@@ -1,4 +1,4 @@
-<div class="more">
+<div class="more" [class.reverse]="isReverse">
     <span>بیشتر </span>
-    <i class="fa-solid fa-angles-left"></i>
+    <i class="fa-solid fa-angles-{{ isReverse ? 'right' : 'left' }}"></i>
 </div>

@@ -21,4 +21,12 @@
     &:hover {
         transform: translateX(-1rem);
     }
+
+    &.reverse {
+        flex-flow: row-reverse;
+
+        &:hover {
+            transform: translateX(1rem);
+        }
+    }
 }

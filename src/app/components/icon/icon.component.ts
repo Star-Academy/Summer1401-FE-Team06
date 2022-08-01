@@ -10,6 +10,5 @@ import {IconColor} from '../../enum/icon-color.enum';
 export class IconComponent {
     @Input() public iconClass: IconType = IconType.SHOP;
     @Input() public iconColor: IconColor = IconColor.WHITE;
-    @Input() public colorStyle: string = '';
     @Input() public haveBackgroundColor: boolean = true;
 }

@@ -1,6 +1,16 @@
-<div class="wrapper">
-    <div class="slider">
-        <app-slider-card *ngFor="let card of cards | slice: 0:4" [product]="card"></app-slider-card>
+<div class="wrapper" [class.reverse]="isReverse">
+    <div class="slider" #slider>
+        <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
     </div>
-    <app-more-button></app-more-button>
+    <div class="buttons">
+        <app-more-button [isReverse]="isReverse"></app-more-button>
+        <div class="buttons-controls">
+            <button class="right" (click)="scrollToLeft()">
+                <i class="fa-solid fa-caret-right"></i>
+            </button>
+            <button class="left" (click)="scrollToRight()">
+                <i class="fa-solid fa-caret-left"></i>
+            </button>
+        </div>
+    </div>
 </div>
