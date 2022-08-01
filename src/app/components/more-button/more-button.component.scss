@@ -1,1 +1,24 @@
+.more {
+    color: var(--secondary-color);
 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    width: fit-content;
+
+    padding: 0.6rem 0.8rem;
+
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.1rem;
+
+    font-size: 0.9rem;
+
+    transition: transform 300ms ease;
+
+    cursor: pointer;
+
+    &:hover {
+        transform: translateX(-1rem);
+    }
+}

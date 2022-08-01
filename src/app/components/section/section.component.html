@@ -1,4 +1,4 @@
-<div class="section" [class.secondary-section]="backgroundColorClassName">
-    <app-primary-title *ngIf="!!primaryTitle" [title]="primaryTitle"></app-primary-title>
+<div class="section" [class]="placeComponent" [class.secondary-section]="backgroundColorClassName">
+    <app-primary-title *ngIf="!!primaryTitle" [title]="primaryTitle" [direction]="titleDirection"></app-primary-title>
     <ng-content></ng-content>
 </div>

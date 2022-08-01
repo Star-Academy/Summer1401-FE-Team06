@@ -6,19 +6,44 @@
 }
 
 :root {
+    --clr-gray-90: hsl(0deg 0% 90%);
+    --clr-gray-85: hsl(0deg 0% 85%);
+    --clr-gray-80: hsl(0deg 0% 80%);
+    --clr-gray-75: hsl(0deg 0% 75%);
+    --clr-gray-70: hsl(0deg 0% 70%);
+    --clr-gray-65: hsl(0deg 0% 65%);
+    --clr-gray-60: hsl(0deg 0% 60%);
+    --clr-gray-55: hsl(0deg 0% 55%);
+    --clr-gray-50: hsl(0deg 0% 50%);
+    --clr-gray-45: hsl(0deg 0% 45%);
+    --clr-gray-40: hsl(0deg 0% 40%);
+
+    --clr-gray-30: hsl(0deg 0% 30%);
+    --clr-gray-25: hsl(0deg 0% 25%);
+    --clr-gray-20: hsl(0deg 0% 20%);
+    --clr-gray-15: hsl(0deg 0% 15%);
+    --clr-gray-10: hsl(0deg 0% 10%);
+    --clr-gray-8: hsl(0deg 0% 8%);
+    --clr-gray-5: hsl(0deg 0% 5%);
+    --clr-gray-4: hsl(0deg 0% 4%);
+    --clr-gray-3: hsl(0deg 0% 3%);
+    --clr-gray-2: hsl(0deg 0% 2%);
+    --clr-gray-1: hsl(0deg 0% 1%);
+
+    --nav-bg: var(--clr-gray-15);
+
     --primary-text-color: hsl(0deg 0% 88%);
     --primary-text-color-5: hsl(0deg 38% 80%);
 
     --secondary-text-color: hsl(0deg 0% 62%);
     --primary-font: "Shabnam", sans-serif;
-    --nav-bg: hsl(0deg 0% 13%);
     --primary-section: hsl(0deg 0% 5%);
     --secondary-color: hsl(36deg 100% 50%);
 
     --secondary-section: hsl(0deg 0% 11%);
 
     --border-radius-card: 0.25rem;
-    --card-color: hsl(0deg 0% 17%);
+    --card-color: var(--clr-gray-5);
 
     --img-height: 16rem;
 
@@ -29,6 +54,10 @@
     --success-border-color: hsl(117deg 100% 40%);
     --error-bg-color: hsl(0deg 100% 50% / 20%);
     --error-border-color: hsl(0deg 100% 27%);
+
+    --clr-icon-green: hsl(123deg 21% 42%);
+    --clr-icon-orange: hsl(36deg 100% 50%);
+    --clr-icon-white: hsl(0deg 0% 88%);
 }
 
 html {
@@ -36,7 +65,7 @@ html {
 }
 
 body {
-    background-color: var(--secondary-section);
+    background-color: var(--clr-gray-15);
     color: var(--primary-text-color);
 }
 
@@ -82,10 +111,6 @@ h4 {
     color: var(--secondary-color);
 }
 
-.secondary-section {
-    background-color: var(--secondary-section) !important;
-}
-
 img {
     width: 100%;
     object-fit: cover;
@@ -102,10 +127,9 @@ a {
 }
 
 .section {
-    background-color: var(--primary-section);
-
     padding: 4rem 0;
-    &.secondary-section{
-        background-color: var(--secondary-section);
+
+    &.secondary-section {
+        background-color: var(--clr-gray-5);
     }
 }

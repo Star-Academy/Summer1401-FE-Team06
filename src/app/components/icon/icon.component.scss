@@ -1,11 +1,8 @@
 .icon-container {
-    background-color: var(--defualt-icon-bg);
-    color: var(--defualt-icon-color);
-
     display: grid;
     place-items: center;
 
-    width: 3rem;
+    width: 2.5rem;
     height: 2rem;
 
     border-radius: 0.25rem;
@@ -27,13 +24,31 @@
 
         text-align: center;
     }
-}
 
-.icon-container.icon-color-secondary {
-    background-color: var(--secondary-color);
+    &.green {
+        color: var(--clr-icon-green);
 
-    i {
-        width: 1.5rem;
-        height: 1.5rem;
+        border: 2px solid var(--clr-icon-green);
+    }
+
+    &.orange {
+        color: var(--clr-icon-orange);
+
+        border: 2px solid var(--clr-icon-orange);
+    }
+
+    &.white {
+        color: var(--clr-icon-white);
+
+        border: 2px solid var(--clr-icon-white);
+    }
+
+    &.no-bg {
+        background-color: transparent;
+
+        width: auto;
+        height: auto;
+
+        border: none;
     }
 }

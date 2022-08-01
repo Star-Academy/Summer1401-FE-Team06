@@ -8,4 +8,5 @@ import {ResultMessageService} from '../../services/result-message.service';
 })
 export class PrimaryTitleComponent {
     @Input() public title: string = '';
+    @Input() public direction: string = '';
 }

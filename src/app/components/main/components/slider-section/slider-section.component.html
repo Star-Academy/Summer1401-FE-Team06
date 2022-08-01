@@ -1,5 +1,6 @@
-<div class="container">
+<div class="wrapper">
     <div class="slider">
         <app-slider-card *ngFor="let card of cards | slice: 0:4" [product]="card"></app-slider-card>
     </div>
+    <app-more-button></app-more-button>
 </div>

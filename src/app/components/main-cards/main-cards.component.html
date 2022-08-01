@@ -1,7 +1,7 @@
-<div [class]="backgroundColorClassName" class="section container">
+<div>
     <app-primary-title title="بازی ها"></app-primary-title>
     <div class="contain">
         <app-card *ngFor="let card of cards" [product]="card"></app-card>
-        <app-more-button></app-more-button>
     </div>
+    <app-more-button></app-more-button>
 </div>

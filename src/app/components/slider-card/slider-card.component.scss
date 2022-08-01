@@ -1,24 +1,25 @@
 .card {
     background-color: var(--card-color);
-    box-shadow: 1.125rem 0.875rem 1.4375rem hsl(0deg 0% 0% / 25%);
+    color: var(--clr-gray-80);
 
+    position: relative;
     overflow: hidden;
 
     width: 100%;
 
     border-radius: var(--border-radius-card);
 
-    &:hover {
-        .card {
-            &_img {
-                img {
-                    opacity: 0.5;
-                }
-            }
+    transition: transform 300ms ease;
 
-            &_buttons {
-                opacity: 1;
-            }
+    &:hover {
+        transform: translateY(-0.2rem);
+
+        &::before {
+            opacity: 0.8;
+        }
+
+        .overlay {
+            opacity: 1;
         }
     }
 
@@ -37,40 +38,107 @@
         }
     }
 
-    &_buttons {
-        opacity: 0;
-
-        position: absolute;
-        inset-block-start: 0;
-        inset-inline-start: 0;
-
-        display: grid;
-        place-items: center;
-
-        width: 100%;
-        height: 100%;
-
-        transition: opacity ease 300ms;
-
-        .wrapper {
-            display: flex;
-            gap: 1rem;
-        }
-    }
-
     &_desc {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
 
         padding: 0.75rem 1.25rem;
 
+        h2 {
+            align-self: flex-end;
+
+            font-size: 1.1rem;
+        }
+
         p {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+
             span {
-                color: var(--secondary-color);
+                color: var(--clr-icon-green);
 
                 font-weight: bold;
             }
         }
+    }
+
+    & .overlay {
+        opacity: 0;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        width: 100%;
+        height: 100%;
+
+        border-radius: var(--border-radius-card);
+
+        transition: opacity 300ms ease;
+
+        app-icon {
+            align-self: start;
+
+            transform: translate(-1rem, 1rem);
+        }
+
+        .more {
+            background-color: transparent;
+            color: var(--primary-text-color);
+
+            border: none;
+
+            font-size: 0.9rem;
+
+            text-decoration: underline;
+
+            cursor: pointer;
+        }
+
+        .buy {
+            align-self: center;
+
+            background-color: var(--secondary-color);
+            opacity: 0.9;
+
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.6rem;
+
+            border: none;
+            border-radius: var(--border-radius-card);
+
+            font-size: 1.2rem;
+
+            transition: opacity 300ms ease;
+
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &::before {
+        content: "";
+
+        background-color: var(--clr-gray-5);
+        opacity: 0;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        width: 100%;
+        height: 100%;
+
+        transition: opacity 300ms ease;
     }
 }

@@ -1,0 +1,20 @@
+.container-section {
+    background-color: var(--clr-gray-15);
+
+    position: relative;
+
+    width: calc(100vw - 4rem);
+
+    margin: 0 auto 2rem;
+    padding: 5rem 2rem;
+
+    transform: skewY(-2deg);
+
+    .skew-reverse {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        transform: skewY(2deg);
+    }
+}

@@ -6,6 +6,8 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./section.component.scss'],
 })
 export class SectionComponent {
-    @Input() public primaryTitle: string = ' ';
+    @Input() public primaryTitle: string = '';
     @Input() public backgroundColorClassName: string = '';
+    @Input() public placeComponent: string = '';
+    @Input() public titleDirection: string = '';
 }

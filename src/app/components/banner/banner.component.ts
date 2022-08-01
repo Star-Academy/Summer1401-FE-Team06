@@ -5,6 +5,4 @@ import {Component, Input, OnInit} from '@angular/core';
     templateUrl: './banner.component.html',
     styleUrls: ['./banner.component.scss'],
 })
-export class BannerComponent {
-    @Input() public backgroundColorClassName: string = '';
-}
+export class BannerComponent {}

@@ -1,17 +1,21 @@
 <div class="card">
     <div class="card_img">
         <img [src]="product.imageUrl" [alt]="product.gameName" />
-        <div class="card_buttons">
-            <div class="wrapper">
-                <app-icon [iconClass]="iconType.SHOP" backgroundColorClassName="icon-color-secondary"></app-icon>
-                <app-icon [iconClass]="iconType.WISH_LIST" backgroundColorClassName="icon-color-secondary"></app-icon>
-            </div>
-        </div>
     </div>
     <div class="card_desc">
         <h2>{{ product.gameName }}</h2>
         <p>
-            <span>{{ product.newPrice }}</span> تومان
+            <span>{{ product.newPrice }}</span>
+            <app-icon
+                [iconClass]="iconType.PRICE"
+                [iconColor]="iconColor.GREEN"
+                [haveBackgroundColor]="false"
+            ></app-icon>
         </p>
+    </div>
+    <div class="overlay">
+        <app-icon [iconClass]="iconType.WISH_LIST" [iconColor]="iconColor.ORANGE"></app-icon>
+        <button class="more">مشاهده جزئیات</button>
+        <button class="buy">خرید</button>
     </div>
 </div>

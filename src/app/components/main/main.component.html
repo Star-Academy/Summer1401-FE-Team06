@@ -1,10 +1,23 @@
 <app-slidebar></app-slidebar>
-<app-section primaryTitle="پر فروش ترین بازی ها">
-    <app-slider-section></app-slider-section>
-</app-section>
-<app-banner backgroundColorClassName="secondary-section"></app-banner>
-<app-section primaryTitle="پر فروش ترین بازی ها">
-    <app-slider-section></app-slider-section>
-</app-section>
-<app-main-cards backgroundColorClassName="secondary-section"></app-main-cards>
-<app-banner></app-banner>
+<app-container>
+    <app-section primaryTitle="پر فروش ترین بازی ها" titleDirection="left" placeComponent="right-out">
+        <app-slider-section></app-slider-section>
+    </app-section>
+    <app-section backgroundColorClassName="secondary-section">
+        <app-banner></app-banner>
+    </app-section>
+    <app-section primaryTitle="پر فروش ترین بازی ها" titleDirection="right" placeComponent="left-out">
+        <app-slider-section></app-slider-section>
+    </app-section>
+    <app-section backgroundColorClassName="secondary-section">
+        <app-banner></app-banner>
+    </app-section>
+    <app-section primaryTitle="بازی های جنگی" titleDirection="left" placeComponent="right-out">
+        <app-slider-section></app-slider-section>
+    </app-section>
+</app-container>
+<app-container>
+    <app-section>
+        <app-main-cards></app-main-cards>
+    </app-section>
+</app-container>

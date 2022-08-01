@@ -28,9 +28,9 @@
         padding: 0.5rem 2.5rem 0.5rem 0.75rem;
 
         border: 0.125rem solid var(--input-color);
-        border-radius: 0.75rem;
+        border-radius: var(--border-radius-card);
 
-        font-size: 1.25rem;
+        font-size: 1.2rem;
 
         &::placeholder {
             color: hsl(36deg 100% 50% / 30%);

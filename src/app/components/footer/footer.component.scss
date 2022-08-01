@@ -1,39 +1,36 @@
 footer {
-  color: hsl(0deg 0% 100%);
-  //padding: 0 5%;
+    color: hsl(0deg 0% 100%);
 
-  .copyright,
-  .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    .copyright,
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-    padding: 1rem 0;
-  }
-
-  .wrapper {
-    .social-media {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+        padding: 1rem 0;
     }
 
-    img {
-      width: 10rem;
-    }
-  }
+    .wrapper {
+        .social-media {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
 
-  .copyright {
-    //border-top: 0.0625rem solid hsl(0deg 0% 100%);
-
-    span {
-      opacity: 0.8;
-
-      font-size: 0.7rem;
+        img {
+            width: 10rem;
+        }
     }
 
-    div * {
-      padding: 0 0.125rem;
+    .copyright {
+        span {
+            opacity: 0.8;
+
+            font-size: 0.7rem;
+        }
+
+        div * {
+            padding: 0 0.125rem;
+        }
     }
-  }
 }
