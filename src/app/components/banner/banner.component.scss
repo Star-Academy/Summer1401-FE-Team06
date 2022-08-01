@@ -6,25 +6,48 @@
   gap: 3.75rem;
 
   width: 100%;
-  height: 20rem;
-
-  padding: 0 16%;
-
+  height: 23rem;
+  align-items: center;
   font-size: 1rem;
 
+  &:before {
+    content: "";
+    background-image: linear-gradient(to right, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.6));
+    position: absolute;
+    block-size: inherit;
+    inline-size: inherit;
+  }
+
+  ul {
+    display: flex;
+    gap: 0.4rem;
+
+    i {
+      color: var(--clr-gray-90);
+
+      &.active {
+        color: var(--secondary-color);
+      }
+    }
+  }
+
   div {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    inset-inline-start: 8rem;
+    width: 30rem;
 
     app-more-button {
-      margin-block-start: 2rem;
+      margin-block-start: 1rem;
     }
   }
 
   img {
-    width: 50%;
+
+    width: 100%;
     height: 100%;
 
     border-radius: 1.25rem;
