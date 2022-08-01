@@ -1,12 +1,26 @@
-<swiper
-    [slidesPerView]="1"
-    [spaceBetween]="30"
-    [keyboard]="{enabled: true}"
-    [pagination]="{clickable: true}"
-    [navigation]="true"
-    class="my-swiper"
->
-    <ng-template swiperSlide> <img src="assets/images/slider1.webp" alt="harchi" class="slider-item" /> </ng-template>
-    <ng-template swiperSlide> <img src="assets/images/slider3.webp" alt="harchi" class="slider-item" /></ng-template>
-    <ng-template swiperSlide> <img src="assets/images/slider4.webp" alt="harchi" class="slider-item" /></ng-template>
-</swiper>
+<div class="slideshow" [style.--active-index]="activeIndex + 1">
+    <ol>
+        <li><img src="assets/images/slider4.webp" alt="" /></li>
+        <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
+            <img [src]="item.src" alt="" />
+        </li>
+        <li><img src="assets/images/slider1.webp" alt="" /></li>
+    </ol>
+
+    <div class="controls">
+        <button class="right" (click)="changeActiveIndex(activeIndex - 1)">
+            <i class="fa-solid fa-caret-right"></i>
+        </button>
+        <button class="left" (click)="changeActiveIndex(activeIndex + 1)">
+            <i class="fa-solid fa-caret-left"></i>
+        </button>
+    </div>
+
+    <div class="bullets">
+        <i
+            *ngFor="let _ of items; index as index"
+            [class.active]="index === activeIndex"
+            (click)="activeWithClickBullet(index)"
+        ></i>
+    </div>
+</div>
