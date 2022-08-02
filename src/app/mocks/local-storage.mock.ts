@@ -1,5 +1,5 @@
 export class LocalStorageMock {
-    private storage: { [key: string]: string } = {};
+    private storage: {[key: string]: string} = {};
 
     public getItem(key: string): string | null {
         return key in this.storage ? this.storage[key] : null;

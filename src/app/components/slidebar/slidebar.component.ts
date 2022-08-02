@@ -10,7 +10,7 @@ interface Item {
     styleUrls: ['./slidebar.component.scss'],
 })
 export class SlidebarComponent implements AfterViewInit, OnDestroy {
-    public readonly INTERVAL_DELAY: number = 3000;
+    public readonly INTERVAL_DELAY: number = 4000;
 
     public items: Item[] = [
         {src: 'assets/images/slider1.webp'},

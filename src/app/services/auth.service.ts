@@ -74,7 +74,7 @@ export class AuthService {
     }
 
     public async fetchLoggedInUserInfo(): Promise<User | null> {
-        const response = await this.apiService.getRequest<{ user: User }>({url: `${API_USER_ONE}/${this.cachedUserId}`});
+        const response = await this.apiService.getRequest<{user: User}>({url: `${API_USER_ONE}/${this.cachedUserId}`});
         return response?.user || null;
     }
 

@@ -9,5 +9,4 @@ import {MoreButtonModule} from '../more-button/more-button.module';
     exports: [BannerComponent],
     imports: [CommonModule, RouterModule, MoreButtonModule],
 })
-export class BannerModule {
-}
+export class BannerModule {}
