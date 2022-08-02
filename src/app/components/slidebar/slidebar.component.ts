@@ -3,13 +3,14 @@ import {AfterViewInit, Component, OnDestroy} from '@angular/core';
 interface Item {
     src: string;
 }
+
 @Component({
     selector: 'app-slidebar',
     templateUrl: './slidebar.component.html',
     styleUrls: ['./slidebar.component.scss'],
 })
 export class SlidebarComponent implements AfterViewInit, OnDestroy {
-    private readonly INTERVAL_DELAY: number = 3000;
+    public readonly INTERVAL_DELAY: number = 3000;
 
     public items: Item[] = [
         {src: 'assets/images/slider1.webp'},
@@ -19,7 +20,7 @@ export class SlidebarComponent implements AfterViewInit, OnDestroy {
 
     public activeIndex: number = 0;
 
-    private interval!: number;
+    public interval!: number;
 
     public ngAfterViewInit(): void {
         this.resetInterval();
@@ -37,13 +38,14 @@ export class SlidebarComponent implements AfterViewInit, OnDestroy {
         this.resetInterval();
     }
 
-    private resetInterval(): void {
+    public resetInterval(): void {
         clearInterval(this.interval);
 
         this.interval = setInterval(() => {
             this.changeActiveIndex(this.activeIndex + 1);
         }, this.INTERVAL_DELAY);
     }
+
     public activeWithClickBullet(index: number): void {
         this.activeIndex = index;
         this.resetInterval();

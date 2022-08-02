@@ -1,124 +1,125 @@
 .slideshow {
-    background-color: var(--clr-gray-5);
+  background-color: var(--clr-gray-5);
 
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 
-    width: 100%;
-    height: 38rem;
-    aspect-ratio: 24 / 5;
+  width: 100%;
+  height: 38rem;
+  aspect-ratio: 24 / 5;
 
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
 
-    ol {
-        display: flex;
+  ol {
+    display: flex;
 
-        width: 85%;
-        height: 85%;
+    width: 85%;
+    height: 85%;
 
-        margin: 0 auto;
+    margin: 0 auto;
 
-        li {
-            flex: 0 0 100%;
+    li {
+      flex: 0 0 100%;
 
-            width: calc(100% - 2rem);
+      width: calc(100% - 2rem);
 
-            padding: 0 1rem;
+      padding: 0 1rem;
 
-            transform: translateX(calc(var(--active-index) * 100%));
+      transform: translateX(calc(var(--active-index) * 100%));
 
-            transition: transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
 
-                transition: transform 300ms ease;
-            }
+        transform: scale(1, 0.5);
+        transition: transform 500ms ease;
+      }
 
-            &.active {
-                img {
-                    transform: scale(1.03, 1.06);
-                }
-            }
+      &.active {
+        img {
+          transform: scale(1);
         }
+      }
     }
+  }
 
-    .controls {
-        button {
-            background-color: hsl(0deg 0% 90% / 60%);
-            opacity: 0.9;
+  .controls {
+    button {
+      background-color: hsl(0deg 0% 90% / 60%);
+      opacity: 0.9;
 
-            position: absolute;
-            top: 40%;
+      position: absolute;
+      top: 40%;
 
-            justify-content: center;
+      justify-content: center;
 
-            width: 3rem;
-            height: 5rem;
+      width: 3rem;
+      height: 5rem;
 
-            border: 2px solid var(--clr-gray-20);
+      border: 2px solid var(--clr-gray-20);
 
-            border-radius: var(--border-radius-card);
+      border-radius: var(--border-radius-card);
 
-            transition: opacity 300ms ease;
+      transition: opacity 300ms ease;
 
-            cursor: pointer;
+      cursor: pointer;
 
-            &.right {
-                right: 2rem;
-            }
+      &.right {
+        right: 2rem;
+      }
 
-            &.left {
-                left: 2rem;
-            }
+      &.left {
+        left: 2rem;
+      }
 
-            &:hover {
-                opacity: 1;
-            }
+      &:hover {
+        opacity: 1;
+      }
 
-            i {
-                color: var(--clr-gray-20);
+      i {
+        color: var(--clr-gray-20);
 
-                font-size: 2rem;
-            }
-        }
+        font-size: 2rem;
+      }
     }
+  }
 
-    .bullets {
-        position: absolute;
-        bottom: 3rem;
-        left: 20%;
+  .bullets {
+    position: absolute;
+    bottom: 3rem;
+    left: 20%;
 
-        display: flex;
-        gap: 1rem;
+    display: flex;
+    gap: 1rem;
 
-        transform: translateX(-50%);
+    transform: translateX(-50%);
 
-        i {
-            background-color: var(--clr-gray-20);
+    i {
+      background-color: var(--clr-gray-20);
 
-            display: block;
+      display: block;
 
-            width: 3rem;
-            height: 0.35rem;
+      width: 3rem;
+      height: 0.35rem;
 
-            border-radius: var(--border-radius-card);
+      border-radius: var(--border-radius-card);
 
-            font-size: 0.6rem;
+      font-size: 0.6rem;
 
-            cursor: pointer;
+      cursor: pointer;
 
-            &.active {
-                background-color: var(--clr-gray-80);
-            }
-        }
+      &.active {
+        background-color: var(--clr-gray-80);
+      }
     }
+  }
 
-    &:hover {
-        .overlay .controls {
-            opacity: 1;
-        }
+  &:hover {
+    .overlay .controls {
+      opacity: 1;
     }
+  }
 }
