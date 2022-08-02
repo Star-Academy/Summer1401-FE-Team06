@@ -40,6 +40,4 @@ describe('MainCardsComponent', () => {
         //expect(+card.querySelector('.new-price').textContent).toEqual(component.cards[i].newPrice);
         //}
     });
-
-
 });
