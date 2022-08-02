@@ -7,8 +7,8 @@ import {PrimaryTitleDirection} from '../../enum/primary-title-direction.enum';
     styleUrls: ['./section.component.scss'],
 })
 export class SectionComponent {
+    @Input() public isSecondaryBackgroundColor: boolean = false;
     @Input() public primaryTitle: string = '';
-    @Input() public backgroundColorClassName: string = '';
     @Input() public placeComponent: string = '';
     @Input() public titleDirection: PrimaryTitleDirection = PrimaryTitleDirection.RIGHT;
 }

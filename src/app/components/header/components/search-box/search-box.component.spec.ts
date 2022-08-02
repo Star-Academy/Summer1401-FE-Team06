@@ -22,4 +22,18 @@ describe('SearchBoxComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should have value input - default', () => {
+        const inputEl = host.querySelector('input');
+
+        expect(inputEl).toBeTruthy();
+        expect(inputEl?.value).toBeFalsy();
+    });
+    it('should have value input - with value', () => {
+        const inputEl = host.querySelector('input');
+        component.searchPhrase = 'test text';
+        fixture.detectChanges();
+        expect(inputEl).toBeTruthy();
+        expect(inputEl?.value).toBeTruthy();
+    });
 });
