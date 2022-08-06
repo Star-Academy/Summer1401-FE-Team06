@@ -26,7 +26,7 @@
         cursor: pointer;
 
         app-more-button {
-            margin-left: var(--more-btn-padding);
+            margin-inline-start: var(--more-btn-padding);
         }
 
         &-controls {
@@ -38,8 +38,8 @@
                 color: var(--clr-gray-5);
                 opacity: 0.8;
 
-                width: 2rem;
-                height: 2rem;
+                inline-size: 2rem;
+                block-size: 2rem;
 
                 border: 1px solid var(--clr-gray-5);
                 border-radius: var(--border-radius-card);
@@ -64,7 +64,7 @@
             flex-flow: row;
 
             app-more-button {
-                margin-right: var(--more-btn-padding);
+                margin-inline-end: var(--more-btn-padding);
             }
         }
     }

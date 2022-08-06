@@ -55,6 +55,7 @@ export class AuthService {
     public async isLoggedIn(): Promise<boolean> {
         if (this.cachedIsLoggedIn !== null) return this.cachedIsLoggedIn;
         return await this.auth();
+        // return true;
     }
 
     public async login(user: UserLoginData): Promise<boolean> {

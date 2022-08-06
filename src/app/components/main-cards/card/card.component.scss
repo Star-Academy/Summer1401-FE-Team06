@@ -2,7 +2,7 @@
     background-color: var(--card-color);
     color: var(--primary-text-color);
 
-    width: 100%;
+    inline-size: 100%;
 
     border-radius: var(--border-radius-card);
 
@@ -16,8 +16,8 @@
 }
 
 .wrapper img {
-    width: 100%;
-    height: var(--img-height);
+    inline-size: 100%;
+    block-size: var(--img-height);
 
     border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
 }
@@ -35,12 +35,12 @@
     align-items: center;
     justify-content: space-between;
 
-    width: 6.25rem;
-    height: 100%;
+    inline-size: 6.25rem;
+    block-size: 100%;
 }
 
 .bottom-cart div:first-child {
-    width: 2.5rem;
+    inline-size: 2.5rem;
 }
 
 .old-price {

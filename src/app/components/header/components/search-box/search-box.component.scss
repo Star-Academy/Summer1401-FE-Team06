@@ -2,10 +2,10 @@
     --input-color: hsl(36deg 100% 50% / 30%);
     position: relative;
 
-    width: 100%;
-    max-width: 27rem;
+    inline-size: 100%;
+    max-inline-size: 27rem;
 
-    margin-right: auto;
+    margin-inline-start: auto;
 
     i {
         color: var(--input-color);
@@ -23,7 +23,7 @@
         background-color: transparent;
         color: var(--input-color);
 
-        width: 100%;
+        inline-size: 100%;
 
         padding: 0.5rem 2.5rem 0.5rem 0.75rem;
 

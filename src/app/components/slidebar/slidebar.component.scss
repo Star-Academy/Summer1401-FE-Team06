@@ -4,8 +4,8 @@
     position: relative;
     overflow: hidden;
 
-    width: 100%;
-    height: 38rem;
+    inline-size: 100%;
+    block-size: 38rem;
     aspect-ratio: 24 / 5;
 
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
@@ -15,15 +15,15 @@
 
         display: flex;
 
-        width: 85%;
-        height: 85%;
+        inline-size: 85%;
+        block-size: 85%;
 
         margin: 0 auto;
 
         li {
             flex: 0 0 100%;
 
-            width: calc(100% - 2rem);
+            inline-size: calc(100% - 2rem);
 
             padding: 0 1rem;
 
@@ -32,8 +32,8 @@
             transition: transform 0.5s ease-in-out;
 
             img {
-                width: 100%;
-                height: 100%;
+                inline-size: 100%;
+                block-size: 100%;
                 object-fit: cover;
 
                 transform: scale(1, 0.7);
@@ -59,8 +59,8 @@
 
             justify-content: center;
 
-            width: 3rem;
-            height: 5rem;
+            inline-size: 3rem;
+            block-size: 5rem;
 
             border: 2px solid var(--clr-gray-20);
 
@@ -105,8 +105,8 @@
 
             display: block;
 
-            width: 3rem;
-            height: 0.35rem;
+            inline-size: 3rem;
+            block-size: 0.35rem;
 
             border-radius: var(--border-radius-card);
 
