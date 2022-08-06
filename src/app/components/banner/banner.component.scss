@@ -1,6 +1,7 @@
+
 .wrapper {
     color: var(--primary-text-color);
-
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,16 +11,15 @@
     height: 23rem;
 
     font-size: 1rem;
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
 
     &::before {
         content: "";
 
         background-image: linear-gradient(to right, hsl(0deg 0% 0% / 0%), hsl(0deg 0% 0% / 60%));
-
+        inset: 0;
         position: absolute;
-
-        block-size: inherit;
-        inline-size: inherit;
     }
 
     ul {
@@ -54,13 +54,5 @@
     img {
         width: 100%;
         height: 100%;
-
-        border-radius: 1.25rem;
-
-        transition: transform 300ms;
-
-        &:hover {
-            transform: scale(1.05, 1.05);
-        }
     }
 }

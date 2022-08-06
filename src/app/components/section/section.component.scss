@@ -5,8 +5,8 @@
     box-shadow: 0 0 20px 0 hsl(0deg 0% 0% / 30%);
 
     width: calc(100% + var(--space-need));
-
     padding: 2rem;
+
 
     transform: translateX(var(--space-need-half));
 
@@ -16,16 +16,19 @@
 
     &.left-out {
         width: calc(100% + (var(--space-need) / 2));
-
-        padding-left: 0;
+        padding: 2rem 2rem 2rem 0;
 
         transform: none;
     }
 
     &.right-out {
         width: calc(100% + (var(--space-need) / 2));
+        padding: 2rem 0 2rem 2rem;
 
-        padding-right: 0;
+    }
+    &.full-width {
+        padding: 0;
+
     }
 }
 @media screen and (max-width: 1450px) {
