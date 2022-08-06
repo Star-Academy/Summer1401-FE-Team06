@@ -3,7 +3,6 @@ import {ApiService} from './api.service';
 import {User} from '../models/user.model';
 import {API_USER_AUTH, API_USER_LOGIN, API_USER_ONE, API_USER_REGISTER} from '../utils/api.utils';
 import {TokenObject} from '../models/token-object.model';
-import {IdObject} from '../models/id-object.model';
 import {Router} from '@angular/router';
 import {UserLoginData} from '../models/api/user-login-data.model';
 import {UserRegisterData} from '../models/api/user-register-data.model';
@@ -12,34 +11,6 @@ import {UserRegisterData} from '../models/api/user-register-data.model';
     providedIn: 'root',
 })
 export class AuthService {
-    // public constructor(private apiService: ApiService) {
-    // }
-    //
-    // public async login(user: User): Promise<boolean> {
-    //     const data = (await this.apiService.post<TokenObject>(API_USER_LOGIN, user)) as TokenObject;
-    //     if (data?.token) {
-    //         localStorage.setItem('token', data.token);
-    //     }
-    //
-    //     return !!data;
-    // }
-    //
-    // public async isLoggedIn(): Promise<boolean> {
-    //     const token = localStorage.getItem('token') || '';
-    //     const data = (await this.apiService.post<IdObject>(API_USER_AUTH, {token})) as IdObject;
-    //     return !!data;
-    // }
-    //
-    // public async singUp(user: User): Promise<boolean> {
-    //     const data = await this.apiService.post<TokenObject>(API_USER_REGISTER, user);
-    //     if (data?.token && data?.id) {
-    //         localStorage.setItem('token', data.token);
-    //         localStorage.setItem('id', data.id.toString());
-    //     }
-    //
-    //     return !!data;
-    // }
-    ///////////
     public cachedIsLoggedIn: boolean | null = null;
     public cachedUserId: number | null = null;
     public cachedUser: User | null = null;
@@ -55,7 +26,6 @@ export class AuthService {
     public async isLoggedIn(): Promise<boolean> {
         if (this.cachedIsLoggedIn !== null) return this.cachedIsLoggedIn;
         return await this.auth();
-        // return true;
     }
 
     public async login(user: UserLoginData): Promise<boolean> {
