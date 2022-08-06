@@ -29,6 +29,7 @@ describe('SearchBoxComponent', () => {
         expect(inputEl).toBeTruthy();
         expect(inputEl?.value).toBeFalsy();
     });
+
     it('should have value input - with value', () => {
         const inputEl = host.querySelector('input');
         component.searchPhrase = 'test text';

@@ -1,15 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SliderSectionComponent} from './slider-section.component';
-import {CommonModule} from '@angular/common';
-import {CardModule} from '../../../main-cards/card/card.module';
-import {PrimaryTitleModule} from '../../../primary-title/primary-title.module';
-import {MoreButtonModule} from '../../../more-button/more-button.module';
-import {SliderCardModule} from '../../../slider-card/slider-card.module';
-import {BannerModule} from '../../../banner/banner.module';
-import {MainCardsModule} from '../../../main-cards/main-cards.module';
 import {Product} from '../../../main-cards/models/product';
-import {Products} from '../../../main-cards/sample-data';
 
 describe('SliderSectionComponent', () => {
     let component: SliderSectionComponent;
@@ -34,33 +26,38 @@ describe('SliderSectionComponent', () => {
     });
 
     // Have reverse class
-    it('should render wrapper - default', () => {
+    it('should render wrapper - reverse class - default', () => {
         testContainerType();
     });
-    it('should render wrapper - reverse', () => {
+    it('should render wrapper - reverse class - reverse', () => {
         testContainerType(true);
     });
-    it('should render wrapper - not reverse', () => {
+    it('should render wrapper - reverse class - not reverse', () => {
         testContainerType(false);
     });
 
     // Have product
-    it('should render wrapper - cards - default', () => {
+    it('should render wrapper - product - default', () => {
         testHaveProduct();
     });
-    it('should render wrapper - cards - have cards', () => {
+    it('should render wrapper - product - have cards', () => {
         testHaveProduct([{newPrice: 200, gameName: 'test', imageUrl: 'test', oldPrice: 200}]);
     });
-    it('should render wrapper - cards - no have cards', () => {
+    it('should render wrapper - product - no have cards', () => {
         testHaveProduct([]);
     });
 
     // Scroll testing
-    it('should slider element - scroll - right ', () => {
-        testScrollFunction('RIGHT');
-    });
-    it('should slider element - scroll - left ', () => {
-        testScrollFunction('LEFT');
+    enum Direction {
+        LEFT,
+        RIGHT,
+    }
+
+    const scrollState: Direction[] = [Direction.RIGHT, Direction.LEFT];
+    scrollState.forEach((state) => {
+        it(`should slider element - scroll - ${Direction[state]} `, () => {
+            testScrollFunction(state);
+        });
     });
 
     // Utility
@@ -89,10 +86,10 @@ describe('SliderSectionComponent', () => {
             expect(wrapperEl).toBeTruthy();
         }
     };
-    const testScrollFunction = (direction: 'RIGHT' | 'LEFT'): void => {
-        if (direction === 'RIGHT') {
+    const testScrollFunction = (direction: Direction): void => {
+        if (direction === Direction.RIGHT) {
             component.scrollToRight();
-        } else if (direction === 'LEFT') {
+        } else if (direction === Direction.LEFT) {
             component.scrollToLeft();
         }
         fixture.detectChanges();

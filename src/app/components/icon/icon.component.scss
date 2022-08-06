@@ -5,8 +5,7 @@
     inline-size: 2.5rem;
     block-size: 2rem;
 
-    border-radius: 0.25rem;
-
+    border-radius: var(--border-radius-card);
     transition: transform 300ms ease;
 
     cursor: pointer;

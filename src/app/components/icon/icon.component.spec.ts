@@ -27,31 +27,27 @@ describe('IconComponent', () => {
     });
 
     //  Icon type test
+    const iconTypeState: IconType[] = [IconType.SHOP, IconType.WISH_LIST, IconType.PRICE];
     it('should render icon - icon Type - default', () => {
         testIconType();
     });
-    it('should render icon -  icon Type - SHOP', () => {
-        testIconType('SHOP');
-    });
-    it('should render icon -  icon Type - WISH_LIST', () => {
-        testIconType('WISH_LIST');
-    });
-    it('should render icon -  icon Type - PRICE', () => {
-        testIconType('PRICE');
+
+    iconTypeState.forEach((state, index) => {
+        it(`should render icon - icon Type - ${Object.keys(IconType)[index]} `, () => {
+            testIconType(state);
+        });
     });
 
     //  Icon color test
+    const iconColorState: IconColor[] = [IconColor.WHITE, IconColor.ORANGE, IconColor.GREEN];
     it('should render icon - icon color - default', () => {
         testIconColor();
     });
-    it('should render icon - icon color - WHITE', () => {
-        testIconColor('WHITE');
-    });
-    it('should render icon - icon color - ORANGE', () => {
-        testIconColor('ORANGE');
-    });
-    it('should render icon - icon color - GREEN', () => {
-        testIconColor('GREEN');
+
+    iconColorState.forEach((state, index) => {
+        it(`should render icon - icon Type - ${Object.keys(IconColor)[index]} `, () => {
+            testIconColor(state);
+        });
     });
 
     //  Icon have background color test
@@ -66,9 +62,9 @@ describe('IconComponent', () => {
     });
 
     // Utility
-    const testIconType = (type?: 'SHOP' | 'WISH_LIST' | 'PRICE'): void => {
+    const testIconType = (type?: IconType): void => {
         if (!!type) {
-            component.iconClass = IconType[type];
+            component.iconClass = type;
             fixture.detectChanges();
         }
         const iconEl = host.querySelector('.icon-container i');
@@ -77,9 +73,9 @@ describe('IconComponent', () => {
         iconTypeClassName.forEach((iconClass) => expect(iconEl?.classList).toContain(iconClass));
     };
 
-    const testIconColor = (type?: 'ORANGE' | 'WHITE' | 'GREEN'): void => {
+    const testIconColor = (type?: IconColor): void => {
         if (!!type) {
-            component.iconColor = IconColor[type];
+            component.iconColor = type;
             fixture.detectChanges();
         }
         const iconContainer = host.querySelector('.icon-container');

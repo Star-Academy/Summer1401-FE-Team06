@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {PrimaryTitleComponent} from './primary-title.component';
 import {PrimaryTitleDirection} from '../../enum/primary-title-direction.enum';
+import {IconColor} from '../../enum/icon-color.enum';
 
 describe('PrimaryTitleComponent', () => {
     let component: PrimaryTitleComponent;
@@ -39,14 +40,19 @@ describe('PrimaryTitleComponent', () => {
     });
 
     // Title direction
+    const PrimaryTitleDirectionState: PrimaryTitleDirection[] = [
+        PrimaryTitleDirection.RIGHT,
+        PrimaryTitleDirection.LEFT,
+    ];
+
     it('should render - title direction - default', () => {
         testTitleDirection();
     });
-    it('should render - title direction - RIGHT', () => {
-        testTitleDirection('RIGHT');
-    });
-    it('should render - title direction - LEFT', () => {
-        testTitleDirection('LEFT');
+
+    PrimaryTitleDirectionState.forEach((state, index) => {
+        it(`should render - title direction  - ${Object.keys(PrimaryTitleDirection)[index]} `, () => {
+            testTitleDirection(state);
+        });
     });
 
     // Utility
@@ -63,9 +69,9 @@ describe('PrimaryTitleComponent', () => {
             expect(titleEl?.innerText).toBeTruthy();
         }
     };
-    const testTitleDirection = (direction?: 'RIGHT' | 'LEFT'): void => {
+    const testTitleDirection = (direction?: PrimaryTitleDirection): void => {
         if (direction !== undefined) {
-            component.direction = PrimaryTitleDirection[direction];
+            component.direction = direction;
             fixture.detectChanges();
         }
         const titleContainerEl = host.querySelector('.primary-title');
