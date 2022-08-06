@@ -7,7 +7,6 @@
         overflow-x: hidden;
 
         display: flex;
-
         gap: 2.5rem;
 
         app-slider-card {
@@ -38,8 +37,8 @@
                 color: var(--clr-gray-5);
                 opacity: 0.8;
 
-                inline-size: 2rem;
                 block-size: 2rem;
+                inline-size: 2rem;
 
                 border: 1px solid var(--clr-gray-5);
                 border-radius: var(--border-radius-card);

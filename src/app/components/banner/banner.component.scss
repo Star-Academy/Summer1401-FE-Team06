@@ -1,26 +1,29 @@
-
 .wrapper {
     color: var(--primary-text-color);
+
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3.75rem;
 
-    inline-size: 100%;
     block-size: 23rem;
+    inline-size: 100%;
+
+    border-radius: var(--border-radius-card);
 
     font-size: 1rem;
-    border-radius: var(--border-radius-card);
-    overflow: hidden;
-    isolation: isolate;
 
     &::before {
         content: "";
 
         background-image: linear-gradient(to right, hsl(0deg 0% 0% / 0%), hsl(0deg 0% 0% / 60%));
-        inset: 0;
+
         position: absolute;
+        inset: 0;
         z-index: -1;
     }
 
@@ -54,7 +57,7 @@
     }
 
     img {
-        inline-size: 100%;
         block-size: 100%;
+        inline-size: 100%;
     }
 }

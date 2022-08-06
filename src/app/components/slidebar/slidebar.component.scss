@@ -4,8 +4,8 @@
     position: relative;
     overflow: hidden;
 
-    inline-size: 100%;
     block-size: 38rem;
+    inline-size: 100%;
     aspect-ratio: 24 / 5;
 
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3rem), 0 100%);
@@ -15,8 +15,8 @@
 
         display: flex;
 
-        inline-size: 85%;
         block-size: 85%;
+        inline-size: 85%;
 
         margin: 0 auto;
 
@@ -32,8 +32,8 @@
             transition: transform 400ms ease-in-out;
 
             img {
-                inline-size: 100%;
                 block-size: 100%;
+                inline-size: 100%;
                 object-fit: cover;
 
                 transform: scale(1, 0.7);
@@ -59,11 +59,10 @@
 
             justify-content: center;
 
-            inline-size: 3rem;
             block-size: 5rem;
+            inline-size: 3rem;
 
             border: 2px solid var(--clr-gray-20);
-
             border-radius: var(--border-radius-card);
 
             transition: opacity 300ms ease;
@@ -105,8 +104,8 @@
 
             display: block;
 
-            inline-size: 3rem;
             block-size: 0.35rem;
+            inline-size: 3rem;
 
             border-radius: var(--border-radius-card);
 

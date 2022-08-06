@@ -18,16 +18,20 @@ jobs:
             - name: Install Dependencies
               run: npm ci
 
-#            - name: ESLint
-#              run: npm run eslint:check
-#
-#            - name: Stylelint
-#              if: success()
-#              run: npm run stylelint:check
-#
-#            - name: Prettier
-#              if: success()
-#              run: npm run prettier:check
+            - name: ESLint
+              run: npm run eslint:check
+
+            - name: Stylelint
+              if: success()
+              run: npm run stylelint:check
+
+            - name: Prettier
+              if: success()
+              run: npm run prettier:check
+
+            - name: Angular
+              if: success()
+              run: npm run test:ci
 
     build:
         name: Build
@@ -48,8 +52,8 @@ jobs:
               run: npm run build:prod
 
             - name: 404.html Hack
-                if: success()
-                run: cp dist/Summer1401-FE-Team06/index.html dist/Summer1401-FE-Team06/404.html
+              if: success()
+              run: cp dist/Summer1401-FE-Team06/index.html dist/Summer1401-FE-Team06/404.html
 
             - name: Upload Build
               if: success()

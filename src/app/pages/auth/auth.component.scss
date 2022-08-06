@@ -2,12 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 1rem;
 
+    min-block-size: 100vh;
     inline-size: 80%;
     max-inline-size: 32rem;
-    min-block-size: 100vh;
 
     margin: 0 auto;
 
