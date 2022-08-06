@@ -47,6 +47,10 @@ jobs:
             - name: Build
               run: npm run build:prod
 
+            - name: 404.html Hack
+                if: success()
+                run: cp dist/Summer1401-FE-Team06/index.html dist/Summer1401-FE-Team06/404.html
+
             - name: Upload Build
               if: success()
               uses: actions/upload-artifact@v1
