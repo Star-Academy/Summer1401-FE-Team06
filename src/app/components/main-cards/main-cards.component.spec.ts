@@ -29,7 +29,7 @@ describe('MainCardsComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('tests - cards', () => {
+    it('should - cards', () => {
         let appCards = host.querySelectorAll('app-card');
         fixture.detectChanges();
         console.log(appCards[0].querySelector('img'));

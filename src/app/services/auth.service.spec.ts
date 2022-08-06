@@ -30,23 +30,23 @@ describe('AuthService', () => {
         expect(service).toBeTruthy();
     });
 
-    it('tests token - empty', () => {
+    it('should token - empty', () => {
         expect(service.token).toEqual('');
     });
 
-    it('tests token - value', () => {
+    it('should token - value', () => {
         localStorageMock.setItem('token', 'value');
         expect(service.token).toEqual('value');
     });
 
-    it('tests isLoggedIn - false - empty token', async () => {
+    it('should isLoggedIn - false - empty token', async () => {
         const response = await service.isLoggedIn();
         expect(response).toBeFalse();
 
         testCache('', false, null);
     });
 
-    it('tests isLoggedIn - false - invalid token', async () => {
+    it('should isLoggedIn - false - invalid token', async () => {
         localStorageMock.setItem('token', 'value');
 
         const response = await service.isLoggedIn();
@@ -55,7 +55,7 @@ describe('AuthService', () => {
         testCache('value', false, null);
     });
 
-    it('tests isLoggedIn - true', async () => {
+    it('should isLoggedIn - true', async () => {
         localStorageMock.setItem('token', VALID_TOKEN);
 
         const response = await service.isLoggedIn();
@@ -64,14 +64,14 @@ describe('AuthService', () => {
         testCache(VALID_TOKEN, true, 23);
     });
 
-    it('tests login - false', async () => {
+    it('should login - false', async () => {
         const response = await service.login({username: '', password: ''});
         expect(response).toBeFalse();
 
         testCache('', false, null);
     });
 
-    it('tests login - true', async () => {
+    it('should login - true', async () => {
         const response = await service.login(VALID_USER_LOGIN_DATA);
         expect(response).toBeTrue();
 

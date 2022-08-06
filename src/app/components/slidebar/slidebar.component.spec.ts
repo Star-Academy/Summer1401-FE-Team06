@@ -45,7 +45,7 @@ describe('SlidebarComponent', () => {
         expect(component.activeIndex).toEqual(2);
     });
 
-    it('tests resetInterval', fakeAsync(() => {
+    it('should resetInterval', fakeAsync(() => {
         component.activeIndex = 1;
         component.resetInterval();
         expect(component.activeIndex).toEqual(1);
@@ -57,7 +57,7 @@ describe('SlidebarComponent', () => {
         flush();
     }));
 
-    it('tests activeWithClickBullet', fakeAsync(() => {
+    it('should activeWithClickBullet', fakeAsync(() => {
         component.activeIndex = 1;
         component.activeWithClickBullet(2);
         fixture.detectChanges();
