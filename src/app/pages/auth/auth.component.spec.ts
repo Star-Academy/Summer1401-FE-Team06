@@ -140,6 +140,4 @@ describe('AuthComponent', () => {
         expect(showResultMessageMethodSpy).toHaveBeenCalled();
         expect(signupMethodSpy).not.toHaveBeenCalled();
     });
-
-
 });
