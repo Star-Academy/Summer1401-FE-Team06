@@ -6,7 +6,7 @@ import {AuthService} from '../services/auth.service';
     providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-    public constructor(private router: Router, private authService: AuthService) {}
+    public constructor(private router: Router, public authService: AuthService) {}
 
     public async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         if (await this.isAllowed(route)) return true;
