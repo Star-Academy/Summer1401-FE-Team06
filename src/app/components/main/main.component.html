@@ -1,6 +1,27 @@
 <app-slidebar></app-slidebar>
-<app-slider-section primaryTitle="پر فروش ترین بازی ها"></app-slider-section>
-<app-banner backgroundColorClassName="secondary-section"></app-banner>
-<app-slider-section primaryTitle="بازی های برتر"></app-slider-section>
-<app-main-cards backgroundColorClassName="secondary-section"></app-main-cards>
-<app-banner></app-banner>
+<app-container>
+    <app-section
+        primaryTitle="پرفروش‌ترین بازی‌ها"
+        [titleDirection]="titleDirectionType.LEFT"
+        placeComponent="right-out"
+    >
+        <app-slider-section [isReverse]="true"></app-slider-section>
+    </app-section>
+    <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
+        <app-banner></app-banner>
+    </app-section>
+    <app-section primaryTitle="برترین بازی‌ها" [titleDirection]="titleDirectionType.RIGHT" placeComponent="left-out">
+        <app-slider-section></app-slider-section>
+    </app-section>
+    <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
+        <app-banner></app-banner>
+    </app-section>
+    <app-section primaryTitle="بازی‌های جنگی" [titleDirection]="titleDirectionType.LEFT" placeComponent="right-out">
+        <app-slider-section [isReverse]="true"></app-slider-section>
+    </app-section>
+</app-container>
+<app-container>
+    <app-section>
+        <app-main-cards></app-main-cards>
+    </app-section>
+</app-container>

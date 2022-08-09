@@ -9,5 +9,4 @@ import {Products} from './sample-data';
 })
 export class MainCardsComponent {
     public cards: Product[] = Products;
-    @Input() public backgroundColorClassName: string = '';
 }

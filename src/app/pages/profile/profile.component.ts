@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
     selector: 'app-profile',
@@ -6,8 +7,9 @@ import {Component} from '@angular/core';
     styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-    public logoutButtonClickHandler(): void {
-        localStorage.removeItem('token');
-        location.reload();
+    public constructor(private authService: AuthService) {}
+
+    public async logoutButtonClickHandler(): Promise<void> {
+        await this.authService.logout();
     }
 }

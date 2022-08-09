@@ -6,7 +6,11 @@
     justify-content: center;
     gap: 3rem;
 
-    padding: 0 8rem;
+    padding-block-end: 3rem;
 
     font-family: Shabnam, sans-serif;
+
+    app-more-button {
+        grid-column: 1;
+    }
 }

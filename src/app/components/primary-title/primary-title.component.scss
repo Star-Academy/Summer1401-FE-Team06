@@ -2,16 +2,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
 
-    margin-block-end: 2rem;
+    margin-block-end: 1rem;
 
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+
+    &.right {
+        justify-content: flex-start;
+    }
+
+    &.left {
+        justify-content: flex-end;
+    }
 }
 
 .underline {
     background-color: var(--primary-text-color);
 
-    width: 4rem;
-    height: 0.1rem;
+    block-size: 0.1rem;
+    inline-size: 2rem;
 }

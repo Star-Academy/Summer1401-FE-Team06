@@ -12,7 +12,7 @@ app/**/*.js.map
 # dependencies
 node_modules/
 bower_components/
-
+src/assets/fonts/fontawesome-pro-6.1.1-web/
 # IDEs and editors
 .idea/
 
