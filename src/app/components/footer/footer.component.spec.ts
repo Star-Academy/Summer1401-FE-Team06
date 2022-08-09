@@ -24,7 +24,7 @@ describe('FooterComponent', () => {
     });
 
     it('should create - container footer', () => {
-        expect(host?.querySelector('footer')?.classList.contains('container')).toBeTruthy();
+        expect(host.querySelector('footer')?.classList.contains('container')).toBeTruthy();
     });
 
     it('should create - wrapper div', () => {

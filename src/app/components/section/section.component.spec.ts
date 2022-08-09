@@ -33,6 +33,7 @@ describe('SectionComponent', () => {
     it('should render section - without secondary-section class', () => {
         testBackgroundColor(false);
     });
+
     // Primary title
     it('should render primary-title - render', () => {
         testHavePrimaryTitle(true);
@@ -53,6 +54,7 @@ describe('SectionComponent', () => {
             expect(sectionEl?.classList).not.toContain('secondary-section');
         }
     };
+
     const testHavePrimaryTitle = (haveTitle: boolean): void => {
         component.primaryTitle = haveTitle ? 'testing title' : '';
         fixture.detectChanges();

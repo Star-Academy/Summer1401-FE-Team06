@@ -26,6 +26,7 @@ describe('ResultMessageComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
     it('should not render result-message', () => {
         const resultMessageEl = host.querySelector('.result-message');
 

@@ -10,8 +10,8 @@ import {IconColor} from '../../../../enum/icon-color.enum';
 })
 export class SecondNavbarComponent {
     public isLoggedIn: boolean = false;
-    public iconType = IconType;
-    public iconColor = IconColor;
+    public IconType = IconType;
+    public IconColor = IconColor;
     public constructor(private authService: AuthService) {
         this.initializeVariables().then();
     }

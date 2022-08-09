@@ -69,6 +69,7 @@ describe('PrimaryTitleComponent', () => {
             expect(titleEl?.innerText).toBeTruthy();
         }
     };
+
     const testTitleDirection = (direction?: PrimaryTitleDirection): void => {
         if (direction !== undefined) {
             component.direction = direction;

@@ -37,7 +37,7 @@ describe('SliderCardComponent', () => {
     });
 
     it('should assign iconColor and iconType to true object', () => {
-        expect(component.iconColor).toEqual(IconColor);
-        expect(component.iconType).toEqual(IconType);
+        expect(component.IconColor).toEqual(IconColor);
+        expect(component.IconType).toEqual(IconType);
     });
 });

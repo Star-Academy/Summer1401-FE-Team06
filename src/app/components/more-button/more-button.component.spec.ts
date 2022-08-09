@@ -41,9 +41,12 @@ describe('MoreButtonComponent', () => {
             component.isReverse = isReverse;
             fixture.detectChanges();
         }
+
         const buttonContainerEl = host.querySelector('.more');
         const iconEl = host.querySelector('i');
+
         expect(buttonContainerEl).toBeTruthy();
+
         if (isReverse) {
             expect(buttonContainerEl?.classList).toContain('reverse');
             expect(iconEl?.classList).toContain('fa-angles-right');

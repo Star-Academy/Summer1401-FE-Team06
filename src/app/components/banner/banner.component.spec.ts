@@ -38,6 +38,7 @@ describe('BannerComponent', () => {
     it('should create - h2', () => {
         expect(host.querySelector('h2')).toBeTruthy();
     });
+
     it('should create - app-more-button', () => {
         expect(host.querySelector('app-more-button')).toBeTruthy();
     });

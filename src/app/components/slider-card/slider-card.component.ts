@@ -10,6 +10,6 @@ import {IconColor} from '../../enum/icon-color.enum';
 })
 export class SliderCardComponent {
     @Input() public product!: Product;
-    public iconType = IconType;
-    public iconColor = IconColor;
+    public IconType = IconType;
+    public IconColor = IconColor;
 }
