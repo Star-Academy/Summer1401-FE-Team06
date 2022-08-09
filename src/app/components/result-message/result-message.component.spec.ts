@@ -31,12 +31,22 @@ describe('ResultMessageComponent', () => {
 
         expect(resultMessageEl).toBeNull();
     });
-    // moshkel dare
-    // it('should render result-message', () => {
-    //     const resultMessageEl = host.querySelector('.result-message');
-    //     console.log(resultMessageEl);
-    //     component.message = 'testing message';
-    //     fixture.detectChanges();
-    //     expect(resultMessageEl).toBeTruthy();
-    // });
+
+    it('should works show function - have value', () => {
+        const message = 'testing message';
+        const backgroundColor = 'error';
+        component.show(message, backgroundColor);
+        fixture.detectChanges();
+
+        expect(component.message).toEqual(message);
+        expect(component.backgroundColorResultMessage).toEqual(backgroundColor);
+    });
+
+    it('should works show function - dont have value', () => {
+        component.show();
+        fixture.detectChanges();
+
+        expect(component.message).toBeNull();
+        expect(component.backgroundColorResultMessage).toBeNull();
+    });
 });
