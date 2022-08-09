@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ResultMessageComponent} from './result-message.component';
 import {AuthComponent} from '../../pages/auth/auth.component';
+import {ResultMessageService} from '../../services/result-message.service';
 
 describe('ResultMessageComponent', () => {
     let component: ResultMessageComponent;
@@ -11,6 +12,7 @@ describe('ResultMessageComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [ResultMessageComponent, AuthComponent],
+            providers: [ResultMessageService],
         }).compileComponents();
     });
 
