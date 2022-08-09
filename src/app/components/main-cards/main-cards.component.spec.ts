@@ -7,7 +7,6 @@ describe('MainCardsComponent', () => {
     let component: MainCardsComponent;
     let fixture: ComponentFixture<MainCardsComponent>;
     let host: HTMLElement;
-
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [MainCardsComponent, CardComponent],

@@ -1,5 +1,6 @@
 import {API_USER_AUTH, API_USER_LOGIN} from '../utils/api.utils';
 import {UserLoginData} from '../models/api/user-login-data.model';
+import {User} from '../models/user.model';
 
 export const VALID_TOKEN: string =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImlhdCI6MTY1ODg4Mjc3Mn0._eFaFDUrI4JL5NS-d6f0J0dTgTyu51oc6AyoS7qHn0U';
@@ -7,6 +8,13 @@ export const VALID_TOKEN: string =
 export const VALID_USER_LOGIN_DATA: UserLoginData = {
     username: 'BijanProgrammer',
     password: '1234',
+};
+export const VALID_USER_SIGNUP_DATA: User = {
+    username: 'AliZoghi',
+    password: 'a@123456',
+    email: 'alizoghiwork@gmail.com',
+    firstName: 'Ali',
+    lastName: 'Zoghi',
 };
 
 export class FetchMock {
