@@ -1,4 +1,4 @@
-<div class="game__slider" [style.--active-index]="activeIndex">
+<div class="game-slider" [style.--active-index]="activeIndex">
     <ol>
         <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
             <img [src]="item.src" alt="" />
@@ -13,16 +13,16 @@
         </div>
     </ol>
 
-    <div class="game__bullet">
+    <div class="game-bullet">
         <button (click)="scrollToLeft()">
             <i class="fa-solid fa-caret-right"></i>
         </button>
         <div class="slider" #slider>
             <div
-                    class="slider__image"
-                    *ngFor="let item of items; index as index"
-                    [class.active]="index === activeIndex"
-                    (click)="activeWithClickBullet(index)"
+                class="slider__image"
+                *ngFor="let item of items; index as index"
+                [class.active]="index === activeIndex"
+                (click)="activeWithClickBullet(index)"
             >
                 <img [src]="item.src" alt="" />
             </div>
