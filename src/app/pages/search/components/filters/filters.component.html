@@ -1,0 +1,9 @@
+<div class="filters">
+    <div>
+        <h3 class="title">فیلترها</h3>
+        <button *ngIf="displayRemoveBtn">حذف فیلتر‌ها</button>
+    </div>
+    <app-expansion-list title="پلتفرم" [items]="gameService.platforms"></app-expansion-list>
+    <app-expansion-list title="ژانر" [items]="gameService.genres"></app-expansion-list>
+    <app-switch title="بازی‌های منتشرشده" [(value)]="gameService.onlyPublishedGames"></app-switch>
+</div>

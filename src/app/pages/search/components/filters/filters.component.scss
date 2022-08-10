@@ -1,0 +1,25 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.25rem;
+
+  border: var(--border);
+  border-radius: var(--border-radius);
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 0.7rem;
+    color: var(--secondary-color);
+  }
+
+  app-expansion-list, app-switch {
+    border-bottom: solid 1px hsla(0, 0%, 100%, 0.2);
+  }
+}

@@ -1,0 +1,125 @@
+.search-container {
+  display: flex;
+  gap: 1rem;
+
+  aside {
+    width: 25rem;
+    height: 50rem;
+    position: sticky;
+    top: 0;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .sorting {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(14rem, max-content));
+      gap: 1rem;
+    }
+  }
+}
+
+[data-pagination],
+[data-pagination] *,
+[data-pagination] *:before,
+[data-pagination] *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+
+[data-pagination] {
+  font-size: 8pt;
+  line-height: 1;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Source Sans Pro', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  margin: 1em auto;
+  text-align: center;
+  transition: font-size .2s ease-in-out;
+
+  ul {
+    list-style-type: none;
+    display: inline;
+    font-size: 100%;
+    margin: 0;
+    padding: .5em;
+
+    li {
+      display: inline-block;
+      font-size: 100%;
+      width: auto;
+      border-radius: 3px;
+    }
+  }
+
+  > a {
+    font-size: 140%;
+  }
+
+  a {
+    color: var(--clr-gray-40);
+    font-size: 100%;
+    padding: .5em;
+
+    &:focus, &:hover {
+      color: var(--secondary-color);
+
+    }
+  }
+
+  li.current a {
+    color: var(--primary-text-color);
+  }
+}
+
+[data-pagination] .disabled,
+[data-pagination] [hidden],
+[data-pagination] [disabled] {
+  opacity: .5;
+  pointer-events: none;
+}
+
+@media (min-width: 350px) {
+  [data-pagination] {
+    font-size: 10pt;
+  }
+}
+
+@media (min-width: 500px) {
+  [data-pagination] {
+    font-size: 12pt;
+  }
+}
+
+@media (min-width: 700px) {
+  [data-pagination] {
+    font-size: 14pt;
+  }
+}
+
+@media (min-width: 900px) {
+  [data-pagination] {
+    font-size: 16pt;
+  }
+}

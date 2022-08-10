@@ -1,0 +1,37 @@
+<div class="container search-container">
+    <aside>
+        <app-filters></app-filters>
+    </aside>
+
+    <main>
+        <header>
+            <div class="sorting">
+                <i class="far fa-arrow-down-wide-short"></i>
+                <select>
+                    <option>پرفروش‌ترین</option>
+                    <option>محبوب‌ترین</option>
+                    <option>مرتبط‌ترین</option>
+                    <option>جدیدترین</option>
+                    <option>قدیمی‌ترین</option>
+                </select>
+            </div>
+            <span>2936 بازی</span>
+        </header>
+        <div class="products">
+            <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
+        </div>
+        <nav data-pagination>
+            <a href="#"><i class="fa-solid fa-angle-right"></i></a>
+            <ul>
+                <li class="current"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">…</a></li>
+                <li><a href="#">41</a></li>
+            </ul>
+            <a href="#"><i class="fa-solid fa-angle-left"></i></a>
+        </nav>
+    </main>
+</div>

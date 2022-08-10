@@ -9,6 +9,7 @@ import {AuthModule} from './pages/auth/auth.module';
 import {ProfileModule} from './pages/profile/profile.module';
 import {ResultMessageModule} from './components/result-message/result-message.module';
 import {GameInfoModule} from './pages/game-info/game-info.module';
+import {SearchModule} from "./pages/search/search.module";
 
 @NgModule({
     declarations: [AppComponent],
@@ -20,6 +21,7 @@ import {GameInfoModule} from './pages/game-info/game-info.module';
         AuthModule,
         ProfileModule,
         ResultMessageModule,
+        SearchModule,
         GameInfoModule,
     ],
     providers: [],
