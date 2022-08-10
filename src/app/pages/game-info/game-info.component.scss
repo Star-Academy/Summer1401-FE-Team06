@@ -3,6 +3,15 @@
         margin-top: 2rem;
         padding: 0 2rem 4rem;
         background-color: var(--clr-gray-10);
+        transform: skewY(-2deg);
+        & > * {
+            transform: skewY(2deg);
+        }
+    }
+    .splitter {
+        width: 100%;
+        border-bottom: 0.5rem solid var(--clr-gray-30);
+        transform: skewY(-2deg);
     }
     .game {
         &__header {
