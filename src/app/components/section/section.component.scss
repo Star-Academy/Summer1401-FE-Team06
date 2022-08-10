@@ -31,6 +31,10 @@
     &.full-width {
         padding: 0;
     }
+    &.normal{
+        width: 100%;
+        transform: none;
+    }
 }
 
 @media screen and (max-width: 1450px) {
