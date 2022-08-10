@@ -6,9 +6,10 @@ import {FooterModule} from '../../components/footer/footer.module';
 import {SectionModule} from '../../components/section/section.module';
 import {GameInfoComponent} from './game-info.component';
 import { GameSliderComponent } from './components/game-slider/game-slider.component';
+import { GameTitleComponent } from './components/game-title/game-title.component';
 
 @NgModule({
-    declarations: [GameInfoComponent, GameSliderComponent],
+    declarations: [GameInfoComponent, GameSliderComponent, GameTitleComponent],
     imports: [CommonModule, HeaderModule, FooterModule, SectionModule],
 })
 export class GameInfoModule {}

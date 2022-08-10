@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  p{
+    direction: ltr;
+    color: var(--clr-gray-70);
+  }
+}

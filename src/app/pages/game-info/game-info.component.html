@@ -8,6 +8,11 @@
             </div>
             <app-game-slider></app-game-slider>
         </div>
+
+        <div class="game__summary">
+            <app-game-title [title]="summary.title" [description]="summary.description"> </app-game-title>
+            <app-game-title [title]="storyLine.title" [description]="storyLine.description"> </app-game-title>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>
