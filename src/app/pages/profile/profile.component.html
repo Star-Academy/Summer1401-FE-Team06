@@ -1,5 +1,58 @@
-<div class="content-wrapper">
-    <h1>پروفایل کار میکند!</h1>
-    <a routerLink="/">بازگشت به خانه</a>
-    <button (click)="logoutButtonClickHandler()">خروج از حساب کاربری</button>
+<div class="container profile-container">
+    <div>
+        <img src="/assets/images/big_counter.webp" alt="big cover" />
+        <div>
+            <img src="assets/images/avatar.webp" alt="avatar" />
+            <div>
+                <h2>عارف حبیبی</h2>
+                <h3>arefhbb</h3>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <aside>
+            <div>
+                <img src="assets/images/avatar.webp" alt="avatar" />
+                <h2>arefhbb</h2>
+                <div>
+                    <div class="info">
+                        <span>نام </span>
+                        <span>عارف حبیبی</span>
+                    </div>
+                    <div class="info">
+                        <span>ایمیل </span>
+                        <span>haref3460@gmail.com</span>
+                    </div>
+                    <div class="info">
+                        <span>تلفن </span>
+                        <span>09123456789</span>
+                    </div>
+                    <div class="info">
+                        <span>جنسیت </span>
+                        <span>مرد</span>
+                    </div>
+                    <div class="info">
+                        <span>تاریخ تولد </span>
+                        <span>80/02/01</span>
+                    </div>
+                    <button>ویرایش پروفایل <i class="fas fa-edit"></i></button>
+                </div>
+            </div>
+        </aside>
+        <main>
+            <header>
+                <ul>
+                    <li [class.active]="active === 1">
+                        <button (click)="changingClickHandler(1)">علاقه‌مندی‌ها</button>
+                    </li>
+                    <li [class.active]="active === 2">
+                        <button (click)="changingClickHandler(2)">خریداری‌شده‌ها</button>
+                    </li>
+                </ul>
+            </header>
+            <div class="products">
+                <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
+            </div>
+        </main>
+    </div>
 </div>

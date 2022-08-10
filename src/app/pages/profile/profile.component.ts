@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import {Product} from '../../components/main-cards/models/product';
+import {Products} from '../../components/main-cards/sample-data';
 
 @Component({
     selector: 'app-profile',
@@ -7,9 +8,10 @@ import {AuthService} from '../../services/auth.service';
     styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-    public constructor(private authService: AuthService) {}
+    public active: number = 1;
+    public cards: Product[] = Products;
 
-    public async logoutButtonClickHandler(): Promise<void> {
-        await this.authService.logout();
+    public changingClickHandler(_active: number): void {
+        this.active = _active;
     }
 }
