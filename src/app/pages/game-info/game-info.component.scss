@@ -13,6 +13,7 @@
         border-bottom: 0.5rem solid var(--clr-gray-30);
         transform: skewY(-2deg);
     }
+
     .game {
         &__header {
             padding-bottom: 4rem;
@@ -40,6 +41,11 @@
             app-game-detail {
                 flex: 0 0 calc((100% / 2) - 1rem);
             }
+        }
+        &__relate {
+            background-color: var(--clr-gray-20);
+            margin-top: -2.5rem;
+            padding: 3rem 2rem 2rem 0;
         }
     }
 }

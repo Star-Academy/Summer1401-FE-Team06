@@ -8,9 +8,11 @@ import {GameInfoComponent} from './game-info.component';
 import { GameSliderComponent } from './components/game-slider/game-slider.component';
 import { GameTitleComponent } from './components/game-title/game-title.component';
 import { GameDetailComponent } from './components/game-detail/game-detail.component';
+import {PrimaryTitleModule} from "../../components/primary-title/primary-title.module";
+import {MainModule} from "../../components/main/main.module";
 
 @NgModule({
     declarations: [GameInfoComponent, GameSliderComponent, GameTitleComponent, GameDetailComponent],
-    imports: [CommonModule, HeaderModule, FooterModule, SectionModule],
+    imports: [CommonModule, HeaderModule, FooterModule, SectionModule, PrimaryTitleModule, MainModule],
 })
 export class GameInfoModule {}
