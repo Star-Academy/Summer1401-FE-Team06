@@ -1,0 +1,12 @@
+.wrapper{
+  direction: ltr;
+  border-left: 2px solid var(--clr-gray-60);
+  padding-left: 0.5rem;
+  h3{
+    text-transform: capitalize;
+  }
+  p{
+    font-size: 0.9rem;
+    color: var(--clr-gray-70);
+  }
+}

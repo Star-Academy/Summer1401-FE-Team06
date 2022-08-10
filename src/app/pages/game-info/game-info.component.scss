@@ -20,5 +20,17 @@
             flex-direction: column;
             gap: 1.5rem;
         }
+        &__details {
+            direction: ltr;
+            padding-top: 4rem;
+            gap: 1.5rem;
+            width: 65%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            app-game-detail {
+                flex: 0 0 calc((100% / 2) - 1rem);
+            }
+        }
     }
 }
