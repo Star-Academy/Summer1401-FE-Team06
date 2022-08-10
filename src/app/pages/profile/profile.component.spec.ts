@@ -30,10 +30,4 @@ describe('ProfileComponent', () => {
     it('tests create', () => {
         expect(component).toBeTruthy();
     });
-
-    it('should works logoutButtonClickHandler method', async () => {
-        const logOutMethodSpy = spyOn(authServiceMock, 'logout');
-        await component.logoutButtonClickHandler();
-        expect(logOutMethodSpy).toHaveBeenCalled();
-    });
 });
