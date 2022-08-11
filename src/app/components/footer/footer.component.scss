@@ -1,36 +1,32 @@
 footer {
     color: var(--primary-text-color);
+    padding: 1rem;
 
-    .copyright,
-    .wrapper {
+    .copyright {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+        gap: 1rem;
         padding: 1rem 0;
-    }
 
-    .wrapper {
         .social-media {
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            font-size: 1rem;
         }
 
-        img {
-            inline-size: 10rem;
-        }
-    }
-
-    .copyright {
         span {
             opacity: 0.8;
+            font-size: 1rem;
 
-            font-size: 0.7rem;
+            &:last-child{
+                font-size: 0.8rem;
+            }
         }
 
         div * {
-            padding: 0 0.125rem;
+            padding: 0 0.15rem;
         }
     }
 }
