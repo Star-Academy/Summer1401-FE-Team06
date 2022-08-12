@@ -18,6 +18,7 @@ import {Filters} from '../models/filters.model';
 import {ExpansionListItem} from '../pages/search/models/expansion-list-item.model';
 import {ProductNew} from '../models/productNew.model';
 import {AuthService} from './auth.service';
+import {Subject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -25,7 +26,9 @@ import {AuthService} from './auth.service';
 export class GameService {
     public readonly PAGE_SIZE: number = 20;
     public games: Game[] = [];
-    public favoriteList: ProductNew[] = [];
+    // public favoriteList: ProductNew[] = [];
+    public favoriteList = new Subject<ProductNew[]>();
+    // public favoriteChanged = new Subject<ProductNew[]>();
     public favoriteListId: number[] = [];
     public sliderGames: ProductNew[] = [];
     public platforms: ExpansionListItem[] = [];
@@ -41,17 +44,15 @@ export class GameService {
     public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
-        this.initializeFavoriteList().then();
+        this.initializeFavoriteList(true).then();
         this.initializeObservers();
-
-        console.log();
     }
 
     public async searchById(id: number): Promise<Game | null> {
         const response = await this.apiService.getRequest<{game: Game}>({
             url: `${API_GAME_ONE}/${id}`,
         });
-        console.log(response);
+
         return response?.game || null;
     }
 
@@ -78,6 +79,7 @@ export class GameService {
         const token = this.authService.token;
         await this.apiService.postRequest<any>({url: API_FAVORITES_ADD, body: {token, gameId}});
         this.favoriteListId.push(gameId);
+        await this.initializeFavoriteList(true);
     }
     public async removeGameFromFavoriteList(gameId: number): Promise<void> {
         const token = this.authService.token;
@@ -86,9 +88,10 @@ export class GameService {
             body: {token, gameId},
         });
         this.favoriteListId = this.favoriteListId.filter((id) => id !== gameId);
+        await this.initializeFavoriteList(true);
     }
 
-    private convertToGameCard(games: Game[], harchi?: string): ProductNew[] {
+    private convertToGameCard(games: Game[]): ProductNew[] {
         const generatedGames = games.map((game): ProductNew => {
             return {
                 name: game.name,
@@ -99,7 +102,6 @@ export class GameService {
                 isFavorite: this.favoriteListId.some((gameId) => gameId === game.id),
             };
         });
-        console.log(generatedGames);
         return generatedGames;
     }
 
@@ -157,14 +159,17 @@ export class GameService {
         this.platforms = platforms.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
     }
 
-    private async initializeFavoriteList(): Promise<void> {
+    private async initializeFavoriteList(saveToFavoriteList: boolean = false): Promise<void> {
         const token = this.authService.token;
         if (token) {
             const favoriteList: Game[] =
                 (await this.apiService
                     .postRequest<{games: Game[]}>({url: API_FAVORITES_ALL, body: {token}})
                     .then((data) => data?.games)) || [];
+
             this.favoriteListId = favoriteList.map((game) => game.id);
+            // if (saveToFavoriteList) this.favoriteList = this.convertToGameCard(favoriteList);
+            if (saveToFavoriteList) this.favoriteList.next(this.convertToGameCard(favoriteList));
         }
     }
 
