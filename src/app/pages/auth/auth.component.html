@@ -65,7 +65,6 @@
                 id="password"
                 placeholder="شامل حروف لاتین و عدد و نماد"
                 name="password"
-                [attr.pattern]="isLogin ? null : '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'"
                 [attr.required]="!isLogin"
                 [(ngModel)]="user.password"
             />
@@ -80,7 +79,6 @@
                 id="twoStepPassword"
                 placeholder="تکرار رمز عبور"
                 name="twoStepPassword"
-                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                 required
                 [(ngModel)]="twoStepPassword"
             />

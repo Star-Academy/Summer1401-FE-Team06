@@ -71,12 +71,13 @@ export class AuthService {
     }
 
     public async alter(user: User): Promise<ApiError | null> {
-        const response = await this.apiService.postRequest<ApiError | null>({
+        return await this.apiService.postRequest<ApiError | null>({
             url: API_USER_ALTER,
-            body: user,
+            body: {
+                token: this.token,
+                ...user,
+            },
         });
-        if (!response) await this.fetchLoggedInUserInfo();
-        return response;
     }
 
     private async saveCache(token: string | null, isLoggedIn: boolean, userId: number | null): Promise<void> {

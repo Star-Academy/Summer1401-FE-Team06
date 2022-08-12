@@ -20,6 +20,7 @@ export class ProfileComponent {
         username: '',
         email: '',
         password: '',
+        gender: true,
     };
 
     public constructor(
@@ -33,8 +34,11 @@ export class ProfileComponent {
 
     public async formSubmitHandler(): Promise<void> {
         const response = await this.authService.alter(this.user);
-        response
-            ? this.resultMessageService.show(response.message, 'error')
-            : (this.user = {...this.profileService.user} as User);
+        if (!response?.message) {
+            await this.profileService.getUserInfo();
+            this.resultMessageService.show('تغییرات با موفقیت انجام شد', 'success');
+            return;
+        }
+        this.resultMessageService.show(response.message, 'error');
     }
 }

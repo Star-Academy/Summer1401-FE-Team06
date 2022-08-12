@@ -12,6 +12,10 @@ export const API_GAME_PLATFORMS = BASE_URL + '/platforms';
 export const API_GAME_UPCOMING = BASE_URL + '/upcoming';
 export const API_GAME_SEARCH = BASE_URL + '/search';
 
+export const API_FAVORITES_ALL = BASE_URL + '/favorites/all';
+export const API_FAVORITES_ADD = BASE_URL + '/favorites/add';
+export const API_FAVORITES_REMOVE = BASE_URL + '/favorites/remove';
+
 export const DEFAULT_POST_REQUEST_INIT: RequestInit = {
     method: 'post',
     headers: {'Content-Type': 'application/json'},

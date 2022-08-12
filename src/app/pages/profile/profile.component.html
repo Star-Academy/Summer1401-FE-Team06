@@ -43,8 +43,11 @@
             </div>
         </aside>
         <main>
-            <div class="products" *ngIf="favorites">
-                <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
+            <div class="favorites" *ngIf="favorites">
+                <h2 class="contact__title">علاقه‌مندی‌ها</h2>
+                <div class="products">
+                    <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
+                </div>
             </div>
             <div class="edit-profile" *ngIf="!favorites">
                 <form class="contact__form" (ngSubmit)="formSubmitHandler()">
@@ -114,6 +117,19 @@
                         />
                         <i class="far fa-check-circle contact__group-icon"></i>
                         <label for="email">تلفن</label>
+                    </div>
+
+                    <div class="contact__group">
+                        <input
+                                class="contact__input"
+                                type="date"
+                                id="birthday"
+                                name="birthday"
+                                [placeholder]="this?.profileService?.user?.dateOfBirth"
+                                [(ngModel)]="user!.dateOfBirth"
+                        />
+                        <i class="far fa-check-circle contact__group-icon"></i>
+                        <label for="email">تاریخ تولد</label>
                     </div>
 
                     <div class="contact__group">
