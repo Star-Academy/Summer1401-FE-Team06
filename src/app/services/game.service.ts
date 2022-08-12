@@ -2,13 +2,22 @@ import {Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
 import {Game} from '../models/game.model';
-import {API_GAME_GENRES, API_GAME_ONE, API_GAME_PLATFORMS, API_GAME_SEARCH} from '../utils/api.utils';
+import {
+    API_FAVORITES_ADD,
+    API_FAVORITES_ALL,
+    API_FAVORITES_REMOVE,
+    API_GAME_GENRES,
+    API_GAME_ONE,
+    API_GAME_PLATFORMS,
+    API_GAME_SEARCH,
+} from '../utils/api.utils';
 import {Sort} from '../enum/sort.enum';
 import {Platform} from '../models/platform.model';
 import {Genre} from '../models/genre.model';
 import {Filters} from '../models/filters.model';
 import {ExpansionListItem} from '../pages/search/models/expansion-list-item.model';
 import {ProductNew} from '../models/productNew.model';
+import {AuthService} from './auth.service';
 
 @Injectable({
     providedIn: 'root',
@@ -16,6 +25,8 @@ import {ProductNew} from '../models/productNew.model';
 export class GameService {
     public readonly PAGE_SIZE: number = 20;
     public games: Game[] = [];
+    public favoriteList: ProductNew[] = [];
+    public favoriteListId: number[] = [];
     public sliderGames: ProductNew[] = [];
     public platforms: ExpansionListItem[] = [];
     public genres: ExpansionListItem[] = [];
@@ -27,9 +38,10 @@ export class GameService {
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
 
-    public constructor(private router: Router, private apiService: ApiService) {
+    public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
+        this.initializeFavoriteList().then();
         this.initializeObservers();
 
         console.log();
@@ -58,28 +70,38 @@ export class GameService {
             },
         });
 
-        this.sliderGames = response && Array.isArray(response?.games) ? this.generateGameProprety(response.games) : [];
-        console.log(this.sliderGames);
+        this.sliderGames = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
         return this.sliderGames;
-        // return null;
     }
 
-    private generateGameProprety(games: Game[], harchi?: string): ProductNew[] {
-        console.log(games);
-        const generatedGames = games.map((game) => {
+    public async addGameToFavoriteList(gameId: number): Promise<void> {
+        const token = this.authService.token;
+        await this.apiService.postRequest<any>({url: API_FAVORITES_ADD, body: {token, gameId}});
+        this.favoriteListId.push(gameId);
+    }
+    public async removeGameFromFavoriteList(gameId: number): Promise<void> {
+        const token = this.authService.token;
+        await this.apiService.deleteRequest<any>({
+            url: API_FAVORITES_REMOVE,
+            body: {token, gameId},
+        });
+        this.favoriteListId = this.favoriteListId.filter((id) => id !== gameId);
+    }
+
+    private convertToGameCard(games: Game[], harchi?: string): ProductNew[] {
+        const generatedGames = games.map((game): ProductNew => {
             return {
-                // game.name, game.id, game.price, game.priceOnSale, game.cover;
                 name: game.name,
                 id: game.id,
                 price: game.price,
                 priceOnSale: game.priceOnSale,
                 cover: game.cover,
+                isFavorite: this.favoriteListId.some((gameId) => gameId === game.id),
             };
         });
         console.log(generatedGames);
         return generatedGames;
     }
-    // private generateGameOption(option:string):
 
     public async changeSort(sort: Sort): Promise<void> {
         this.offset = 0;
@@ -107,8 +129,6 @@ export class GameService {
         });
 
         this.games = response && Array.isArray(response?.games) ? response.games : [];
-
-        console.log(this.games);
     }
 
     public async navigate(): Promise<void> {
@@ -135,6 +155,17 @@ export class GameService {
     private async initializePlatforms(): Promise<void> {
         const platforms = (await this.apiService.getRequest<Platform[]>({url: API_GAME_PLATFORMS})) || [];
         this.platforms = platforms.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
+    }
+
+    private async initializeFavoriteList(): Promise<void> {
+        const token = this.authService.token;
+        if (token) {
+            const favoriteList: Game[] =
+                (await this.apiService
+                    .postRequest<{games: Game[]}>({url: API_FAVORITES_ALL, body: {token}})
+                    .then((data) => data?.games)) || [];
+            this.favoriteListId = favoriteList.map((game) => game.id);
+        }
     }
 
     private async initializeGenres(): Promise<void> {

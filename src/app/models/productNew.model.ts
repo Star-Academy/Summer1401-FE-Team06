@@ -6,4 +6,5 @@ export interface ProductNew {
     name: string;
     price: number;
     priceOnSale: number;
+    isFavorite: boolean;
 }

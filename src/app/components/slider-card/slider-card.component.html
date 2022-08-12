@@ -12,9 +12,14 @@
                 [haveBackgroundColor]="false"
             ></app-icon>
         </p>
+        <ng-container *ngIf="product.isFavorite">added to your favorite list</ng-container>
     </div>
     <div class="overlay">
-        <app-icon [iconClass]="IconType.WISH_LIST" [iconColor]="IconColor.ORANGE"></app-icon>
+        <app-icon
+            [iconClass]="IconType.WISH_LIST"
+            [iconColor]="IconColor.ORANGE"
+            (click)="addAndRemoveFavorite(product.id)"
+        ></app-icon>
         <button class="more">مشاهده جزئیات</button>
         <button class="buy">خرید</button>
     </div>

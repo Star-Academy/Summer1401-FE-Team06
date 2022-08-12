@@ -20,3 +20,7 @@ export const DEFAULT_POST_REQUEST_INIT: RequestInit = {
     method: 'post',
     headers: {'Content-Type': 'application/json'},
 };
+export const DEFAULT_DELETE_REQUEST_INIT: RequestInit = {
+    method: 'delete',
+    headers: {'Content-Type': 'application/json'},
+};

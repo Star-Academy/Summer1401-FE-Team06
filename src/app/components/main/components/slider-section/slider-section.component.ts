@@ -4,6 +4,7 @@ import {Product} from '../../../main-cards/models/product';
 import {GameService} from '../../../../services/game.service';
 import {Params} from '@angular/router';
 import {ProductNew} from '../../../../models/productNew.model';
+import {AuthService} from '../../../../services/auth.service';
 
 @Component({
     selector: 'app-slider-section',
@@ -15,7 +16,6 @@ export class SliderSectionComponent {
     @Input() public isReverse: boolean = false;
     public cardWidthConstant: number = 300;
 
-    // public constructor(private gameService: GameService) {}
     // public async ngOnInit(): Promise<void> {
     //     this.cards = (await this.gameService.topGame()) && null;
     // }

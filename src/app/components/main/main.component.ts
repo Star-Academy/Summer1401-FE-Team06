@@ -16,6 +16,5 @@ export class MainComponent implements OnInit {
 
     public async ngOnInit(): Promise<void> {
         this.topGame = (await this.gameService.topGame()) || null;
-        console.log(this.topGame);
     }
 }
