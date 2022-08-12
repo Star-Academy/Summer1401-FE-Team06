@@ -5,6 +5,7 @@ import {ProfileService} from '../../services/profile.service';
 import {User} from '../../models/user.model';
 import {AuthService} from '../../services/auth.service';
 import {ResultMessageService} from '../../services/result-message.service';
+import {ProductNew} from "../../models/productNew.model";
 
 @Component({
     selector: 'app-profile',
@@ -12,7 +13,7 @@ import {ResultMessageService} from '../../services/result-message.service';
     styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-    public cards: Product[] = Products;
+    public cards: ProductNew[] = [];
     public favorites: boolean = true;
     public user: User = {
         firstName: '',

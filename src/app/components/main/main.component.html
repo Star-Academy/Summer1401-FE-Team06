@@ -1,11 +1,13 @@
 <app-slidebar></app-slidebar>
 <app-container>
+    <ng-template #loader>loading</ng-template>
     <app-section
+        *ngIf="topGame; else loader"
         primaryTitle="پرفروش‌ترین بازی‌ها"
         [titleDirection]="titleDirectionType.LEFT"
         placeComponent="right-out"
     >
-        <app-slider-section [isReverse]="true"></app-slider-section>
+        <app-slider-section [cards]="topGame" [isReverse]="true"></app-slider-section>
     </app-section>
     <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
         <app-banner></app-banner>

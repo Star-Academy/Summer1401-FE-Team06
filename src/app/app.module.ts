@@ -10,6 +10,7 @@ import {ProfileModule} from './pages/profile/profile.module';
 import {ResultMessageModule} from './components/result-message/result-message.module';
 import {GameInfoModule} from './pages/game-info/game-info.module';
 import {SearchModule} from './pages/search/search.module';
+import {SliderImageConverterPipeModule} from './pages/game-info/pipe/slider-image-converter.pip.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -23,6 +24,7 @@ import {SearchModule} from './pages/search/search.module';
         ResultMessageModule,
         SearchModule,
         GameInfoModule,
+        SliderImageConverterPipeModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

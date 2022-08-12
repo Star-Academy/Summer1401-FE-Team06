@@ -8,14 +8,15 @@ import {Platform} from '../models/platform.model';
 import {Genre} from '../models/genre.model';
 import {Filters} from '../models/filters.model';
 import {ExpansionListItem} from '../pages/search/models/expansion-list-item.model';
+import {ProductNew} from '../models/productNew.model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class GameService {
     public readonly PAGE_SIZE: number = 20;
-    public gameSelected!: Game;
     public games: Game[] = [];
+    public sliderGames: ProductNew[] = [];
     public platforms: ExpansionListItem[] = [];
     public genres: ExpansionListItem[] = [];
 
@@ -36,12 +37,49 @@ export class GameService {
 
     public async searchById(id: number): Promise<Game | null> {
         const response = await this.apiService.getRequest<{game: Game}>({
-            // url: `${API_GAME_SEARCH}/${id}`,
             url: `${API_GAME_ONE}/${id}`,
         });
         console.log(response);
         return response?.game || null;
     }
+
+    public async topGame(): Promise<ProductNew[] | null> {
+        const response = await this.apiService.postRequest<{games: Game[]}>({
+            url: API_GAME_SEARCH,
+            body: {
+                searchPhrase: 'red dead',
+                pageSize: 10,
+                offset: 0,
+                sort: 2,
+                filters: {
+                    minimumRating: 80,
+                    maximumRating: 99,
+                },
+            },
+        });
+
+        this.sliderGames = response && Array.isArray(response?.games) ? this.generateGameProprety(response.games) : [];
+        console.log(this.sliderGames);
+        return this.sliderGames;
+        // return null;
+    }
+
+    private generateGameProprety(games: Game[], harchi?: string): ProductNew[] {
+        console.log(games);
+        const generatedGames = games.map((game) => {
+            return {
+                // game.name, game.id, game.price, game.priceOnSale, game.cover;
+                name: game.name,
+                id: game.id,
+                price: game.price,
+                priceOnSale: game.priceOnSale,
+                cover: game.cover,
+            };
+        });
+        console.log(generatedGames);
+        return generatedGames;
+    }
+    // private generateGameOption(option:string):
 
     public async changeSort(sort: Sort): Promise<void> {
         this.offset = 0;

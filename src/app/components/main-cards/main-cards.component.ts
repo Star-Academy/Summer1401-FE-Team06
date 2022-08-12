@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, Output} from '@angular/core';
 import {Product} from './models/product';
 import {Products} from './sample-data';
+import {ProductNew} from '../../models/productNew.model';
 
 @Component({
     selector: 'app-main-cards',
@@ -8,5 +9,5 @@ import {Products} from './sample-data';
     styleUrls: ['./main-cards.component.scss'],
 })
 export class MainCardsComponent {
-    public cards: Product[] = Products;
+    public cards: ProductNew[] = [];
 }

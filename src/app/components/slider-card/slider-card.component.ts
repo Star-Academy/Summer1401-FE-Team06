@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IconType} from '../../enum/icon-type.enum';
 import {Product} from '../main-cards/models/product';
 import {IconColor} from '../../enum/icon-color.enum';
+import {ProductNew} from '../../models/productNew.model';
 
 @Component({
     selector: 'app-slider-card',
@@ -9,7 +10,7 @@ import {IconColor} from '../../enum/icon-color.enum';
     styleUrls: ['./slider-card.component.scss'],
 })
 export class SliderCardComponent {
-    @Input() public product!: Product;
+    @Input() public product!: ProductNew;
     public IconType = IconType;
     public IconColor = IconColor;
 }
