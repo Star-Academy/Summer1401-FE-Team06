@@ -1,29 +1,32 @@
 <app-header></app-header>
 <div class="wrapper">
-    <div class="section">
-        <div class="game__header">
-            <div class="game__title">
-                <h2>بازی assassin's creed</h2>
-                <h3>اطلاعات تکمیلی بازی</h3>
+    <ng-container *ngIf="game && !isFetching; else loader">
+        <div class="section">
+            <div class="game__header">
+                <div class="game__title">
+                    <h2>{{ game.name }}</h2>
+                    <h3 (click)="showMe()">اطلاعات تکمیلی بازی</h3>
+                </div>
+                <app-game-slider [items]="gameImages | sliderImageConverter"></app-game-slider>
             </div>
-            <app-game-slider></app-game-slider>
-        </div>
 
-        <div class="game__summary">
-            <app-game-title [title]="summary.title" [description]="summary.description"> </app-game-title>
-            <app-game-title [title]="storyLine.title" [description]="storyLine.description"> </app-game-title>
-        </div>
+            <div class="game__summary">
+                <app-game-title [title]="'درباره بازی'" [description]="game.summary"> </app-game-title>
+                <app-game-title [title]="'داستان بازی'" [description]="game.storyline"> </app-game-title>
+            </div>
 
-        <div class="game__details">
-            <app-game-detail [detailList]="detailsList"></app-game-detail>
-            <app-game-detail [detailList]="detailsList"></app-game-detail>
-            <app-game-detail [detailList]="detailsList"></app-game-detail>
+            <div class="game__details">
+                <app-game-detail [list]="game.genres" title="ژانر"></app-game-detail>
+                <app-game-detail [list]="game.keywords" title="کلمات کلیدی"></app-game-detail>
+                <app-game-detail [list]="game.platforms" title="پلتفرم"></app-game-detail>
+            </div>
         </div>
-    </div>
-    <div class="splitter"></div>
-    <div class="game__relate">
-        <app-primary-title [title]="'بازی های مرتبط'"></app-primary-title>
-        <app-slider-section></app-slider-section>
-    </div>
+        <div class="splitter"></div>
+        <div class="game__relate">
+            <app-primary-title [title]="'بازی های مرتبط'"></app-primary-title>
+            <app-slider-section></app-slider-section>
+        </div>
+    </ng-container>
+    <ng-template #loader>salaaaam...</ng-template>
 </div>
 <app-footer></app-footer>

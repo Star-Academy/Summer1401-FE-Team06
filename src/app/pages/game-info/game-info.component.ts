@@ -1,34 +1,44 @@
-import {Component} from '@angular/core';
-import {detailListModel} from './game-details.model';
+import {Component, OnInit} from '@angular/core';
 
-const fakeDetails: detailListModel = {
-    title: 'Genre',
-    list: [
-        {name: 'Shooter', id: 3},
-        {name: 'Fighting', id: 2},
-        {name: 'Music', id: 4},
-        {name: 'Platform', id: 6},
-        {name: 'Puzzle', id: 10},
-    ],
-};
+import {GameService} from '../../services/game.service';
+import {Game, GameImage} from '../../models/game.model';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
     selector: 'app-game-info',
     templateUrl: './game-info.component.html',
     styleUrls: ['./game-info.component.scss'],
 })
-export class GameInfoComponent {
-    public summary = {
-        title: 'درباره بازی:',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dignissimos doloribus esse exercitationem, id itaque quis rem rerum soluta vero?',
-    };
+export class GameInfoComponent implements OnInit {
+    public isFetching = false;
+    public game: Game | null = null;
+    public gameImages: string[] = [];
+    private id!: number;
+    public constructor(private gameService: GameService, private route: ActivatedRoute) {}
 
-    public storyLine = {
-        title: 'داستان بازی:',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci asperiores assumenda autem delectus dolorem dolores eius eos fuga illo in ipsa, laboriosam laborum modi mollitia nesciunt non possimus quaerat similique, suscipit veniam vero voluptatibus.',
-    };
+    public ngOnInit(): void {
+        this.route.params.subscribe(async (params: Params) => {
+            this.id = +params['id'];
+            this.game = (await this.gameService.searchById(this.id)) || null;
+            if (this.game) {
+                this.gameImages = this.gameImageGenerate(this.game?.cover, this.game?.artworks, this.game?.screenshots);
+            }
+        });
+    }
+    public showMe(): void {
+        console.log(this.game);
+    }
+    private gameImageGenerate(cover: GameImage, artWork: GameImage[], screenShots: GameImage[]): string[] {
+        const mergedImages = [
+            ...this.convertGameImageToId([cover]),
+            ...this.convertGameImageToId(artWork),
+            ...this.convertGameImageToId(screenShots),
+        ];
 
-    public detailsList: detailListModel = fakeDetails;
+        return mergedImages;
+    }
+    private convertGameImageToId(arrayHarchi: GameImage[]): string[] {
+        const extractedId = arrayHarchi.map((image) => image.id);
+        return extractedId;
+    }
 }

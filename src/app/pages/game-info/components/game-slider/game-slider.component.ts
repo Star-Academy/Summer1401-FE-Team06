@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild} from '@angular/core';
 
-interface Item {
-    src: string;
-}
+// interface Item {
+//     src: string;
+// }
 @Component({
     selector: 'app-game-slider',
     templateUrl: './game-slider.component.html',
@@ -11,10 +11,10 @@ interface Item {
 export class GameSliderComponent implements AfterViewInit, OnDestroy {
     public readonly INTERVAL_DELAY: number = 4_000;
 
-    public items: Item[] = [
-        {src: 'assets/images/slider3.webp'},
-        {src: 'assets/images/slider1.webp'},
-        {src: 'assets/images/slider4.webp'},
+    @Input() public items: string[] = [
+        'assets/images/slider3.webp',
+        'assets/images/slider1.webp',
+        'assets/images/slider4.webp',
     ];
 
     public cardWidthConstant: number = 300;

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {detailListModel} from '../../game-details.model';
+import {listModel} from '../../game-details.model';
 
 @Component({
     selector: 'app-game-detail',
@@ -7,10 +7,11 @@ import {detailListModel} from '../../game-details.model';
     styleUrls: ['./game-detail.component.scss'],
 })
 export class GameDetailComponent {
-    @Input() public detailList!: detailListModel;
+    @Input() public list: listModel[] = [];
+    @Input() public title: string = '';
 
     public convertDetailNameToList(): string {
-        const convertedList = this.detailList.list.map((gameList) => gameList.name);
+        const convertedList = this.list.map((gameList) => gameList.name).slice(0, 5);
         const convertToString = convertedList.join(', ');
         return convertToString;
     }

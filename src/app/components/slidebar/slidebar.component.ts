@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {GameService} from '../../services/game.service';
 
 interface Item {
     src: string;
@@ -10,6 +11,7 @@ interface Item {
     styleUrls: ['./slidebar.component.scss'],
 })
 export class SlidebarComponent implements AfterViewInit, OnDestroy {
+    public constructor(private gameService: GameService) {}
     public readonly INTERVAL_DELAY: number = 4_000;
 
     public items: Item[] = [

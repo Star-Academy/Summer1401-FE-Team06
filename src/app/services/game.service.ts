@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
 import {Game} from '../models/game.model';
-import {API_GAME_GENRES, API_GAME_PLATFORMS, API_GAME_SEARCH} from '../utils/api.utils';
+import {API_GAME_GENRES, API_GAME_ONE, API_GAME_PLATFORMS, API_GAME_SEARCH} from '../utils/api.utils';
 import {Sort} from '../enum/sort.enum';
 import {Platform} from '../models/platform.model';
 import {Genre} from '../models/genre.model';
@@ -14,7 +14,7 @@ import {ExpansionListItem} from '../pages/search/models/expansion-list-item.mode
 })
 export class GameService {
     public readonly PAGE_SIZE: number = 20;
-
+    public gameSelected!: Game;
     public games: Game[] = [];
     public platforms: ExpansionListItem[] = [];
     public genres: ExpansionListItem[] = [];
@@ -34,6 +34,15 @@ export class GameService {
         console.log();
     }
 
+    public async searchById(id: number): Promise<Game | null> {
+        const response = await this.apiService.getRequest<{game: Game}>({
+            // url: `${API_GAME_SEARCH}/${id}`,
+            url: `${API_GAME_ONE}/${id}`,
+        });
+        console.log(response);
+        return response?.game || null;
+    }
+
     public async changeSort(sort: Sort): Promise<void> {
         this.offset = 0;
         this.sort = sort;
@@ -48,7 +57,7 @@ export class GameService {
     }
 
     public async search(): Promise<void> {
-        const response = await this.apiService.postRequest<{ games: Game[] }>({
+        const response = await this.apiService.postRequest<{games: Game[]}>({
             url: API_GAME_SEARCH,
             body: {
                 searchPhrase: this.searchPhrase,

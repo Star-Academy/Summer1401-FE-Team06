@@ -10,9 +10,16 @@ import {GameTitleComponent} from './components/game-title/game-title.component';
 import {GameDetailComponent} from './components/game-detail/game-detail.component';
 import {PrimaryTitleModule} from '../../components/primary-title/primary-title.module';
 import {MainModule} from '../../components/main/main.module';
+import {SliderImageConverterPipe} from './pipe/slider-image-converter.pipe';
 
 @NgModule({
-    declarations: [GameInfoComponent, GameSliderComponent, GameTitleComponent, GameDetailComponent],
+    declarations: [
+        GameInfoComponent,
+        GameSliderComponent,
+        GameTitleComponent,
+        GameDetailComponent,
+        SliderImageConverterPipe,
+    ],
     imports: [CommonModule, HeaderModule, FooterModule, SectionModule, PrimaryTitleModule, MainModule],
 })
 export class GameInfoModule {}

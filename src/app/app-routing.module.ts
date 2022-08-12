@@ -13,7 +13,7 @@ const routes: Routes = [
     {path: 'auth', component: AuthComponent, canActivate: [AuthGuard]},
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     {path: 'search', component: SearchComponent},
-    {path: 'game', component: GameInfoComponent},
+    {path: 'game/:id', component: GameInfoComponent},
     {path: '**', component: NotFoundComponent},
 ];
 
