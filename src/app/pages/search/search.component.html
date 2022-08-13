@@ -26,7 +26,7 @@
                 ><i class="fa-solid fa-angle-right"></i
             ></a>
             <ul #paginationList>
-                <li *ngIf="active > 2" (click)="changePaginationList(1)"><a>1</a></li>
+                <li *ngIf="active > 3" (click)="changePaginationList(1)"><a>1</a></li>
                 <li *ngIf="active > 3 && active <= this.gameService.numberOfPages"><a>…</a></li>
                 <li
                     *ngIf="gameService.numberOfPages > 1"
@@ -49,9 +49,17 @@
                 >
                     <a>{{ linumbers[2] }}</a>
                 </li>
-                <li *ngIf="active > 0 && active < this.gameService.numberOfPages - 1"><a>…</a></li>
                 <li
-                    *ngIf="active > 0 && active < this.gameService.numberOfPages - 1"
+                    *ngIf="
+                        active > 0 && active < this.gameService.numberOfPages - 1 && this.gameService.numberOfPages > 3
+                    "
+                >
+                    <a>…</a>
+                </li>
+                <li
+                    *ngIf="
+                        active > 0 && active < this.gameService.numberOfPages - 1 && this.gameService.numberOfPages > 3
+                    "
                     (click)="changePaginationList(this.gameService.numberOfPages)"
                 >
                     <a>{{ this.gameService.numberOfPages }}</a>
