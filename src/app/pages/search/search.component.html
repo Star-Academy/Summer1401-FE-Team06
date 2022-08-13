@@ -28,13 +28,25 @@
             <ul #paginationList>
                 <li *ngIf="active > 2" (click)="changePaginationList(1)"><a>1</a></li>
                 <li *ngIf="active > 3 && active <= this.gameService.numberOfPages"><a>…</a></li>
-                <li (click)="changePaginationList(linumbers[0])" [class.current]="active === linumbers[0]">
+                <li
+                    *ngIf="gameService.numberOfPages > 1"
+                    (click)="changePaginationList(linumbers[0])"
+                    [class.current]="active === linumbers[0]"
+                >
                     <a>{{ linumbers[0] }}</a>
                 </li>
-                <li (click)="changePaginationList(linumbers[1])" [class.current]="active === linumbers[1]">
+                <li
+                    *ngIf="gameService.numberOfPages > 1"
+                    (click)="changePaginationList(linumbers[1])"
+                    [class.current]="active === linumbers[1]"
+                >
                     <a>{{ linumbers[1] }}</a>
                 </li>
-                <li (click)="changePaginationList(linumbers[2])" [class.current]="active === linumbers[2]">
+                <li
+                    *ngIf="gameService.numberOfPages > 2"
+                    (click)="changePaginationList(linumbers[2])"
+                    [class.current]="active === linumbers[2]"
+                >
                     <a>{{ linumbers[2] }}</a>
                 </li>
                 <li *ngIf="active > 0 && active < this.gameService.numberOfPages - 1"><a>…</a></li>

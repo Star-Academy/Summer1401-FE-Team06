@@ -11,6 +11,7 @@ import {ResultMessageModule} from './components/result-message/result-message.mo
 import {GameInfoModule} from './pages/game-info/game-info.module';
 import {SearchModule} from './pages/search/search.module';
 import {SliderImageConverterPipeModule} from './pages/game-info/pipe/slider-image-converter.pip.module';
+import {LoadingModule} from "./components/loading/loading.module";
 
 @NgModule({
     declarations: [AppComponent],
@@ -25,6 +26,7 @@ import {SliderImageConverterPipeModule} from './pages/game-info/pipe/slider-imag
         SearchModule,
         GameInfoModule,
         SliderImageConverterPipeModule,
+        LoadingModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
