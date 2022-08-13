@@ -1,0 +1,115 @@
+<div class="edit-profile">
+    <form class="contact__form" (ngSubmit)="formSubmitHandler()">
+        <h2 class="contact__title">ویرایش پروفایل</h2>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="text"
+                id="firstName"
+                name="firstName"
+                [placeholder]="this?.profileService?.user?.firstName"
+                [(ngModel)]="user!.firstName"
+            />
+            <label for="firstName">نام</label>
+            <i class="far fa-check-circle contact__group-icon"></i>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="text"
+                id="lastName"
+                name="lastName"
+                [placeholder]="this?.profileService?.user?.lastName"
+                [(ngModel)]="user!.lastName"
+            />
+            <label for="lastName">نام خانوادگی</label>
+            <i class="far fa-check-circle contact__group-icon"></i>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="text"
+                id="username"
+                name="username"
+                [placeholder]="this?.profileService?.user?.username"
+                pattern="([A-Za-z])\w+"
+                [(ngModel)]="user!.username"
+            />
+            <label for="username">نام کاربری (حرف لاتین)</label>
+            <i class="far fa-check-circle contact__group-icon"></i>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="email"
+                id="email"
+                name="email"
+                [placeholder]="this?.profileService?.user?.email"
+                [(ngModel)]="user!.email"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="email">ایمیل</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="tel"
+                id="phone"
+                name="phone"
+                [placeholder]="this?.profileService?.user?.phone"
+                [(ngModel)]="user!.phone"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="email">تلفن</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="date"
+                id="birthday"
+                name="birthday"
+                [placeholder]="this?.profileService?.user?.dateOfBirth"
+                [(ngModel)]="user!.dateOfBirth"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="email">تاریخ تولد</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="date"
+                id="birthday"
+                name="birthday"
+                [placeholder]="this?.profileService?.user?.dateOfBirth"
+                [(ngModel)]="user!.dateOfBirth"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="email">تاریخ تولد</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="password"
+                id="password"
+                placeholder="شامل حروف لاتین و عدد و نماد"
+                name="password"
+                pattern="'^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="password">رمز عبور</label>
+        </div>
+        <div class="contact__buttons">
+            <button type="submit" class="button active">تایید</button>
+        </div>
+    </form>
+
+    <app-result-message></app-result-message>
+</div>

@@ -1,7 +1,8 @@
 <app-header></app-header>
 <div class="container profile-container">
     <div>
-        <img [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
+        <img class="object-fit-cover" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
+        <img class="object-fit-contain" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
         <div>
             <img src="assets/images/avatar.webp" alt="avatar" />
             <div>
@@ -35,135 +36,23 @@
                         <span>تاریخ تولد </span>
                         <span>{{ this.profileService?.user?.dateOfBirth || '_' }}</span>
                     </div>
-                    <button (click)="this.favorites = false">ویرایش پروفایل <i class="fas fa-edit"></i></button>
-                    <button (click)="this.favorites = true" class="heartbtn">
+                    <button routerLink="edit" routerLinkActive="is-active">
+                        ویرایش پروفایل <i class="fas fa-edit"></i>
+                    </button>
+                    <button routerLink="wish-list" routerLinkActive="is-active">
+                        لیست خرید <i class="fas fa-cart-shopping"></i>
+                    </button>
+                    <button routerLink="favorites" routerLinkActive="is-active" class="heartbtn">
                         علاقه‌مندی‌ها <i class="fas fa-star"></i>
                     </button>
                 </div>
             </div>
         </aside>
         <main>
-            <div class="favorites" *ngIf="cards">
-                <h2 class="contact__title">علاقه‌مندی‌ها</h2>
-                <div class="products">
-                    <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
-                </div>
-            </div>
-            <div class="edit-profile" *ngIf="!favorites">
-                <form class="contact__form" (ngSubmit)="formSubmitHandler()">
-                    <h2 class="contact__title">ویرایش پروفایل</h2>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            [placeholder]="this?.profileService?.user?.firstName"
-                            [(ngModel)]="user!.firstName"
-                        />
-                        <label for="firstName">نام</label>
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                    </div>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            [placeholder]="this?.profileService?.user?.lastName"
-                            [(ngModel)]="user!.lastName"
-                        />
-                        <label for="lastName">نام خانوادگی</label>
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                    </div>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="text"
-                            id="username"
-                            name="username"
-                            [placeholder]="this?.profileService?.user?.username"
-                            pattern="([A-Za-z])\w+"
-                            [(ngModel)]="user!.username"
-                        />
-                        <label for="username">نام کاربری (حرف لاتین)</label>
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                    </div>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="email"
-                            id="email"
-                            name="email"
-                            [placeholder]="this?.profileService?.user?.email"
-                            [(ngModel)]="user!.email"
-                        />
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                        <label for="email">ایمیل</label>
-                    </div>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            [placeholder]="this?.profileService?.user?.phone"
-                            [(ngModel)]="user!.phone"
-                        />
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                        <label for="email">تلفن</label>
-                    </div>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="date"
-                            id="birthday"
-                            name="birthday"
-                            [placeholder]="this?.profileService?.user?.dateOfBirth"
-                            [(ngModel)]="user!.dateOfBirth"
-                        />
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                        <label for="email">تاریخ تولد</label>
-                    </div>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="date"
-                            id="birthday"
-                            name="birthday"
-                            [placeholder]="this?.profileService?.user?.dateOfBirth"
-                            [(ngModel)]="user!.dateOfBirth"
-                        />
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                        <label for="email">تاریخ تولد</label>
-                    </div>
-
-                    <div class="contact__group">
-                        <input
-                            class="contact__input"
-                            type="password"
-                            id="password"
-                            placeholder="شامل حروف لاتین و عدد و نماد"
-                            name="password"
-                            pattern="'^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'"
-                        />
-                        <i class="far fa-check-circle contact__group-icon"></i>
-                        <label for="password">رمز عبور</label>
-                    </div>
-                    <div class="contact__buttons">
-                        <button type="submit" class="button active">تایید</button>
-                    </div>
-                </form>
-
-                <app-result-message></app-result-message>
-            </div>
+            <router-outlet></router-outlet>
+            <!--            <app-favorites *ngIf="cards && situation === 'favorites'" [cards]="cards"></app-favorites>-->
+            <!--            <app-edit-profile *ngIf="situation === 'editProfile'"></app-edit-profile>-->
+            <!--            <app-wish-list *ngIf="situation === 'wishList'"></app-wish-list>-->
         </main>
     </div>
 </div>

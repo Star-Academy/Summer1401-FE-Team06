@@ -9,9 +9,12 @@ import {HeaderModule} from '../../components/header/header.module';
 import {FooterModule} from '../../components/footer/footer.module';
 import {SliderImageConverterPipeModule} from '../game-info/pipe/slider-image-converter.pip.module';
 import {PickBestImagePipeModule} from '../game-info/pipe/pick-best-image-pipe.module';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { WishListComponent } from './wish-list/wish-list.component';
 
 @NgModule({
-    declarations: [ProfileComponent],
+    declarations: [ProfileComponent, EditProfileComponent, FavoritesComponent, WishListComponent],
     imports: [
         CommonModule,
         RouterModule,
