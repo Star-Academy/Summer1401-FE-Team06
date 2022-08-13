@@ -4,18 +4,29 @@ import {Products} from '../../components/main-cards/sample-data';
 import {Sort} from '../../enum/sort.enum';
 import {GameService} from '../../services/game.service';
 import {Game} from '../../models/game.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent{
+export class SearchComponent implements OnInit {
     public linumbers: number[] = [1, 2, 3];
     public Sort = Sort;
     public active: number = 1;
 
-    public constructor(public gameService: GameService) {}
+    // public
+
+    public constructor(public gameService: GameService, private route: ActivatedRoute) {}
+
+    public ngOnInit(): void {
+        const urlSort = this.route.snapshot.queryParamMap.get('sort');
+        // const urlSort = this.route.snapshot.queryParamMap.get('genre');
+        // const urlSort = this.route.snapshot.queryParamMap.get('');
+        // const urlSort = this.route.snapshot.queryParamMap.get('sort');
+        // const urlSort = this.route.snapshot.queryParamMap.get('sort');
+    }
 
     public async sortingClickHandler(sort: any): Promise<void> {
         await this.gameService.changeSort(+sort.target.value);

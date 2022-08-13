@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
 import {Game, GameImage} from '../models/game.model';
 import {
@@ -36,16 +36,23 @@ export class GameService {
     public genres: ExpansionListItem[] = [];
 
     public searchPhrase: string = '';
-    public offset: number = 0;
-    public sort: Sort = Sort.TOP_SELLER;
+
     public onlyPublishedGames: boolean = false;
+
+    public sort: Sort = Sort.TOP_SELLER;
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
+    public numberOfPages: number = 0;
+    public offset: number = 0;
 
     public countOfProducts: number = 0;
-    public numberOfPages: number = 0;
 
-    public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
+    public constructor(
+        private router: Router,
+        private apiService: ApiService,
+        private authService: AuthService,
+        private route: ActivatedRoute
+    ) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
         this.initializeFavoriteList(true).then();
@@ -178,7 +185,6 @@ export class GameService {
                     .then((data) => data?.games)) || [];
 
             this.favoriteListId = favoriteList.map((game) => game.id);
-            // if (saveToFavoriteList) this.favoriteList = this.convertToGameCard(favoriteList);
             if (saveToFavoriteList) this.favoriteList.next(this.convertToGameCard(favoriteList));
         }
     }
@@ -191,8 +197,67 @@ export class GameService {
     private initializeObservers(): void {
         this.router.events.subscribe(async (value) => {
             if (value instanceof NavigationEnd) {
+                this.searchPhrase = this.getFilterByParam('searchPhrase') || this.searchPhrase;
+                this.onlyPublishedGames =
+                    this.getFilterByParam('onlyPublishedGames') === 'true' ? true : false || this.onlyPublishedGames;
+                this.sort = this.getFilterSort();
+                this.offset = Number(this.getFilterByParam('offset')) || this.offset;
+                this.numberOfPages = Number(this.getFilterByParam('numberOfPages')) || this.numberOfPages;
+                this.minimumRating = Number(this.getFilterByParam('minimumRating')) || this.minimumRating;
+                this.maximumRating = Number(this.getFilterByParam('maximumRating')) || this.maximumRating;
+                this.getFilterArray(this.getFilterByParam('genres'), 'genres');
+                this.getFilterArray(this.getFilterByParam('platforms'), 'platforms');
+
                 if (value.url.startsWith('/search')) await this.search();
             }
         });
+    }
+    private getFilterByParam(param: string): string | null {
+        const convertedToString = this.route.snapshot.queryParamMap.get(param);
+        if (convertedToString) return convertedToString;
+        return null;
+    }
+
+    private getFilterSort(): Sort {
+        const sort = this.getFilterByParam('sort');
+        if (!sort) return this.sort;
+
+        let sortObj: Sort;
+        switch (+sort) {
+            case 0:
+                sortObj = Sort.MOST_RELEVANT;
+                break;
+            case 1:
+                sortObj = Sort.TOP_SELLER;
+                break;
+            case 2:
+                sortObj = Sort.MOST_POPULAR;
+                break;
+            case 3:
+                sortObj = Sort.NEWEST;
+                break;
+            case 4:
+                sortObj = Sort.OLDEST;
+                break;
+            default:
+                sortObj = this.sort;
+        }
+        return sortObj;
+    }
+    private getFilterArray(params: string | null, key: string): void | null {
+        if (params === null) return;
+
+        const filteredIds = params.split(',').map((x) => +x);
+        if (key === 'genres') {
+            filteredIds.forEach((id) => {
+                const activeGenre = this.genres.find((genre) => genre.id == id);
+                if (activeGenre) activeGenre.isEnabled = true;
+            });
+        } else if (key === 'platforms') {
+            filteredIds.forEach((id) => {
+                const activePlatform = this.platforms.find((genre) => genre.id == id);
+                if (activePlatform) activePlatform.isEnabled = true;
+            });
+        }
     }
 }
