@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {Game} from '../models/game.model';
+import {Game, GameImage} from '../models/game.model';
 import {
     API_FAVORITES_ADD,
     API_FAVORITES_ALL,
@@ -24,13 +24,14 @@ import {Subject} from 'rxjs';
     providedIn: 'root',
 })
 export class GameService {
-    public readonly PAGE_SIZE: number = 20;
+    public readonly PAGE_SIZE: number = 21;
     public games: Game[] = [];
-    // public favoriteList: ProductNew[] = [];
     public favoriteList = new Subject<ProductNew[]>();
-    // public favoriteChanged = new Subject<ProductNew[]>();
     public favoriteListId: number[] = [];
+
     public sliderGames: ProductNew[] = [];
+    public searchGames: ProductNew[] = [];
+
     public platforms: ExpansionListItem[] = [];
     public genres: ExpansionListItem[] = [];
 
@@ -40,6 +41,9 @@ export class GameService {
     public onlyPublishedGames: boolean = false;
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
+
+    public countOfProducts: number = 0;
+    public numberOfPages: number = 0;
 
     public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
         this.initializePlatforms().then();
@@ -114,14 +118,14 @@ export class GameService {
     }
 
     public async changePage(multiplier: number): Promise<void> {
-        this.offset += multiplier * this.PAGE_SIZE;
+        this.offset = multiplier * this.PAGE_SIZE;
         if (this.offset < 0) this.offset = 0;
 
         await this.search();
     }
 
     public async search(): Promise<void> {
-        const response = await this.apiService.postRequest<{games: Game[]}>({
+        const response = await this.apiService.postRequest<{count: number; games: Game[]}>({
             url: API_GAME_SEARCH,
             body: {
                 searchPhrase: this.searchPhrase,
@@ -133,6 +137,10 @@ export class GameService {
         });
 
         this.games = response && Array.isArray(response?.games) ? response.games : [];
+        this.searchGames = this.convertToGameCard(this.games);
+
+        this.countOfProducts = response?.count || 0;
+        this.numberOfPages = ~~(this.countOfProducts / this.PAGE_SIZE) + 1;
     }
 
     public async navigate(): Promise<void> {

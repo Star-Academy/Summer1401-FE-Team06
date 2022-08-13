@@ -9,6 +9,19 @@ import {GameService} from '../../../../services/game.service';
 export class FiltersComponent {
     public displayRemoveBtn: boolean = false;
 
-    public constructor(public gameService: GameService) {
+    public constructor(public gameService: GameService) {}
+
+    public async BtnHandler(situation: string): Promise<void> {
+        if (situation === 'action') {
+            this.displayRemoveBtn = true;
+            await this.gameService.search();
+        } else if (situation === 'remove') {
+            this.displayRemoveBtn = false;
+            this.gameService.platforms.forEach((x) => (x.isEnabled = false));
+            this.gameService.genres.forEach((x) => (x.isEnabled = false));
+            this.gameService.maximumRating = 100;
+            this.gameService.minimumRating = 0;
+            this.gameService.onlyPublishedGames = false;
+        }
     }
 }

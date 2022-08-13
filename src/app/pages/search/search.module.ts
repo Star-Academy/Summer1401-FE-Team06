@@ -10,13 +10,15 @@ import {SwitchComponent} from './components/switch/switch.component';
 import {FormsModule} from "@angular/forms";
 import {FilterPipeModule} from "../../pipes/filter-pipe/filter-pipe.module";
 import {SearchBoxModule} from "../../components/search-box/search-box.module";
+import { RangeComponent } from './components/range/range.component';
 
 @NgModule({
     declarations: [
         SearchComponent,
         FiltersComponent,
         ExpansionListComponent,
-        SwitchComponent
+        SwitchComponent,
+        RangeComponent
     ],
     imports: [
         CommonModule,

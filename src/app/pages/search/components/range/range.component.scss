@@ -1,0 +1,9 @@
+.wrapper{
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  input{
+    width: 100%;
+    background: var(--secondary-color);
+  }
+}
