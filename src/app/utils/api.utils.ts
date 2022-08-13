@@ -16,6 +16,10 @@ export const API_FAVORITES_ALL = BASE_URL + '/favorites/all';
 export const API_FAVORITES_ADD = BASE_URL + '/favorites/add';
 export const API_FAVORITES_REMOVE = BASE_URL + '/favorites/remove';
 
+export const API_WISHLIST_ALL = BASE_URL + '/wishlist/all';
+export const API_WISHLIST_ADD = BASE_URL + '/wishlist/add';
+export const API_WISHLIST_REMOVE = BASE_URL + '/wishlist/remove';
+
 export const DEFAULT_POST_REQUEST_INIT: RequestInit = {
     method: 'post',
     headers: {'Content-Type': 'application/json'},

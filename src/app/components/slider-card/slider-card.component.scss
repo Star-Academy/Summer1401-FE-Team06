@@ -4,7 +4,6 @@
 
     position: relative;
     overflow: hidden;
-
     inline-size: 100%;
 
     border-radius: var(--border-radius-card);
@@ -25,7 +24,6 @@
 
     &_img {
         position: relative;
-
         block-size: var(--img-height);
 
         border-top-right-radius: var(--border-radius-card);
@@ -33,7 +31,7 @@
 
         img {
             block-size: 100%;
-
+            inline-size: 100%;
             transition: opacity ease 300ms;
         }
     }

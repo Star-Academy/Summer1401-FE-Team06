@@ -13,6 +13,8 @@
             ></app-icon>
         </p>
         <ng-container *ngIf="product.isFavorite">added to your favorite list</ng-container>
+        <br />
+        <ng-container *ngIf="product.isWishList">added to your wishlist list</ng-container>
     </div>
     <div class="overlay">
         <app-icon
@@ -20,7 +22,7 @@
             [iconColor]="IconColor.ORANGE"
             (click)="addAndRemoveFavorite(product.id)"
         ></app-icon>
-        <button class="more">مشاهده جزئیات</button>
-        <button class="buy">خرید</button>
+        <button class="more" [routerLink]="['/game', product.id]">مشاهده جزئیات</button>
+        <button class="buy" (click)="addAndRemoveWishlist(product.id)">خرید</button>
     </div>
 </div>

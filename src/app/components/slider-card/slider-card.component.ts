@@ -33,4 +33,21 @@ export class SliderCardComponent {
         this.gameService.removeGameFromFavoriteList(gameId);
         this.product.isFavorite = false;
     }
+
+    public addAndRemoveWishlist(gameId: number): void {
+        if (this.authService.token) {
+            if (!this.product.isWishList) this.addWishlist(gameId);
+            else this.removeWishlist(gameId);
+        } else {
+            //    TODO / resultMessage begim sabt nam kone
+        }
+    }
+    private addWishlist(gameId: number): void {
+        this.gameService.addGameToWishlistList(gameId);
+        this.product.isWishList = true;
+    }
+    private removeWishlist(gameId: number): void {
+        this.gameService.removeGameFromWishlistList(gameId);
+        this.product.isWishList = false;
+    }
 }

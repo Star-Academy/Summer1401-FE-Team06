@@ -19,7 +19,7 @@ const routes: Routes = [
         component: ProfileComponent,
         canActivate: [AuthGuard],
         children: [
-            {path: '', pathMatch: 'full', component: FavoritesComponent},
+            {path: '', pathMatch: 'full', redirectTo: 'favorites'},
             {path: 'favorites', component: FavoritesComponent},
             {path: 'edit', component: EditProfileComponent},
             {path: 'wish-list', component: WishListComponent},

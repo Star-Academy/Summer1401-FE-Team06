@@ -10,6 +10,9 @@ import {
     API_GAME_ONE,
     API_GAME_PLATFORMS,
     API_GAME_SEARCH,
+    API_WISHLIST_ADD,
+    API_WISHLIST_ALL,
+    API_WISHLIST_REMOVE,
 } from '../utils/api.utils';
 import {Sort} from '../enum/sort.enum';
 import {Platform} from '../models/platform.model';
@@ -18,7 +21,7 @@ import {Filters} from '../models/filters.model';
 import {ExpansionListItem} from '../pages/search/models/expansion-list-item.model';
 import {ProductNew} from '../models/productNew.model';
 import {AuthService} from './auth.service';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -26,8 +29,19 @@ import {Subject} from 'rxjs';
 export class GameService {
     public readonly PAGE_SIZE: number = 21;
     public games: Game[] = [];
-    public favoriteList = new Subject<ProductNew[]>();
+    // public favoriteList = new Subject<ProductNew[]>();
+    public favoriteList = new BehaviorSubject<ProductNew[]>([]);
     public favoriteListId: number[] = [];
+    public get currentFavoriteList(): ProductNew[] {
+        return this.favoriteList.value;
+    }
+
+    public wishlistList = new BehaviorSubject<ProductNew[]>([]);
+    // public wishlistList = new Subject<ProductNew[]>();
+    public wishlistListId: number[] = [];
+    public get currentWishlistList(): ProductNew[] {
+        return this.wishlistList.value;
+    }
 
     public sliderGames: ProductNew[] = [];
     public searchGames: ProductNew[] = [];
@@ -56,6 +70,7 @@ export class GameService {
         this.initializePlatforms().then();
         this.initializeGenres().then();
         this.initializeFavoriteList(true).then();
+        this.initializeWishlistList(true).then();
         this.initializeObservers();
     }
 
@@ -102,6 +117,22 @@ export class GameService {
         await this.initializeFavoriteList(true);
     }
 
+    public async addGameToWishlistList(gameId: number): Promise<void> {
+        const token = this.authService.token;
+        await this.apiService.postRequest<any>({url: API_WISHLIST_ADD, body: {token, gameId}});
+        this.wishlistListId.push(gameId);
+        await this.initializeWishlistList(true);
+    }
+    public async removeGameFromWishlistList(gameId: number): Promise<void> {
+        const token = this.authService.token;
+        await this.apiService.deleteRequest<any>({
+            url: API_WISHLIST_REMOVE,
+            body: {token, gameId},
+        });
+        this.wishlistListId = this.favoriteListId.filter((id) => id !== gameId);
+        await this.initializeWishlistList(true);
+    }
+
     private convertToGameCard(games: Game[]): ProductNew[] {
         const generatedGames = games.map((game): ProductNew => {
             return {
@@ -113,6 +144,7 @@ export class GameService {
                 artworks: game.artworks,
                 screenshots: game.screenshots,
                 isFavorite: this.favoriteListId.some((gameId) => gameId === game.id),
+                isWishList: this.wishlistListId.some((gameId) => gameId === game.id),
             };
         });
         return generatedGames;
@@ -186,6 +218,19 @@ export class GameService {
 
             this.favoriteListId = favoriteList.map((game) => game.id);
             if (saveToFavoriteList) this.favoriteList.next(this.convertToGameCard(favoriteList));
+        }
+    }
+
+    private async initializeWishlistList(saveToWishlistList: boolean = false): Promise<void> {
+        const token = this.authService.token;
+        if (token) {
+            const wishlistList: Game[] =
+                (await this.apiService
+                    .postRequest<{games: Game[]}>({url: API_WISHLIST_ALL, body: {token}})
+                    .then((data) => data?.games)) || [];
+
+            this.wishlistListId = wishlistList.map((game) => game.id);
+            if (saveToWishlistList) this.wishlistList.next(this.convertToGameCard(wishlistList));
         }
     }
 

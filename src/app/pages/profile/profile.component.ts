@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private DEFAULT_PROFILE_COVER: string = 'wawcacqxh2nmc39nbia2';
 
     private subscription!: Subscription;
-    public cards: ProductNew[] = [];
+    public favoriteList: ProductNew[] = [];
     public profileCover: string | string[] = this.DEFAULT_PROFILE_COVER;
     public situation: string = 'favorites';
 
@@ -35,12 +35,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         this.subscription = this.gameService.favoriteList.subscribe((favoriteList: ProductNew[]) => {
-            this.cards = favoriteList;
-            const generatedRandomNumber = this.generateRandomNumber(this.cards.length);
-            const cardSelected: ProductNew = this.cards[generatedRandomNumber];
+            this.favoriteList = favoriteList;
+            const generatedRandomNumber = this.generateRandomNumber(this.favoriteList.length);
+            const cardSelected: ProductNew = this.favoriteList[generatedRandomNumber];
 
-            if (this.cards.length < 1) {
-                console.log('man dakhellam');
+            if (this.favoriteList.length < 1) {
                 this.profileCover = this.DEFAULT_PROFILE_COVER;
             } else {
                 this.profileCover = this.utilityService.gameImageGenerate(

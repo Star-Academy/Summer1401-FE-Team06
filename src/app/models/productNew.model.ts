@@ -7,6 +7,7 @@ export interface ProductNew {
     price: number;
     priceOnSale: number;
     isFavorite: boolean;
+    isWishList: boolean;
     artworks: GameImage[];
     screenshots: GameImage[];
 }
