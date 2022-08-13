@@ -1,7 +1,8 @@
 <app-header></app-header>
 <div class="container profile-container">
     <div>
-        <img [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
+        <img class="object-fit-cover" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
+        <img class="object-fit-contain" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
         <div>
             <img src="assets/images/avatar.webp" alt="avatar" />
             <div>

@@ -1,11 +1,21 @@
 .profile-container {
     > div:first-child {
         position: relative;
-        > img {
+        .object-fit-cover {
             aspect-ratio: 1200/300;
             object-fit: cover;
-            opacity: 0.7;
+            //opacity: 0.7;
+            filter: blur(0.5rem);
             border-radius: var(--border-radius-card);
+        }
+
+        .object-fit-contain{
+            aspect-ratio: 1200/300;
+            position: absolute;
+            inset: 0;
+            opacity: 0.9;
+            object-fit: contain;
+            padding: 0.1rem;
         }
 
         > div {
