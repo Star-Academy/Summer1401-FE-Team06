@@ -9,7 +9,7 @@ import {LoadingService} from '../../services/loading.service';
 export class LoadingComponent {
     public isShow: boolean = false;
     public opacity: number = 1;
-    public filter: string = '30px';
+    public filter: string = '0';
 
     public load: number = 0;
     public int!: any;
