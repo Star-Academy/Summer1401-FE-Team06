@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container profile-container">
     <div>
-        <img src="/assets/images/big_counter.webp" alt="big cover" />
+        <img [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
         <div>
             <img src="assets/images/avatar.webp" alt="avatar" />
             <div>
@@ -121,12 +121,12 @@
 
                     <div class="contact__group">
                         <input
-                                class="contact__input"
-                                type="date"
-                                id="birthday"
-                                name="birthday"
-                                [placeholder]="this?.profileService?.user?.dateOfBirth"
-                                [(ngModel)]="user!.dateOfBirth"
+                            class="contact__input"
+                            type="date"
+                            id="birthday"
+                            name="birthday"
+                            [placeholder]="this?.profileService?.user?.dateOfBirth"
+                            [(ngModel)]="user!.dateOfBirth"
                         />
                         <i class="far fa-check-circle contact__group-icon"></i>
                         <label for="email">تاریخ تولد</label>

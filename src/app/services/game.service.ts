@@ -99,6 +99,8 @@ export class GameService {
                 price: game.price,
                 priceOnSale: game.priceOnSale,
                 cover: game.cover,
+                artworks: game.artworks,
+                screenshots: game.screenshots,
                 isFavorite: this.favoriteListId.some((gameId) => gameId === game.id),
             };
         });

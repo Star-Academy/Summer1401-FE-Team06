@@ -9,12 +9,14 @@ export class SliderImageConverterPipe implements PipeTransform {
         return `https://images.igdb.com/igdb/image/upload/t_720p/${imageUrl}.jpg`;
     }
 
-    public transform(sliderUrlList: string[] | GameImage, ...args: unknown[]): string[] {
+    public transform(sliderUrlList: string[] | GameImage | string, ...args: unknown[]): string[] {
         let convertedImageUrl;
         if (Array.isArray(sliderUrlList)) {
             convertedImageUrl = sliderUrlList.map((url) => {
                 return this.giveCompleteUrl(url);
             });
+        } else if (typeof sliderUrlList === 'string') {
+            convertedImageUrl = [this.giveCompleteUrl(sliderUrlList)];
         } else {
             convertedImageUrl = [this.giveCompleteUrl(sliderUrlList.id)];
         }
