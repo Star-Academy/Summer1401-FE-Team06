@@ -6,13 +6,13 @@
     </header>
 
     <main *ngIf="isExpanded">
-        <!--        <app-search-box [(searchPhrase)]="searchPhrase"></app-search-box>-->
-        <app-search-box></app-search-box>
+        <app-search-box [(searchPhrase)]="searchPhrase"></app-search-box>
+        <!--        <app-search-box></app-search-box>-->
 
         <ul>
             <li *ngFor="let item of items | filter: searchPhrase">
                 <label>
-                    <input type="checkbox" [(ngModel)]="item.isEnabled" (ngModelChange)="itemsChange.emit(items)"/>
+                    <input type="checkbox" [(ngModel)]="item.isEnabled" (ngModelChange)="itemsChange.emit(items)" />
                     {{ item.title }}
                 </label>
             </li>
