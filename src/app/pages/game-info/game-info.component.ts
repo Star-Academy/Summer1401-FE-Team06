@@ -27,7 +27,6 @@ export class GameInfoComponent implements OnInit {
     ) {}
 
     public async ngOnInit(): Promise<void> {
-        this.loadingService.show();
         this.route.params.subscribe(async (params: Params) => {
             this.id = +params['id'];
             this.game = (await this.gameService.searchById(this.id)) || null;

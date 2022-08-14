@@ -14,4 +14,8 @@ export class LoadingService {
     public show(): void {
         this.loadingComponent.show();
     }
+
+    public hide(): void {
+        this.loadingComponent.hide();
+    }
 }

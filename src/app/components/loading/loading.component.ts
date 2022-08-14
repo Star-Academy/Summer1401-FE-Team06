@@ -22,8 +22,8 @@ export class LoadingComponent {
         this.load = this.load + 1;
 
         if (this.load > 99) {
-            this.isShow = false;
             clearInterval(this.int);
+            this.show();
         }
 
         function scale(num: number, in_min: number, in_max: number, out_min: number, out_max: number): number {
@@ -38,5 +38,10 @@ export class LoadingComponent {
         this.opacity = 1;
         this.load = 0;
         this.int = setInterval(this.blurring.bind(this), 30);
+    }
+
+    public hide(): void {
+        this.isShow = false;
+        clearInterval(this.int);
     }
 }

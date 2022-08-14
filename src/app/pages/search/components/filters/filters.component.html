@@ -1,7 +1,6 @@
 <div class="filters">
-    <h2 class="title">فیلترها</h2>
     <div>
-        <button class="action" (click)="actionBtnHandler()">اعمال فیلترها</button>
+        <h2 class="title">فیلترها</h2>
         <button class="remove" (click)="removeBtnHandler()" *ngIf="displayRemoveBtn">حذف فیلتر‌ها</button>
     </div>
     <app-expansion-list title="پلتفرم" [items]="gameService.platforms"></app-expansion-list>
@@ -12,4 +11,5 @@
         <app-range title="حداقل" [(value)]="gameService.minimumRating"></app-range>
         <app-range title="حداکثر" [(value)]="gameService.maximumRating"></app-range>
     </div>
+    <button class="action" (click)="actionBtnHandler()">اعمال فیلترها</button>
 </div>

@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     ) {}
 
     public ngOnInit(): void {
-        this.loadingService.show();
         this.subscription = this.gameService.favoriteList.subscribe((favoriteList: ProductNew[]) => {
             this.favoriteList = favoriteList;
             const generatedRandomNumber = ProfileComponent.generateRandomNumber(this.favoriteList.length);

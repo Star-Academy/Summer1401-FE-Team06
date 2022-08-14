@@ -20,7 +20,6 @@ export class MainComponent implements OnInit {
     public games: ProductNew[] | null = null;
     public slidebarImages: SlidebarImages[] = [];
     public async ngOnInit(): Promise<void> {
-        this.loadingService.show();
         this.topSellerGames = (await this.gameService.topSellerGames()) || null;
         if (this.topSellerGames)
             this.slidebarImages = this.topSellerGames

@@ -23,6 +23,7 @@ import {ProductNew} from '../models/productNew.model';
 import {AuthService} from './auth.service';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {SlidebarImages} from '../models/game/game-interface/slidebar-image.model';
+import {LoadingService} from './loading.service';
 
 @Injectable({
     providedIn: 'root',
@@ -69,7 +70,8 @@ export class GameService {
         private router: Router,
         private apiService: ApiService,
         private authService: AuthService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private loadingService: LoadingService
     ) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
@@ -223,6 +225,7 @@ export class GameService {
     }
 
     public async search(): Promise<void> {
+        this.loadingService.show();
         const response = await this.apiService.postRequest<{count: number; games: Game[]}>({
             url: API_GAME_SEARCH,
             body: {
@@ -239,6 +242,7 @@ export class GameService {
 
         this.countOfProducts = response?.count || 0;
         this.numberOfPages = ~~(this.countOfProducts / this.PAGE_SIZE) + 1;
+        this.loadingService.hide();
     }
 
     public async navigate(): Promise<void> {

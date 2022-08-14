@@ -23,5 +23,6 @@ export class FiltersComponent {
         this.gameService.maximumRating = 100;
         this.gameService.minimumRating = 0;
         this.gameService.onlyPublishedGames = false;
+        await this.gameService.search();
     }
 }
