@@ -40,7 +40,7 @@ export class ApiService {
         try {
             const data = await response.json();
             if (response.ok) return data as T;
-            return null;
+            return data;
         } catch (err) {
             return null;
         }
