@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {GameImage} from '../../../models/game.model';
+import {GameImage} from '../../../models/game/game-interface/game-image.model';
 
 @Pipe({
     name: 'sliderImageConverter',

@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 
 import {GameService} from '../../services/game.service';
-import {Game, GameImage, Item} from '../../models/game.model';
+import {Game} from '../../models/game/game.model';
 import {ActivatedRoute, Params} from '@angular/router';
 import {UtilityService} from '../../services/utility.service';
 import {ProductNew} from '../../models/productNew.model';
 import {LoadingService} from '../../services/loading.service';
+import {Item} from '../../models/game/game-interface/item.model';
 
 @Component({
     selector: 'app-game-info',

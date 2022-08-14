@@ -1,8 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild} from '@angular/core';
 
-// interface Item {
-//     src: string;
-// }
 @Component({
     selector: 'app-game-slider',
     templateUrl: './game-slider.component.html',

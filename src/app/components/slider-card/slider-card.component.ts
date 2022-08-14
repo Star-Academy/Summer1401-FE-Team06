@@ -21,8 +21,6 @@ export class SliderCardComponent {
         if (this.authService.token) {
             if (!this.product.isFavorite) this.addFavorite(gameId);
             else this.removeFavorite(gameId);
-        } else {
-            //    TODO / resultMessage begim sabt nam kone
         }
     }
     private addFavorite(gameId: number): void {

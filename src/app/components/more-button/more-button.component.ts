@@ -8,8 +8,4 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class MoreButtonComponent {
     @Input() public isReverse: boolean = false;
     @Output() public btnClick = new EventEmitter<void>();
-
-    public onClickHandler(): void {
-        this.btnClick.emit();
-    }
 }

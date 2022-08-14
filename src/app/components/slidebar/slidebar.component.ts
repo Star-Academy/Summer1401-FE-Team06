@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, Input, OnDestroy} from '@angular/core';
 import {GameService} from '../../services/game.service';
-import {SlidebarImages} from '../../models/game.model';
+import {SlidebarImages} from '../../models/game/game-interface/slidebar-image.model';
 import {Router} from '@angular/router';
 
 interface Item {

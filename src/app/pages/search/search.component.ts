@@ -24,12 +24,8 @@ export class SearchComponent implements OnInit {
         await this.gameService.changeSort(+sort.target.value);
     }
 
-    public async previousPageButtonClickHandler(): Promise<void> {
-        await this.changePaginationList(this.active - 1);
-    }
-
-    public async nextPageButtonClickHandler(): Promise<void> {
-        await this.changePaginationList(this.active + 1);
+    public async pageButtonClickHandler(x: number): Promise<void> {
+        await this.changePaginationList(this.active + x);
     }
 
     public async changePaginationList(num: number): Promise<void> {
