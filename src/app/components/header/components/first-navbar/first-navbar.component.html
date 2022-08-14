@@ -1,11 +1,35 @@
 <div class="first-navbar">
-    <div class="container">
-        <div class="logo-container">
-            <div class="title-container">
-                <h1 routerLink="/">فروشگاه<span class="secondary-style"> سی تو</span></h1>
-                <p>فروشگاه تو، فروشگاه بازی</p>
+    <div class="container navbar-container">
+        <div class="container-right">
+            <div class="logo-container">
+                <a routerLink="/" class="title-container">
+                    <img src="assets/images/logo.webp" />
+                </a>
             </div>
+            <ul>
+                <li><a routerLink="/">خانه</a></li>
+                <li><a routerLink="#">بازی‌ها</a></li>
+                <li><a routerLink="#">پشتیبانی</a></li>
+            </ul>
         </div>
-        <app-search-box (searchPhraseEnter)="submitSearchPhrase($event)"></app-search-box>
+
+        <div class="container-left">
+            <app-search-box (searchPhraseEnter)="submitSearchPhrase($event)"></app-search-box>
+            <div class="icons">
+                <app-icon [iconClass]="IconType.WISH_LIST" [iconColor]="IconColor.ORANGE"></app-icon>
+                <app-icon [iconClass]="IconType.SHOP" [iconColor]="IconColor.ORANGE"></app-icon>
+            </div>
+
+            <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
+                <a routerLink="/profile" class="auth"> پروفایل </a>
+            </ng-container>
+            <ng-template #notLoggedInTemplate>
+                <a routerLink="/auth" class="auth">
+                    <span>ورود</span>
+                    /
+                    <span>ثبت نام</span>
+                </a>
+            </ng-template>
+        </div>
     </div>
 </div>

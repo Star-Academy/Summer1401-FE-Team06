@@ -6,7 +6,7 @@
         type="search"
         [(ngModel)]="searchPhrase"
         (ngModelChange)="searchPhraseChange.emit($event)"
-        placeholder="جستجو"
+        placeholder="جستجو ..."
         [value]="searchPhrase"
         (keyup.enter)="searchPhraseEnter.emit(searchPhrase)"
     />

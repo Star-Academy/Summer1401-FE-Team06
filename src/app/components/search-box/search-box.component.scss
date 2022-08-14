@@ -1,47 +1,42 @@
 .input-box {
-    --input-color: hsl(36deg 100% 50% / 30%);
     position: relative;
 
     inline-size: 100%;
-    max-inline-size: 27rem;
-
-    margin-inline-start: auto;
+    max-inline-size: 15rem;
+    border: none;
 
     i {
-        color: var(--input-color);
+        color: var(--secondary-color);
 
         position: absolute;
-        inset-block-start: 50%;
+        inset-block-start: 55%;
         inset-inline-start: 1rem;
 
         transform: translate(0, -50%);
 
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
 
     input {
-        background-color: transparent;
-        color: var(--input-color);
-
+        background-color: var(--clr-gray-30);
+        color: var(--clr-gray-90);
         inline-size: 100%;
+        outline: none;
+        border: none;
+        padding: 0.5rem 3rem 0.5rem 0.75rem;
 
-        padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-
-        border: 0.125rem solid var(--input-color);
         border-radius: var(--border-radius-card);
 
         font-size: 1.2rem;
 
         &::placeholder {
-            color: hsl(36deg 100% 50% / 30%);
+            color: var(--clr-gray-70);
         }
 
         &:focus {
-            --input-color: hsl(36deg 100% 50% / 80%);
-            border: none;
-            border-bottom: 0.125rem solid var(--input-color);
-            border-radius: 0;
-
+            border-bottom-left-radius: none;
+            border-bottom-right-radius: none;
+            box-shadow: 0 2px 0 0 var(--primary-text-color);
             outline: none;
         }
     }
