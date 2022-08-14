@@ -1,100 +1,104 @@
-<div class="wrapper">
-    <form class="contact__form" ngNativeValidate (ngSubmit)="formSubmitHandler()">
-        <h1 class="contact__title">{{ isLogin ? 'ورود به سایت' : 'عضویت در سایت' }}</h1>
+<div class="container-auth">
+    <app-header></app-header>
+    <div class="wrapper">
+        <form class="contact__form" ngNativeValidate (ngSubmit)="formSubmitHandler()">
+            <h1 class="contact__title">{{ isLogin ? 'ورود به سایت' : 'عضویت در سایت' }}</h1>
 
-        <div class="contact__group" *ngIf="!isLogin">
-            <input
-                class="contact__input"
-                type="text"
-                id="firstName"
-                name="firstName"
-                placeholder="نام خود را وارد کنید"
-                required
-                [(ngModel)]="user.firstName"
-            />
-            <label for="firstName">نام</label>
-            <i class="far fa-check-circle contact__group-icon"></i>
-        </div>
+            <div class="contact__group" *ngIf="!isLogin">
+                <input
+                    class="contact__input"
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="نام خود را وارد کنید"
+                    required
+                    [(ngModel)]="user.firstName"
+                />
+                <label for="firstName">نام</label>
+                <i class="far fa-check-circle contact__group-icon"></i>
+            </div>
 
-        <div class="contact__group" *ngIf="!isLogin">
-            <input
-                class="contact__input"
-                type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="نام خانوادگی خود را وارد کنید"
-                [(ngModel)]="user.lastName"
-            />
-            <label for="lastName">نام خانوادگی</label>
-            <i class="far fa-check-circle contact__group-icon"></i>
-        </div>
+            <div class="contact__group" *ngIf="!isLogin">
+                <input
+                    class="contact__input"
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="نام خانوادگی خود را وارد کنید"
+                    [(ngModel)]="user.lastName"
+                />
+                <label for="lastName">نام خانوادگی</label>
+                <i class="far fa-check-circle contact__group-icon"></i>
+            </div>
 
-        <div class="contact__group" *ngIf="!isLogin">
-            <input
-                class="contact__input"
-                type="text"
-                id="username"
-                name="username"
-                placeholder="شامل حروف لاتین"
-                required
-                pattern="([A-Za-z])\w+"
-                [(ngModel)]="user.username"
-            />
-            <label for="username">نام کاربری (حرف لاتین)</label>
-            <i class="far fa-check-circle contact__group-icon"></i>
-        </div>
+            <div class="contact__group" *ngIf="!isLogin">
+                <input
+                    class="contact__input"
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="شامل حروف لاتین"
+                    required
+                    pattern="([A-Za-z])\w+"
+                    [(ngModel)]="user.username"
+                />
+                <label for="username">نام کاربری (حرف لاتین)</label>
+                <i class="far fa-check-circle contact__group-icon"></i>
+            </div>
 
-        <div class="contact__group">
-            <input
-                class="contact__input"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="ایمیل خود را وارد کنید"
-                [(ngModel)]="user.email"
-                required
-            />
-            <i class="far fa-check-circle contact__group-icon"></i>
-            <label for="email">ایمیل</label>
-        </div>
+            <div class="contact__group">
+                <input
+                    class="contact__input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="ایمیل خود را وارد کنید"
+                    [(ngModel)]="user.email"
+                    required
+                />
+                <i class="far fa-check-circle contact__group-icon"></i>
+                <label for="email">ایمیل</label>
+            </div>
 
-        <div class="contact__group">
-            <input
-                class="contact__input"
-                type="password"
-                id="password"
-                placeholder="شامل حروف لاتین و عدد و نماد"
-                name="password"
-                [attr.required]="!isLogin"
-                [(ngModel)]="user.password"
-            />
-            <i class="far fa-check-circle contact__group-icon"></i>
-            <label for="password">رمز عبور</label>
-        </div>
+            <div class="contact__group">
+                <input
+                    class="contact__input"
+                    type="password"
+                    id="password"
+                    placeholder="شامل حروف لاتین و عدد و نماد"
+                    name="password"
+                    [attr.required]="!isLogin"
+                    [(ngModel)]="user.password"
+                />
+                <i class="far fa-check-circle contact__group-icon"></i>
+                <label for="password">رمز عبور</label>
+            </div>
 
-        <div class="contact__group" *ngIf="!isLogin">
-            <input
-                class="contact__input"
-                type="password"
-                id="twoStepPassword"
-                placeholder="تکرار رمز عبور"
-                name="twoStepPassword"
-                required
-                [(ngModel)]="twoStepPassword"
-            />
-            <i class="far fa-check-circle contact__group-icon"></i>
-            <label for="twoStepPassword">تکرار رمز عبور</label>
-        </div>
+            <div class="contact__group" *ngIf="!isLogin">
+                <input
+                    class="contact__input"
+                    type="password"
+                    id="twoStepPassword"
+                    placeholder="تکرار رمز عبور"
+                    name="twoStepPassword"
+                    required
+                    [(ngModel)]="twoStepPassword"
+                />
+                <i class="far fa-check-circle contact__group-icon"></i>
+                <label for="twoStepPassword">تکرار رمز عبور</label>
+            </div>
 
-        <div class="contact__buttons">
-            <button type="submit" class="button active">
-                {{ isLogin ? 'ورود' : 'عضویت' }}
-            </button>
-            <button type="button" class="button" (click)="changeIsLogin()">
-                {{ !isLogin ? 'میخوای وارد شی؟' : 'میخوای عضو شی؟' }}
-            </button>
-        </div>
-    </form>
+            <div class="contact__buttons">
+                <button type="submit" class="button active">
+                    {{ isLogin ? 'ورود' : 'عضویت' }}
+                </button>
+                <button type="button" class="button" (click)="changeIsLogin()">
+                    {{ !isLogin ? 'میخوای وارد شی؟' : 'میخوای عضو شی؟' }}
+                </button>
+            </div>
+        </form>
 
-    <app-result-message></app-result-message>
+        <app-result-message></app-result-message>
+    </div>
+    <app-footer></app-footer>
 </div>

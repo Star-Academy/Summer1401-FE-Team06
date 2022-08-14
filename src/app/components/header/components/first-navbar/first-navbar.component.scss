@@ -36,7 +36,7 @@
         &-left {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 1rem;
 
             .icons {
                 display: flex;
@@ -47,10 +47,6 @@
                 background-color: var(--secondary-section);
                 color: var(--secondary-color);
                 opacity: 0.8;
-
-                display: flex;
-                gap: 0.5rem;
-
                 padding: 0.4rem 0.6rem;
 
                 border: 1px solid var(--secondary-color);
