@@ -21,7 +21,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private subscription!: Subscription;
     public favoriteList: ProductNew[] = [];
     public profileCover: string | string[] = this.DEFAULT_PROFILE_COVER;
-    public situation: string = 'favorites';
 
     public constructor(
         public profileService: ProfileService,

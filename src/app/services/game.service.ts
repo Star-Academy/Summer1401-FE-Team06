@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {Game, GameImage} from '../models/game.model';
+import {Game, GameImage, SlidebarImages} from '../models/game.model';
 import {
     API_FAVORITES_ADD,
     API_FAVORITES_ALL,
@@ -42,7 +42,12 @@ export class GameService {
         return this.wishlistList.value;
     }
 
-    public sliderGames: ProductNew[] = [];
+    // public slidebarImages: {artworks: GameImage; id: number}[] = [];
+    public slidebarImages: SlidebarImages[] = [];
+    public topSeller: ProductNew[] = [];
+    public mostPopular: ProductNew[] = [];
+    public newest: ProductNew[] = [];
+
     public searchGames: ProductNew[] = [];
 
     public platforms: ExpansionListItem[] = [];
@@ -80,14 +85,14 @@ export class GameService {
         return response?.game || null;
     }
 
-    public async topGame(): Promise<ProductNew[] | null> {
+    public async topSellerGames(): Promise<ProductNew[] | null> {
         const response = await this.apiService.postRequest<{games: Game[]}>({
             url: API_GAME_SEARCH,
             body: {
-                searchPhrase: 'red dead',
+                searchPhrase: '',
                 pageSize: 10,
                 offset: 0,
-                sort: 2,
+                sort: Sort.TOP_SELLER,
                 filters: {
                     minimumRating: 80,
                     maximumRating: 99,
@@ -95,8 +100,46 @@ export class GameService {
             },
         });
 
-        this.sliderGames = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
-        return this.sliderGames;
+        this.topSeller = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
+
+
+        return this.topSeller;
+    }
+    public async mostPopularGames(): Promise<ProductNew[] | null> {
+        const response = await this.apiService.postRequest<{games: Game[]}>({
+            url: API_GAME_SEARCH,
+            body: {
+                searchPhrase: '',
+                pageSize: 10,
+                offset: 0,
+                sort: Sort.MOST_POPULAR,
+                filters: {
+                    minimumRating: 80,
+                    maximumRating: 99,
+                },
+            },
+        });
+
+        this.mostPopular = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
+        return this.mostPopular;
+    }
+    public async newestGames(): Promise<ProductNew[] | null> {
+        const response = await this.apiService.postRequest<{games: Game[]}>({
+            url: API_GAME_SEARCH,
+            body: {
+                searchPhrase: '',
+                pageSize: 10,
+                offset: 0,
+                sort: Sort.NEWEST,
+                filters: {
+                    minimumRating: 80,
+                    maximumRating: 99,
+                },
+            },
+        });
+
+        this.newest = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
+        return this.newest;
     }
 
     public async relatedGames(genres: number[]): Promise<ProductNew[] | null> {

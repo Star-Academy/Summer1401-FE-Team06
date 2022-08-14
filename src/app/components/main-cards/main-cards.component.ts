@@ -9,5 +9,5 @@ import {ProductNew} from '../../models/productNew.model';
     styleUrls: ['./main-cards.component.scss'],
 })
 export class MainCardsComponent {
-    public cards: ProductNew[] = [];
+    @Input() public cards: ProductNew[] = [];
 }

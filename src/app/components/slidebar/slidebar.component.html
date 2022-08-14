@@ -1,8 +1,12 @@
 <div class="slideshow" [style.--active-index]="activeIndex + 1">
     <ol>
         <li><img src="assets/images/slider4.webp" alt="" /></li>
-        <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
-            <img [src]="item.src" alt="" />
+        <li
+            (click)="searchWithFilter(item.id)"
+            *ngFor="let item of items; index as index"
+            [class.active]="index === activeIndex"
+        >
+            <img [src]="item.artworks | sliderImageConverter" alt="" />
         </li>
         <li><img src="assets/images/slider1.webp" alt="" /></li>
     </ol>

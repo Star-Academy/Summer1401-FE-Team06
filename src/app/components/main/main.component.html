@@ -1,29 +1,39 @@
-<app-slidebar></app-slidebar>
+<app-slidebar [items]="slidebarImages"></app-slidebar>
 <app-container>
     <ng-template #loader>loading</ng-template>
     <app-section
-        *ngIf="topGame; else loader"
+        *ngIf="topSellerGames; else loader"
         primaryTitle="پرفروش‌ترین بازی‌ها"
         [titleDirection]="titleDirectionType.LEFT"
         placeComponent="right-out"
     >
-        <app-slider-section [cards]="topGame" [isReverse]="true"></app-slider-section>
+        <app-slider-section [cards]="topSellerGames" [isReverse]="true"></app-slider-section>
     </app-section>
     <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
         <app-banner></app-banner>
     </app-section>
-    <app-section primaryTitle="برترین بازی‌ها" [titleDirection]="titleDirectionType.RIGHT" placeComponent="left-out">
-        <app-slider-section></app-slider-section>
+    <app-section
+        *ngIf="topSellerGames; else loader"
+        primaryTitle="پرطرفدارترین بازی‌ها"
+        [titleDirection]="titleDirectionType.RIGHT"
+        placeComponent="left-out"
+    >
+        <app-slider-section [cards]="mostPopularGames"></app-slider-section>
     </app-section>
     <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
         <app-banner></app-banner>
     </app-section>
-    <app-section primaryTitle="بازی‌های جنگی" [titleDirection]="titleDirectionType.LEFT" placeComponent="right-out">
-        <app-slider-section [isReverse]="true"></app-slider-section>
+    <app-section
+        *ngIf="topSellerGames; else loader"
+        primaryTitle="جدیدترین بازی‌ها"
+        [titleDirection]="titleDirectionType.LEFT"
+        placeComponent="right-out"
+    >
+        <app-slider-section [cards]="newestGames" [isReverse]="true"></app-slider-section>
     </app-section>
 </app-container>
 <app-container>
-    <app-section>
-        <app-main-cards></app-main-cards>
+    <app-section *ngIf="games">
+        <app-main-cards [cards]="games"></app-main-cards>
     </app-section>
 </app-container>

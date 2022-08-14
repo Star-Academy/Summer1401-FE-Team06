@@ -21,6 +21,7 @@
         margin: 0 auto;
 
         li {
+            cursor: pointer;
             flex: 0 0 100%;
 
             inline-size: calc(100% - 2rem);
@@ -92,7 +93,7 @@
     .bullets {
         position: absolute;
         bottom: 3rem;
-        left: 20%;
+        left: 50%;
 
         display: flex;
         gap: 1rem;

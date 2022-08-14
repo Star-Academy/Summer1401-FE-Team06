@@ -58,6 +58,10 @@ export interface Item {
     id: number;
     name: string;
 }
+export interface SlidebarImages {
+    artworks: GameImage;
+    id: number;
+}
 
 export interface Website {
     id: number;
