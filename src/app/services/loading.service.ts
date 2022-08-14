@@ -12,19 +12,6 @@ export class LoadingService {
     }
 
     public show(): void {
-        console.log(this.loadingComponent);
         this.loadingComponent.show();
     }
-
-    // public async wrapAsync<T>(callback: () => T): Promise<T> {
-    //     if (!this.spinnerComponent) return callback();
-    //
-    //     const spinnerId = this.show();
-    //
-    //     try {
-    //         return await callback();
-    //     } finally {
-    //         this.hide(spinnerId);
-    //     }
-    // }
 }

@@ -1,12 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProfileService} from '../../services/profile.service';
-import {User} from '../../models/user.model';
 import {AuthService} from '../../services/auth.service';
 import {ResultMessageService} from '../../services/result-message.service';
 import {ProductNew} from '../../models/productNew.model';
 import {GameService} from '../../services/game.service';
 import {Subscription} from 'rxjs';
-import {Game, GameImage} from '../../models/game.model';
 import {UtilityService} from '../../services/utility.service';
 import {LoadingService} from '../../services/loading.service';
 
@@ -35,7 +33,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.loadingService.show();
         this.subscription = this.gameService.favoriteList.subscribe((favoriteList: ProductNew[]) => {
             this.favoriteList = favoriteList;
-            const generatedRandomNumber = this.generateRandomNumber(this.favoriteList.length);
+            const generatedRandomNumber = ProfileComponent.generateRandomNumber(this.favoriteList.length);
             const cardSelected: ProductNew = this.favoriteList[generatedRandomNumber];
 
             if (this.favoriteList.length < 1) {
@@ -49,19 +47,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
             }
         });
     }
-    private generateRandomNumber(maxValue: number): number {
+    private static generateRandomNumber(maxValue: number): number {
         return Math.floor(Math.random() * maxValue);
     }
-
-    // public async formSubmitHandler(): Promise<void> {
-    //     const response = await this.authService.alter(this.user);
-    //     if (!response?.message) {
-    //         await this.profileService.getUserInfo();
-    //         this.resultMessageService.show('تغییرات با موفقیت انجام شد', 'success');
-    //         return;
-    //     }
-    //     this.resultMessageService.show(response.message, 'error');
-    // }
 
     public ngOnDestroy(): void {
         this.subscription.unsubscribe();

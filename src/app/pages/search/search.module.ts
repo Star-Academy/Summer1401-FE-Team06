@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {FilterPipeModule} from "../../pipes/filter-pipe/filter-pipe.module";
 import {SearchBoxModule} from "../../components/search-box/search-box.module";
 import { RangeComponent } from './components/range/range.component';
+import {AuthComponent} from "../auth/auth.component";
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { RangeComponent } from './components/range/range.component';
         FormsModule,
         FilterPipeModule,
         SearchBoxModule,
-    ]
+    ],
+    exports: [SearchComponent],
 })
 export class SearchModule {
 }

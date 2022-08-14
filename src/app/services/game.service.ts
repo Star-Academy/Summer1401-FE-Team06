@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {Game, GameImage, SlidebarImages} from '../models/game.model';
+import {Game, SlidebarImages} from '../models/game.model';
 import {
     API_FAVORITES_ADD,
     API_FAVORITES_ALL,
@@ -42,7 +42,6 @@ export class GameService {
         return this.wishlistList.value;
     }
 
-    // public slidebarImages: {artworks: GameImage; id: number}[] = [];
     public slidebarImages: SlidebarImages[] = [];
     public topSeller: ProductNew[] = [];
     public mostPopular: ProductNew[] = [];
@@ -101,7 +100,6 @@ export class GameService {
         });
 
         this.topSeller = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
-
 
         return this.topSeller;
     }

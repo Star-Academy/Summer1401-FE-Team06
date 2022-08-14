@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MainCardsComponent} from './main-cards.component';
-import {CardComponent} from './card/card.component';
+import {SliderCardComponent} from '../slider-card/slider-card.component';
 
 describe('MainCardsComponent', () => {
     let component: MainCardsComponent;
@@ -9,7 +9,7 @@ describe('MainCardsComponent', () => {
     let host: HTMLElement;
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [MainCardsComponent, CardComponent],
+            declarations: [MainCardsComponent, SliderCardComponent],
         }).compileComponents();
     });
 
