@@ -11,21 +11,61 @@
         padding-block-start: 1rem;
         padding-block-end: 1rem;
 
-        .logo-container {
+        &-right {
+            display: flex;
             flex: 0 0 50%;
+            gap: 2rem;
+            align-items: center;
+            ul {
+                display: flex;
+                gap: 2rem;
+                li {
+                    a {
+                        opacity: 0.7;
 
+                        transition: opacity 300ms ease;
+                        padding-bottom: 0.1rem;
+                        &:hover {
+                            opacity: 1;
+                            border-bottom: 1px solid var(--primary-text-color);
+                        }
+                    }
+                }
+            }
+        }
+        &-left {
             display: flex;
             align-items: center;
             gap: 1rem;
 
-            p {
-                font-size: 0.75rem;
+            .icons {
+                display: flex;
+                gap: 0.5rem;
             }
+
+            .auth {
+                background-color: var(--secondary-section);
+                color: var(--secondary-color);
+                opacity: 0.8;
+                padding: 0.4rem 0.6rem;
+
+                border: 1px solid var(--secondary-color);
+                border-radius: var(--border-radius-card);
+
+                transition: opacity 300ms ease;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        .logo-container {
+            flex: 0 0 8rem;
         }
 
         app-search-box {
             flex: 0 0 50%;
-
+            justify-self: center;
             inline-size: 100%;
         }
     }

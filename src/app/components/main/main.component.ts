@@ -30,6 +30,7 @@ export class MainComponent implements OnInit {
                     };
                 })
                 .slice(4);
+
         this.mostPopularGames = (await this.gameService.mostPopularGames()) || null;
         this.newestGames = (await this.gameService.newestGames()) || null;
         await this.gameService.search();

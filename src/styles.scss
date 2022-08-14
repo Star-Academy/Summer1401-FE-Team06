@@ -48,7 +48,7 @@
 
     --img-height: 24rem;
     --aspect-ratio-card: 8/24;
-    --box-shadow: 0 0 20px 0 hsl(0deg 0% 0% / 30%);
+    --box-shadow: 0 5px 21px 0 hsl(0deg 0% 0% / 30%);
 
     --defualt-icon-bg: hsl(0deg 0% 20%);
     --defualt-icon-color: hsl(0deg 0% 93%);
@@ -109,10 +109,6 @@ h4 {
         padding-inline-start: 2rem;
         padding-inline-end: 2rem;
     }
-}
-
-.secondary-style {
-    color: var(--secondary-color);
 }
 
 img {
