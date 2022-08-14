@@ -4,21 +4,33 @@
         <div class="section">
             <div class="game__header">
                 <div class="game__title">
-                    <h2>{{ game.name }}</h2>
-                    <h3 (click)="showMe()">اطلاعات تکمیلی بازی</h3>
+                    <div class="game__title-left">
+                        <h2>{{ game.name }}</h2>
+                    </div>
+                    <app-game-business [gameInfo]="game"></app-game-business>
                 </div>
                 <app-game-slider [items]="gameImages | sliderImageConverter"></app-game-slider>
             </div>
 
-            <div class="game__summary">
-                <app-game-title [title]="'درباره بازی'" [description]="game.summary"> </app-game-title>
-                <app-game-title [title]="'داستان بازی'" [description]="game.storyline"> </app-game-title>
-            </div>
+            <div class="game__description">
+                <div class="game__summary">
+                    <app-game-title *ngIf="game.summary" [title]="'About Game'" [description]="game.summary">
+                    </app-game-title>
+                    <app-game-title *ngIf="game.storyline" [title]="'Story'" [description]="game.storyline">
+                    </app-game-title>
+                </div>
 
-            <div class="game__details">
-                <app-game-detail [list]="game.genres" title="ژانر"></app-game-detail>
-                <app-game-detail [list]="game.keywords" title="کلمات کلیدی"></app-game-detail>
-                <app-game-detail [list]="game.platforms" title="پلتفرم"></app-game-detail>
+                <div class="game__details">
+                    <app-game-detail *ngIf="game.genres" [list]="game.genres" title="Genres"></app-game-detail>
+                    <app-game-detail *ngIf="game.keywords" [list]="game.keywords" title="Keywords"></app-game-detail>
+                    <app-game-detail *ngIf="game.platforms" [list]="game.platforms" title="Platforms"></app-game-detail>
+                    <app-game-detail
+                        *ngIf="game.playerPerspectives"
+                        [list]="game.playerPerspectives"
+                        title="Player Perspectives"
+                    ></app-game-detail>
+                    <app-game-detail *ngIf="game.themes" [list]="game.themes" title="Themes"></app-game-detail>
+                </div>
             </div>
         </div>
         <div class="splitter"></div>

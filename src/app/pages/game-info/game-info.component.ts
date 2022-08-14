@@ -26,11 +26,12 @@ export class GameInfoComponent implements OnInit {
             this.id = +params['id'];
             this.game = (await this.gameService.searchById(this.id)) || null;
             if (this.game) {
-                this.gameImages = this.utilityService.gameImageGenerate(this.game?.artworks, this.game?.screenshots);
+                this.gameImages = this.utilityService.gameImageGenerate(
+                    this.game.artworks,
+                    this.game.screenshots,
+                    this.game.cover
+                );
             }
         });
-    }
-    public showMe(): void {
-        console.log(this.game);
     }
 }

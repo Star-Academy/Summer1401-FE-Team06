@@ -43,6 +43,12 @@
         border: 2px solid var(--clr-icon-white);
     }
 
+    &.gray {
+        color: var(--clr-icon-gray);
+        border: 2px solid var(--clr-icon-gray);
+    }
+
+
     &.no-bg {
         background-color: transparent;
 

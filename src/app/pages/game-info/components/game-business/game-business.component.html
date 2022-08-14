@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <div class="header">
+        <app-icon [iconClass]="IconType.WISH_LIST"></app-icon>
+        <div class="new-price">{{ gameInfo.priceOnSale | moneyFormat }}</div>
+        <div class="discount">
+            <div class="percent">{{ (gameInfo.priceOnSale / gameInfo.price) * 100 | percentPipe }}</div>
+            <div class="old-price">{{ gameInfo.price | moneyFormat }}</div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>افزودن به سبد خرید</p>
+    </div>
+</div>

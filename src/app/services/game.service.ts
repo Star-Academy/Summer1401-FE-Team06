@@ -29,7 +29,7 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 export class GameService {
     public readonly PAGE_SIZE: number = 21;
     public games: Game[] = [];
-    // public favoriteList = new Subject<ProductNew[]>();
+
     public favoriteList = new BehaviorSubject<ProductNew[]>([]);
     public favoriteListId: number[] = [];
     public get currentFavoriteList(): ProductNew[] {
@@ -37,7 +37,6 @@ export class GameService {
     }
 
     public wishlistList = new BehaviorSubject<ProductNew[]>([]);
-    // public wishlistList = new Subject<ProductNew[]>();
     public wishlistListId: number[] = [];
     public get currentWishlistList(): ProductNew[] {
         return this.wishlistList.value;
@@ -78,7 +77,6 @@ export class GameService {
         const response = await this.apiService.getRequest<{game: Game}>({
             url: `${API_GAME_ONE}/${id}`,
         });
-
         return response?.game || null;
     }
 
@@ -140,6 +138,7 @@ export class GameService {
                 id: game.id,
                 price: game.price,
                 priceOnSale: game.priceOnSale,
+                discount: (game.price / game.priceOnSale) * 100,
                 cover: game.cover,
                 artworks: game.artworks,
                 screenshots: game.screenshots,

@@ -6,6 +6,7 @@ export interface ProductNew {
     name: string;
     price: number;
     priceOnSale: number;
+    discount: number;
     isFavorite: boolean;
     isWishList: boolean;
     artworks: GameImage[];

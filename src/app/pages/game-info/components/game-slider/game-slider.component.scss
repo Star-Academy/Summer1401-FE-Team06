@@ -86,13 +86,13 @@
             overflow-x: hidden;
 
             display: flex;
-            flex-basis: 60%;
+            flex-basis: 100%;
             gap: 0.75rem;
 
             padding-right: 1rem;
 
             &__image {
-                flex: 0 0 calc((100% / 3) - 0.75rem);
+                flex: 0 0 calc((100% / 4) - 0.75rem);
 
                 opacity: 0.4;
 
