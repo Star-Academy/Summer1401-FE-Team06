@@ -11,17 +11,17 @@ export class FiltersComponent {
 
     public constructor(public gameService: GameService) {}
 
-    public async BtnHandler(situation: string): Promise<void> {
-        if (situation === 'action') {
-            this.displayRemoveBtn = true;
-            await this.gameService.search();
-        } else if (situation === 'remove') {
-            this.displayRemoveBtn = false;
-            this.gameService.platforms.forEach((x) => (x.isEnabled = false));
-            this.gameService.genres.forEach((x) => (x.isEnabled = false));
-            this.gameService.maximumRating = 100;
-            this.gameService.minimumRating = 0;
-            this.gameService.onlyPublishedGames = false;
-        }
+    public async actionBtnHandler(): Promise<void> {
+        this.displayRemoveBtn = true;
+        await this.gameService.search();
+    }
+
+    public async removeBtnHandler(): Promise<void> {
+        this.displayRemoveBtn = false;
+        this.gameService.platforms.forEach((x) => (x.isEnabled = false));
+        this.gameService.genres.forEach((x) => (x.isEnabled = false));
+        this.gameService.maximumRating = 100;
+        this.gameService.minimumRating = 0;
+        this.gameService.onlyPublishedGames = false;
     }
 }

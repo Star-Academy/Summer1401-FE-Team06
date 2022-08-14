@@ -3,7 +3,7 @@ import {AuthService} from './auth.service';
 import {User} from '../models/user.model';
 import {ApiService} from './api.service';
 import {API_FAVORITES_ADD, API_FAVORITES_ALL, API_FAVORITES_REMOVE} from '../utils/api.utils';
-import {Game} from '../models/game.model';
+import {Game} from '../models/game/game.model';
 import {ApiError} from '../models/api-error.model';
 
 @Injectable({

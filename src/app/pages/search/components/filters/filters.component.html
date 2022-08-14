@@ -1,8 +1,8 @@
 <div class="filters">
     <h2 class="title">فیلترها</h2>
     <div>
-        <button class="action" (click)="BtnHandler('action')">اعمال فیلترها</button>
-        <button class="remove" (click)="BtnHandler('remove')" *ngIf="displayRemoveBtn">حذف فیلتر‌ها</button>
+        <button class="action" (click)="actionBtnHandler()">اعمال فیلترها</button>
+        <button class="remove" (click)="removeBtnHandler()" *ngIf="displayRemoveBtn">حذف فیلتر‌ها</button>
     </div>
     <app-expansion-list title="پلتفرم" [items]="gameService.platforms"></app-expansion-list>
     <app-expansion-list title="ژانر" [items]="gameService.genres"></app-expansion-list>

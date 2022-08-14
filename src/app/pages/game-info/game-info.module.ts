@@ -10,12 +10,11 @@ import {GameTitleComponent} from './components/game-title/game-title.component';
 import {GameDetailComponent} from './components/game-detail/game-detail.component';
 import {PrimaryTitleModule} from '../../components/primary-title/primary-title.module';
 import {MainModule} from '../../components/main/main.module';
-import {SliderImageConverterPipe} from './pipe/slider-image-converter.pipe';
-import {SliderImageConverterPipeModule} from "./pipe/slider-image-converter.pip.module";
-import { GameBusinessComponent } from './components/game-business/game-business.component';
-import {IconModule} from "../../components/icon/icon.module";
-import {ConvertMoneyTypeModule} from "../../pipes/convert-money-type/convert-money-type.module";
-import {PercentPipeModule} from "../../pipes/percent-pipe/percent-pipe.module";
+import {SliderImageConverterPipeModule} from './pipe/slider-image-converter.pip.module';
+import {GameBusinessComponent} from './components/game-business/game-business.component';
+import {IconModule} from '../../components/icon/icon.module';
+import {ConvertMoneyTypeModule} from '../../pipes/convert-money-type/convert-money-type.module';
+import {PercentPipeModule} from '../../pipes/percent-pipe/percent-pipe.module';
 
 @NgModule({
     declarations: [
@@ -24,9 +23,19 @@ import {PercentPipeModule} from "../../pipes/percent-pipe/percent-pipe.module";
         GameTitleComponent,
         GameDetailComponent,
         GameBusinessComponent,
-        // SliderImageConverterPipe,
     ],
-    imports: [CommonModule, HeaderModule, FooterModule, SectionModule, PrimaryTitleModule, MainModule, SliderImageConverterPipeModule, IconModule, ConvertMoneyTypeModule, PercentPipeModule],
+    imports: [
+        CommonModule,
+        HeaderModule,
+        FooterModule,
+        SectionModule,
+        PrimaryTitleModule,
+        MainModule,
+        SliderImageConverterPipeModule,
+        IconModule,
+        ConvertMoneyTypeModule,
+        PercentPipeModule,
+    ],
     exports: [GameInfoComponent],
 })
 export class GameInfoModule {}

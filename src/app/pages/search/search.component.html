@@ -22,9 +22,7 @@
             <app-slider-card *ngFor="let card of gameService.searchGames" [product]="card"></app-slider-card>
         </div>
         <nav data-pagination>
-            <a *ngIf="this.active > 1" (click)="previousPageButtonClickHandler()"
-                ><i class="fa-solid fa-angle-right"></i
-            ></a>
+            <a *ngIf="this.active > 1" (click)="pageButtonClickHandler(-1)"><i class="fa-solid fa-angle-right"></i></a>
             <ul #paginationList>
                 <li *ngIf="active > 3" (click)="changePaginationList(1)"><a>1</a></li>
                 <li *ngIf="active > 3 && active <= this.gameService.numberOfPages"><a>…</a></li>
@@ -65,7 +63,7 @@
                     <a>{{ this.gameService.numberOfPages }}</a>
                 </li>
             </ul>
-            <a *ngIf="this.active < this.gameService.numberOfPages" (click)="nextPageButtonClickHandler()"
+            <a *ngIf="this.active < this.gameService.numberOfPages" (click)="pageButtonClickHandler(1)"
                 ><i class="fa-solid fa-angle-left"></i
             ></a>
         </nav>

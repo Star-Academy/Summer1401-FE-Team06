@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductNew} from '../../../models/productNew.model';
 import {Subscription} from 'rxjs';
 import {GameService} from '../../../services/game.service';
@@ -13,17 +13,12 @@ export class WishListComponent implements OnInit, OnDestroy {
 
     public subscription!: Subscription;
 
-    public constructor(private gameService: GameService) {
-        console.log('constrcutor');
-    }
+    public constructor(private gameService: GameService) {}
     public ngOnInit(): void {
         this.wishlistList = this.gameService.currentWishlistList;
         this.subscription = this.gameService.wishlistList.subscribe((wishlistList: ProductNew[]) => {
-            console.log(wishlistList);
             this.wishlistList = wishlistList;
         });
-        console.log(this.subscription);
-        console.log('ngOnInit');
     }
     public ngOnDestroy(): void {
         this.subscription.unsubscribe();

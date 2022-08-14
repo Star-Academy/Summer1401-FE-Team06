@@ -1,5 +1,4 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {GameImage} from '../../../models/game.model';
 
 @Pipe({
     name: 'pickBestImage',

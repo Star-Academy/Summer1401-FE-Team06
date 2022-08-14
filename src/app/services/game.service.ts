@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {Game, SlidebarImages} from '../models/game.model';
+import {Game} from '../models/game/game.model';
 import {
     API_FAVORITES_ADD,
     API_FAVORITES_ALL,
@@ -22,6 +22,7 @@ import {ExpansionListItem} from '../pages/search/models/expansion-list-item.mode
 import {ProductNew} from '../models/productNew.model';
 import {AuthService} from './auth.service';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {SlidebarImages} from '../models/game/game-interface/slidebar-image.model';
 
 @Injectable({
     providedIn: 'root',

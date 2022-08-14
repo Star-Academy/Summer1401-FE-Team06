@@ -19,7 +19,6 @@ export class LoadingComponent {
     }
 
     public blurring(): void {
-        console.log(this.load);
         this.load = this.load + 1;
 
         if (this.load > 99) {
@@ -32,7 +31,6 @@ export class LoadingComponent {
         }
         this.opacity = scale(this.load, 0, 100, 1, 0);
         this.filter = `blur(${scale(this.load, 0, 100, 30, 0)}px)`;
-        console.log(this.filter);
     }
 
     public show(): void {

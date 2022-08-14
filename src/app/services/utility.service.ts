@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {GameImage} from '../models/game.model';
+import {GameImage} from '../models/game/game-interface/game-image.model';
 
 @Injectable({
     providedIn: 'root',
@@ -7,7 +7,6 @@ import {GameImage} from '../models/game.model';
 export class UtilityService {
     public gameImageGenerate(artWork: GameImage[], screenShots: GameImage[], cover?: GameImage): string[] {
         let mergedImages = [
-            // ...this.convertGameImageToId([cover]),
             ...this.convertGameImageToId(artWork),
             ...this.convertGameImageToId(screenShots),
         ];

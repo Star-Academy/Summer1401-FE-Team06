@@ -1,4 +1,4 @@
-import {GameImage} from './game.model';
+import {GameImage} from './game/game-interface/game-image.model';
 
 export interface ProductNew {
     id: number;

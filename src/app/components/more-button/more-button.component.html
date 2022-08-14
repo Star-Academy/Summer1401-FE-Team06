@@ -1,4 +1,4 @@
-<div class="more" [class.reverse]="isReverse" (click)="onClickHandler()">
+<div class="more" [class.reverse]="isReverse" (click)="btnClick.emit()">
     <span>بیشتر </span>
     <i class="fa-solid fa-angles-{{ isReverse ? 'right' : 'left' }}"></i>
 </div>

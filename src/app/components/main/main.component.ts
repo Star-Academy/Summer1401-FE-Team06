@@ -3,7 +3,7 @@ import {PrimaryTitleDirection} from '../../enum/primary-title-direction.enum';
 import {GameService} from '../../services/game.service';
 import {ProductNew} from '../../models/productNew.model';
 import {LoadingService} from '../../services/loading.service';
-import {SlidebarImages} from '../../models/game.model';
+import {SlidebarImages} from '../../models/game/game-interface/slidebar-image.model';
 
 @Component({
     selector: 'app-main',
