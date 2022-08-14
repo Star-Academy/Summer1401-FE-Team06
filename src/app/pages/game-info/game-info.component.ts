@@ -5,6 +5,7 @@ import {Game, GameImage, Item} from '../../models/game.model';
 import {ActivatedRoute, Params} from '@angular/router';
 import {UtilityService} from '../../services/utility.service';
 import {ProductNew} from '../../models/productNew.model';
+import {LoadingService} from '../../services/loading.service';
 
 @Component({
     selector: 'app-game-info',
@@ -20,10 +21,12 @@ export class GameInfoComponent implements OnInit {
     public constructor(
         private gameService: GameService,
         private route: ActivatedRoute,
-        private utilityService: UtilityService
+        private utilityService: UtilityService,
+        private loadingService: LoadingService
     ) {}
 
     public async ngOnInit(): Promise<void> {
+        this.loadingService.show();
         this.route.params.subscribe(async (params: Params) => {
             this.id = +params['id'];
             this.game = (await this.gameService.searchById(this.id)) || null;

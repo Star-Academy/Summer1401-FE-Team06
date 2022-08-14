@@ -8,6 +8,7 @@ import {GameService} from '../../services/game.service';
 import {Subscription} from 'rxjs';
 import {Game, GameImage} from '../../models/game.model';
 import {UtilityService} from '../../services/utility.service';
+import {LoadingService} from '../../services/loading.service';
 
 @Component({
     selector: 'app-profile',
@@ -27,13 +28,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
         private authService: AuthService,
         private resultMessageService: ResultMessageService,
         private gameService: GameService,
-        private utilityService: UtilityService
-    ) {
-        // this.profileService.getUserInfo().then();
-        // this.user = {...this.profileService.user} as User;
-    }
+        private utilityService: UtilityService,
+        private loadingService: LoadingService
+    ) {}
 
     public ngOnInit(): void {
+        this.loadingService.show();
         this.subscription = this.gameService.favoriteList.subscribe((favoriteList: ProductNew[]) => {
             this.favoriteList = favoriteList;
             const generatedRandomNumber = this.generateRandomNumber(this.favoriteList.length);
