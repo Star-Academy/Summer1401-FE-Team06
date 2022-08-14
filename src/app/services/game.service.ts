@@ -99,6 +99,24 @@ export class GameService {
         return this.sliderGames;
     }
 
+    public async relatedGames(genres: number[]): Promise<ProductNew[] | null> {
+        const response = await this.apiService.postRequest<{games: Game[]}>({
+            url: API_GAME_SEARCH,
+            body: {
+                searchPhrase: '',
+                pageSize: 10,
+                offset: 0,
+                sort: Sort.MOST_POPULAR,
+                filters: {
+                    genres: [...genres],
+                },
+            },
+        });
+
+        const relateGames = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
+        return relateGames;
+    }
+
     public async addGameToFavoriteList(gameId: number): Promise<void> {
         const token = this.authService.token;
         await this.apiService.postRequest<any>({url: API_FAVORITES_ADD, body: {token, gameId}});
@@ -249,8 +267,8 @@ export class GameService {
                 this.numberOfPages = Number(this.getFilterByParam('numberOfPages')) || this.numberOfPages;
                 this.minimumRating = Number(this.getFilterByParam('minimumRating')) || this.minimumRating;
                 this.maximumRating = Number(this.getFilterByParam('maximumRating')) || this.maximumRating;
-                this.getFilterArray(this.getFilterByParam('genres'), 'genres');
-                this.getFilterArray(this.getFilterByParam('platforms'), 'platforms');
+                this.getFilterArray(this.getFilterByParamAll('genres'), 'genres');
+                this.getFilterArray(this.getFilterByParamAll('platforms'), 'platforms');
 
                 if (value.url.startsWith('/search')) await this.search();
             }
@@ -258,6 +276,11 @@ export class GameService {
     }
     private getFilterByParam(param: string): string | null {
         const convertedToString = this.route.snapshot.queryParamMap.get(param);
+        if (convertedToString) return convertedToString;
+        return null;
+    }
+    private getFilterByParamAll(param: string): string[] | null {
+        const convertedToString = this.route.snapshot.queryParamMap.getAll(param);
         if (convertedToString) return convertedToString;
         return null;
     }
@@ -288,10 +311,10 @@ export class GameService {
         }
         return sortObj;
     }
-    private getFilterArray(params: string | null, key: string): void | null {
+    private getFilterArray(params: string[] | null, key: string): void | null {
         if (params === null) return;
 
-        const filteredIds = params.split(',').map((x) => +x);
+        const filteredIds = params.map((x) => +x);
         if (key === 'genres') {
             filteredIds.forEach((id) => {
                 const activeGenre = this.genres.find((genre) => genre.id == id);

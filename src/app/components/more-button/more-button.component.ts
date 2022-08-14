@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
     selector: 'app-more-button',
@@ -7,4 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MoreButtonComponent {
     @Input() public isReverse: boolean = false;
+    @Output() public btnClick = new EventEmitter<void>();
+
+    public onClickHandler(): void {
+        this.btnClick.emit();
+    }
 }

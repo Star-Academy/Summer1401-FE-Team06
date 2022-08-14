@@ -36,7 +36,10 @@
         <div class="splitter"></div>
         <div class="game__relate">
             <app-primary-title [title]="'بازی های مرتبط'"></app-primary-title>
-            <app-slider-section></app-slider-section>
+            <app-slider-section
+                [queryParamsFilter]="{genres: extractID(game.genres)}"
+                [cards]="relatedGames"
+            ></app-slider-section>
         </div>
     </ng-container>
     <ng-template #loader>salaaaam...</ng-template>
