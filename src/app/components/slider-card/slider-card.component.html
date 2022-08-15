@@ -1,5 +1,5 @@
 <div class="card" (click)="salamEl()">
-    <div class="card_img">
+    <div class="card_img" [class.fade]="!product.isFavorite">
         <img [src]="product.cover | sliderImageConverter: 'cover_big'" [alt]="product.name" />
         <div class="overlay">
             <app-icon

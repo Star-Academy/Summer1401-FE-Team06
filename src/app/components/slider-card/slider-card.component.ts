@@ -18,6 +18,7 @@ export class SliderCardComponent {
 
     public constructor(private gameService: GameService, private authService: AuthService) {}
     public addAndRemoveFavorite(gameId: number): void {
+        console.log('kar mikone!!');
         if (this.authService.token) {
             if (!this.product.isFavorite) this.addFavorite(gameId);
             else this.removeFavorite(gameId);
@@ -49,6 +50,7 @@ export class SliderCardComponent {
         this.product.isWishList = false;
     }
     public salamEl(): void {
+        console.log(this.product);
         console.log('salam');
     }
 }
