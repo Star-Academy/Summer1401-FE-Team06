@@ -28,7 +28,7 @@
             .button {
                 background-color: transparent;
                 color: var(--secondary-color);
-                opacity: 0.6;
+                opacity: 0.7;
 
                 padding: 0.6rem 0;
 
@@ -56,7 +56,7 @@
         }
 
         &__group {
-            opacity: 0.5;
+            opacity: 0.8;
 
             position: relative;
 
@@ -66,7 +66,7 @@
                 opacity: 1;
 
                 label {
-                    inset-inline-start: 5.5rem;
+                    inset-inline-start: 2.5rem;
                 }
             }
 
@@ -76,13 +76,10 @@
 
                 position: absolute;
                 inset-block-start: -0.5rem;
-                inset-inline-start: 50%;
+                inset-inline-start: 2rem;
 
                 padding: 0 0.5rem;
-
-                transform: translateX(50%);
-
-                font-size: var(--smaller-font-size);
+                font-size: 0.8rem;
                 font-weight: 700;
 
                 transition: inset-inline-start 300ms ease;
@@ -108,7 +105,7 @@
 
                 &:valid {
                     ~ label {
-                        inset-inline-start: 5.5rem;
+                        inset-inline-start: 2.5rem;
                     }
 
                     ~ i {
@@ -125,11 +122,11 @@
                 opacity: 0;
 
                 position: absolute;
-                inset-block-start: -0.5rem;
+                inset-block-start: -0.6rem;
                 inset-inline-end: 1rem;
 
-                padding: 0 0.5rem;
-
+                padding: 0.3rem;
+                border-radius: 100%;
                 transform: translateX(-3rem);
 
                 transition: transform 300ms cubic-bezier(0.39, 0.32, 0.45, 1.49);

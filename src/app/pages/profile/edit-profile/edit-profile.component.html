@@ -8,6 +8,7 @@
                 type="text"
                 id="firstName"
                 name="firstName"
+                autocomplete="on"
                 [placeholder]="this?.profileService?.user?.firstName"
                 [(ngModel)]="user!.firstName"
             />
@@ -21,6 +22,7 @@
                 type="text"
                 id="lastName"
                 name="lastName"
+                autocomplete="on"
                 [placeholder]="this?.profileService?.user?.lastName"
                 [(ngModel)]="user!.lastName"
             />
@@ -34,6 +36,7 @@
                 type="text"
                 id="username"
                 name="username"
+                autocomplete="on"
                 [placeholder]="this?.profileService?.user?.username"
                 pattern="([A-Za-z])\w+"
                 [(ngModel)]="user!.username"
@@ -48,6 +51,7 @@
                 type="email"
                 id="email"
                 name="email"
+                autocomplete="on"
                 [placeholder]="this?.profileService?.user?.email"
                 [(ngModel)]="user!.email"
             />
@@ -61,6 +65,7 @@
                 type="tel"
                 id="phone"
                 name="phone"
+                autocomplete="on"
                 [placeholder]="this?.profileService?.user?.phone"
                 [(ngModel)]="user!.phone"
             />
@@ -74,6 +79,7 @@
                 type="date"
                 id="birthday"
                 name="birthday"
+                autocomplete="off"
                 [placeholder]="this?.profileService?.user?.dateOfBirth"
                 [(ngModel)]="user!.dateOfBirth"
             />
@@ -88,6 +94,7 @@
                 id="password"
                 placeholder="شامل حروف لاتین و عدد و نماد"
                 name="password"
+                autocomplete="off"
                 pattern="'^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'"
             />
             <i class="far fa-check-circle contact__group-icon"></i>

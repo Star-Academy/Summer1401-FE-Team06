@@ -11,6 +11,7 @@
                     id="firstName"
                     name="firstName"
                     placeholder="نام خود را وارد کنید"
+                    autocomplete="on"
                     required
                     [(ngModel)]="user.firstName"
                 />
@@ -24,6 +25,7 @@
                     type="text"
                     id="lastName"
                     name="lastName"
+                    autocomplete="on"
                     placeholder="نام خانوادگی خود را وارد کنید"
                     [(ngModel)]="user.lastName"
                 />
@@ -38,6 +40,7 @@
                     id="username"
                     name="username"
                     placeholder="شامل حروف لاتین"
+                    autocomplete="on"
                     required
                     pattern="([A-Za-z])\w+"
                     [(ngModel)]="user.username"
@@ -52,6 +55,7 @@
                     type="email"
                     id="email"
                     name="email"
+                    autocomplete="on"
                     placeholder="ایمیل خود را وارد کنید"
                     [(ngModel)]="user.email"
                     required
@@ -67,6 +71,7 @@
                     id="password"
                     placeholder="شامل حروف لاتین و عدد و نماد"
                     name="password"
+                    autocomplete="off"
                     [attr.required]="!isLogin"
                     [(ngModel)]="user.password"
                 />
@@ -81,6 +86,7 @@
                     id="twoStepPassword"
                     placeholder="تکرار رمز عبور"
                     name="twoStepPassword"
+                    autocomplete="off"
                     required
                     [(ngModel)]="twoStepPassword"
                 />
