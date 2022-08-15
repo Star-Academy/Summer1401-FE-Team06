@@ -5,6 +5,7 @@ import {ProductNew} from '../../models/productNew.model';
 import {LoadingService} from '../../services/loading.service';
 import {SlidebarImages} from '../../models/game/game-interface/slidebar-image.model';
 import {SearchService} from '../../services/search.service';
+import {Banner} from '../../models/game/game-interface/banner.model';
 
 @Component({
     selector: 'app-main',
@@ -23,6 +24,27 @@ export class MainComponent implements OnInit {
     public mostPopularGames: ProductNew[] | null = null;
     public newestGames: ProductNew[] | null = null;
     public games: ProductNew[] | null = null;
+    public bannerItems: Banner[] = [
+        {
+
+            id: 1970,
+            name: 'Assassins Creed',
+            ageLimit: 16,
+            releaseDate: 2007,
+            genre: 'نقش آفرینی و اکشن',
+            rating: 84,
+            src: 'assets/images/banner.webp',
+        },
+        {
+            id: 138949,
+            name: 'Spider Man',
+            ageLimit: 13,
+            releaseDate: 2021,
+            genre: 'ابرقهرمان و اکشن',
+            rating: 82,
+            src: 'assets/images/banner2.webp',
+        },
+    ];
 
     public slidebarImages: SlidebarImages[] = [];
     public async ngOnInit(): Promise<void> {

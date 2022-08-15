@@ -13,8 +13,8 @@
             [isReverse]="true"
         ></app-slider-section>
     </app-section>
-    <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
-        <app-banner></app-banner>
+    <app-section *ngIf="bannerItems[0]" [isSecondaryBackgroundColor]="true" placeComponent="full-width">
+        <app-banner [bannerItem]="bannerItems[0]"></app-banner>
     </app-section>
     <app-section
         *ngIf="topSellerGames; else loader"
@@ -27,9 +27,9 @@
             [cards]="mostPopularGames"
         ></app-slider-section>
     </app-section>
-<!--    <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">-->
-<!--        <app-banner></app-banner>-->
-<!--    </app-section>-->
+    <app-section *ngIf="bannerItems[1]" [isSecondaryBackgroundColor]="true" placeComponent="full-width">
+        <app-banner [bannerItem]="bannerItems[1]" [isReverse]="true"></app-banner>
+    </app-section>
     <app-section
         *ngIf="topSellerGames; else loader"
         primaryTitle="جدیدترین بازی‌ها"
