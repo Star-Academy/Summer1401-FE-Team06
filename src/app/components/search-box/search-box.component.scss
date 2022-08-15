@@ -33,12 +33,5 @@
         &::placeholder {
             color: var(--clr-gray-70);
         }
-
-        &:focus {
-            border-bottom-left-radius: none;
-            border-bottom-right-radius: none;
-            box-shadow: 0 2px 0 0 var(--primary-text-color);
-            outline: none;
-        }
     }
 }

@@ -29,10 +29,13 @@
 
         &__title {
             display: flex;
+            flex-flow: row-reverse;
             justify-content: space-between;
-
+            gap: 1.5rem;
             padding-bottom: 1.5rem;
-            &-right{
+
+            &-right {
+                direction: ltr;
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
@@ -72,6 +75,15 @@
 
             margin-top: -2.5rem;
             padding: 3rem 2rem 2rem 0;
+        }
+    }
+}
+@media (max-width: 650px) {
+    .wrapper {
+        .game {
+            &__title {
+                flex-direction: column;
+            }
         }
     }
 }
