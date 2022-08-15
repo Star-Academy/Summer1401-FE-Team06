@@ -11,6 +11,9 @@
                     id="firstName"
                     name="firstName"
                     placeholder="نام خود را وارد کنید"
+                    title="نام خود را وارد کنید"
+                    oninvalid="this.setCustomValidity('نام خود را وارد کنید')"
+                    oninput="this.setCustomValidity('')"
                     autocomplete="on"
                     required
                     [(ngModel)]="user.firstName"
@@ -27,6 +30,9 @@
                     name="lastName"
                     autocomplete="on"
                     placeholder="نام خانوادگی خود را وارد کنید"
+                    title="نام خانوادگی خود را وارد کنید"
+                    oninvalid="this.setCustomValidity('نام خانوادگی خود را وارد کنید')"
+                    oninput="this.setCustomValidity('')"
                     [(ngModel)]="user.lastName"
                 />
                 <label for="lastName">نام خانوادگی</label>
@@ -40,6 +46,9 @@
                     id="username"
                     name="username"
                     placeholder="شامل حروف لاتین"
+                    title="شامل حروف لاتین"
+                    oninvalid="this.setCustomValidity('شامل حروف لاتین')"
+                    oninput="this.setCustomValidity('')"
                     autocomplete="on"
                     required
                     pattern="([A-Za-z])\w+"
@@ -57,6 +66,9 @@
                     name="email"
                     autocomplete="on"
                     placeholder="ایمیل خود را وارد کنید"
+                    title="ایمیل خود را وارد کنید"
+                    oninvalid="this.setCustomValidity('ایمیل خود را وارد کنید')"
+                    oninput="this.setCustomValidity('')"
                     [(ngModel)]="user.email"
                     required
                 />
@@ -70,6 +82,9 @@
                     type="password"
                     id="password"
                     placeholder="شامل حروف لاتین و عدد و نماد"
+                    title="شامل حروف لاتین و عدد و نماد"
+                    oninvalid="this.setCustomValidity('شامل حروف لاتین و عدد و نماد')"
+                    oninput="this.setCustomValidity('')"
                     name="password"
                     autocomplete="off"
                     [attr.required]="!isLogin"
@@ -85,6 +100,9 @@
                     type="password"
                     id="twoStepPassword"
                     placeholder="تکرار رمز عبور"
+                    title="تکرار رمز عبور"
+                    oninvalid="this.setCustomValidity('رمز عبور خود را تکرار نمایید')"
+                    oninput="this.setCustomValidity('')"
                     name="twoStepPassword"
                     autocomplete="off"
                     required
