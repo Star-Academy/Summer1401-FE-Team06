@@ -106,17 +106,33 @@
             <input
                 class="contact__input"
                 type="password"
-                id="password"
+                id="oldPassword"
+                placeholder="شامل حروف لاتین و عدد و نماد"
+                title="تکرار رمز عبور"
+                name="oldPassword"
+                autocomplete="off"
+                [(ngModel)]="changePassword!.currentPassword"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="oldPassword">رمز فعلی</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="password"
+                id="newPassword"
                 placeholder="شامل حروف لاتین و عدد و نماد"
                 title="تکرار رمز عبور"
                 oninvalid="this.setCustomValidity('شامل حروف لاتین و عدد و نماد')"
                 oninput="this.setCustomValidity('')"
-                name="password"
+                name="newPassword"
                 autocomplete="off"
                 pattern="'^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'"
+                [(ngModel)]="changePassword!.newPassword"
             />
             <i class="far fa-check-circle contact__group-icon"></i>
-            <label for="password">رمز عبور</label>
+            <label for="newPassword">رمز جدید</label>
         </div>
 
         <div class="contact__group">

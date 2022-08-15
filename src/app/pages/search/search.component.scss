@@ -1,7 +1,7 @@
 .search-container {
   padding-top: 2rem;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 
   aside {
     width: 25rem;
@@ -128,5 +128,18 @@
 @media (min-width: 900px) {
   [data-pagination] {
     font-size: 16pt;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search-container {
+    flex-direction: column;
+
+    aside {
+      max-width: 25rem;
+      width: 100%;
+      margin-inline: auto;
+      position: inherit;
+    }
   }
 }
