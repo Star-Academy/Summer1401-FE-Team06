@@ -1,27 +1,50 @@
-<app-slidebar></app-slidebar>
+<app-slidebar [items]="slidebarImages"></app-slidebar>
 <app-container>
+    <ng-template #loader class="loading"><h2>... LOADING ...</h2></ng-template>
     <app-section
+        *ngIf="topSellerGames; else loader"
         primaryTitle="پرفروش‌ترین بازی‌ها"
         [titleDirection]="titleDirectionType.LEFT"
         placeComponent="right-out"
     >
-        <app-slider-section [isReverse]="true"></app-slider-section>
+        <app-slider-section
+            [cards]="topSellerGames"
+            [queryParamsFilter]="searchService.topSellerBody"
+            [isReverse]="true"
+        ></app-slider-section>
     </app-section>
-    <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
-        <app-banner></app-banner>
+    <app-section *ngIf="bannerItems[0]" [isSecondaryBackgroundColor]="true" placeComponent="full-width">
+        <app-banner [bannerItem]="bannerItems[0]"></app-banner>
     </app-section>
-    <app-section primaryTitle="برترین بازی‌ها" [titleDirection]="titleDirectionType.RIGHT" placeComponent="left-out">
-        <app-slider-section></app-slider-section>
+    <app-section
+        *ngIf="topSellerGames; else loader"
+        primaryTitle="پرطرفدارترین بازی‌ها"
+        [titleDirection]="titleDirectionType.RIGHT"
+        placeComponent="left-out"
+    >
+        <app-slider-section
+            [queryParamsFilter]="searchService.mostPopularBody"
+            [cards]="mostPopularGames"
+        ></app-slider-section>
     </app-section>
-    <app-section [isSecondaryBackgroundColor]="true" placeComponent="full-width">
-        <app-banner></app-banner>
+    <app-section *ngIf="bannerItems[1]" [isSecondaryBackgroundColor]="true" placeComponent="full-width">
+        <app-banner [bannerItem]="bannerItems[1]" [isReverse]="true"></app-banner>
     </app-section>
-    <app-section primaryTitle="بازی‌های جنگی" [titleDirection]="titleDirectionType.LEFT" placeComponent="right-out">
-        <app-slider-section [isReverse]="true"></app-slider-section>
+    <app-section
+        *ngIf="topSellerGames; else loader"
+        primaryTitle="جدیدترین بازی‌ها"
+        [titleDirection]="titleDirectionType.LEFT"
+        placeComponent="right-out"
+    >
+        <app-slider-section
+            [queryParamsFilter]="searchService.newestBody"
+            [cards]="newestGames"
+            [isReverse]="true"
+        ></app-slider-section>
     </app-section>
 </app-container>
 <app-container>
-    <app-section>
-        <app-main-cards></app-main-cards>
+    <app-section *ngIf="games">
+        <app-main-cards [queryParamsFilter]="searchService.allGamesBody" [cards]="games"></app-main-cards>
     </app-section>
 </app-container>

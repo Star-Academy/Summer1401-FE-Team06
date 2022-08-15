@@ -1,0 +1,34 @@
+<div class="game-slider" [style.--active-index]="activeIndex">
+    <ol>
+        <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
+            <img [src]="item" alt="" />
+        </li>
+        <div class="controls">
+            <button class="right" (click)="changeActiveIndex(activeIndex - 1)">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="left" (click)="changeActiveIndex(activeIndex + 1)">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+        </div>
+    </ol>
+
+    <div class="game-bullet">
+        <button (click)="scrollToLeft()">
+            <i class="fa-solid fa-caret-right"></i>
+        </button>
+        <div class="slider" #slider>
+            <div
+                class="slider__image"
+                *ngFor="let item of items; index as index"
+                [class.active]="index === activeIndex"
+                (click)="activeWithClickBullet(index)"
+            >
+                <img [src]="item" alt="" />
+            </div>
+        </div>
+        <button (click)="scrollToRight()">
+            <i class="fa-solid fa-caret-left"></i>
+        </button>
+    </div>
+</div>

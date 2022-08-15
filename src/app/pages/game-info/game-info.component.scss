@@ -1,0 +1,101 @@
+.wrapper {
+    min-height: 100vh;
+
+    .section {
+        background-color: var(--clr-gray-10);
+
+        margin-top: 2rem;
+        padding: 0 2rem 4rem;
+
+        transform: skewY(-2deg);
+
+        & > * {
+            transform: skewY(2deg);
+        }
+    }
+
+    .splitter {
+        width: 100%;
+
+        border-bottom: 0.5rem solid var(--clr-gray-30);
+
+        transform: skewY(-2deg);
+    }
+
+    .game {
+        &__header {
+            padding-bottom: 4rem;
+        }
+
+        &__title {
+            display: flex;
+            flex-flow: row-reverse;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+
+            &-right {
+                direction: ltr;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        &__description {
+            display: flex;
+            align-items: start;
+            flex-direction: row-reverse;
+            gap: 2rem;
+        }
+
+        &__summary {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            flex-basis: 65%;
+        }
+
+        &__details {
+            background-color: var(--clr-gray-8);
+            border-radius: var(--border-radius-card);
+            direction: ltr;
+            padding: 1rem 2rem;
+
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            flex-basis: 35%;
+        }
+
+        &__relate {
+            background-color: var(--clr-gray-20);
+
+            margin-top: -2.5rem;
+            padding: 3rem 2rem 2rem 0;
+        }
+    }
+}
+@media (max-width: 650px) {
+    .wrapper {
+        .game {
+            &__title {
+                flex-direction: column;
+                &-right{
+                    text-align: center;
+                    align-items: center;
+                }
+            }
+            &__description{
+                flex-direction: column;
+            }
+            &__details{
+                flex: 1;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

@@ -1,5 +1,62 @@
-<div class="content-wrapper">
-    <h1>پروفایل کار میکند!</h1>
-    <a routerLink="/">بازگشت به خانه</a>
-    <button (click)="logoutButtonClickHandler()">خروج از حساب کاربری</button>
+<app-header></app-header>
+<div class="container profile-container">
+    <div>
+        <img class="object-fit-cover" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
+        <img class="object-fit-contain" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
+        <div>
+            <img [src]="authService.userInfo?.avatar || 'assets/images/avatar.webp'" alt="avatar" />
+            <div>
+                <h2>{{ this.profileService?.user?.firstName }} {{ this.profileService?.user?.lastName }}</h2>
+                <h3>{{ this.profileService?.user?.username }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <aside>
+            <div>
+                <img [src]="authService.userInfo?.avatar || 'assets/images/avatar.webp'" alt="avatar" />
+                <h2>{{ this.profileService?.user?.username }}</h2>
+                <div>
+                    <div class="info">
+                        <span>نام </span>
+                        <span
+                            >{{ this.profileService?.user?.firstName || '_' }}
+                            {{ this.profileService?.user?.lastName }}</span
+                        >
+                    </div>
+                    <div class="info">
+                        <span>ایمیل </span>
+                        <span>{{ this.profileService?.user?.email || '_' }}</span>
+                    </div>
+                    <div class="info">
+                        <span>تلفن </span>
+                        <span>{{ this.profileService?.user?.phone || '_' }}</span>
+                    </div>
+                    <div class="info">
+                        <span>تاریخ تولد </span>
+                        <span>{{ this.profileService?.birthday || '_' }}</span>
+                    </div>
+                    <button routerLink="edit" routerLinkActive="is-active">
+                        <i class="fas fa-edit"></i>
+                        ویرایش پروفایل
+                    </button>
+                    <button routerLink="wish-list" routerLinkActive="is-active">
+                        <i class="fas fa-cart-shopping"></i>
+                        لیست خرید
+                    </button>
+                    <button routerLink="favorites" routerLinkActive="is-active" class="heartbtn">
+                        <i class="fas fa-star"></i>
+                        علاقه‌مندی‌ها
+                    </button>
+                    <button (click)="authService.logout()" class="exit-account">
+                        <i class="fa-solid fa-right-from-bracket"></i> خروج از حساب کاربری
+                    </button>
+                </div>
+            </div>
+        </aside>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </div>
 </div>
+<app-footer></app-footer>

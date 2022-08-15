@@ -1,7 +1,8 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SliderSectionComponent} from './slider-section.component';
-import {Product} from '../../../main-cards/models/product';
+import {ProductNew} from '../../../../models/productNew.model';
+import {product} from '../../../../mocks/product.mock';
 
 describe('SliderSectionComponent', () => {
     let component: SliderSectionComponent;
@@ -41,7 +42,7 @@ describe('SliderSectionComponent', () => {
         testHaveProduct();
     });
     it('should render wrapper - product - have cards', () => {
-        testHaveProduct([{newPrice: 200, gameName: 'test', imageUrl: 'test', oldPrice: 200}]);
+        testHaveProduct([product]);
     });
     it('should render wrapper - product - no have cards', () => {
         testHaveProduct([]);
@@ -74,13 +75,13 @@ describe('SliderSectionComponent', () => {
             expect(wrapperEl?.classList).not.toContain('reverse');
         }
     };
-    const testHaveProduct = (data?: Product[]): void => {
+    const testHaveProduct = (data?: ProductNew[]): void => {
         if (data !== undefined) {
             component.cards = data;
             fixture.detectChanges();
         }
         const wrapperEl = host.querySelector('.wrapper');
-        if (component.cards.length === 0) {
+        if (component?.cards?.length === 0) {
             expect(wrapperEl).toBeNull();
         } else {
             expect(wrapperEl).toBeTruthy();

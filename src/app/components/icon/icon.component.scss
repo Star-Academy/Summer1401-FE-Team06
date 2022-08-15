@@ -1,10 +1,10 @@
 .icon-container {
+    position: relative;
     display: grid;
     place-items: center;
 
     block-size: 2rem;
     inline-size: 2.5rem;
-
     border-radius: var(--border-radius-card);
 
     transition: transform 300ms ease;
@@ -24,7 +24,19 @@
 
         text-align: center;
     }
-
+    span{
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        background-color: var(--secondary-color);
+        color: var(--clr-gray-15);
+        font-size: 0.7rem;
+        display: grid;
+        place-items: center;
+    }
     &.green {
         color: var(--clr-icon-green);
 
@@ -42,6 +54,12 @@
 
         border: 2px solid var(--clr-icon-white);
     }
+
+    &.gray {
+        color: var(--clr-icon-gray);
+        border: 2px solid var(--clr-icon-gray);
+    }
+
 
     &.no-bg {
         background-color: transparent;

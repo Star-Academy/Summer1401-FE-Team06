@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="container search-container">
+    <aside>
+        <app-filters></app-filters>
+    </aside>
+
+    <main>
+        <header>
+            <div class="sorting">
+                <i class="far fa-arrow-down-wide-short"></i>
+                <select (change)="sortingClickHandler($event)">
+                    <option [value]="Sort.TOP_SELLER">پرفروش‌ترین</option>
+                    <option [value]="Sort.MOST_POPULAR">محبوب‌ترین</option>
+                    <option [value]="Sort.MOST_RELEVANT">مرتبط‌ترین</option>
+                    <option [value]="Sort.NEWEST">جدیدترین</option>
+                    <option [value]="Sort.OLDEST">قدیمی‌ترین</option>
+                </select>
+            </div>
+            <span>{{ this.gameService.countOfProducts }} بازی</span>
+        </header>
+        <div class="products">
+            <app-slider-card *ngFor="let card of gameService.searchGames" [product]="card"></app-slider-card>
+        </div>
+        <nav data-pagination>
+            <a *ngIf="this.active > 1" (click)="pageButtonClickHandler(-1)"><i class="fa-solid fa-angle-right"></i></a>
+            <ul #paginationList>
+                <li *ngIf="active > 3" (click)="changePaginationList(1)"><a>1</a></li>
+                <li *ngIf="active > 3 && active <= this.gameService.numberOfPages"><a>…</a></li>
+                <li
+                    *ngIf="gameService.numberOfPages > 1"
+                    (click)="changePaginationList(linumbers[0])"
+                    [class.current]="active === linumbers[0]"
+                >
+                    <a>{{ linumbers[0] }}</a>
+                </li>
+                <li
+                    *ngIf="gameService.numberOfPages > 1"
+                    (click)="changePaginationList(linumbers[1])"
+                    [class.current]="active === linumbers[1]"
+                >
+                    <a>{{ linumbers[1] }}</a>
+                </li>
+                <li
+                    *ngIf="gameService.numberOfPages > 2"
+                    (click)="changePaginationList(linumbers[2])"
+                    [class.current]="active === linumbers[2]"
+                >
+                    <a>{{ linumbers[2] }}</a>
+                </li>
+                <li
+                    *ngIf="
+                        active > 0 && active < this.gameService.numberOfPages - 1 && this.gameService.numberOfPages > 3
+                    "
+                >
+                    <a>…</a>
+                </li>
+                <li
+                    *ngIf="
+                        active > 0 && active < this.gameService.numberOfPages - 1 && this.gameService.numberOfPages > 3
+                    "
+                    (click)="changePaginationList(this.gameService.numberOfPages)"
+                >
+                    <a>{{ this.gameService.numberOfPages }}</a>
+                </li>
+            </ul>
+            <a *ngIf="this.active < this.gameService.numberOfPages" (click)="pageButtonClickHandler(1)"
+                ><i class="fa-solid fa-angle-left"></i
+            ></a>
+        </nav>
+    </main>
+</div>
+<app-footer></app-footer>

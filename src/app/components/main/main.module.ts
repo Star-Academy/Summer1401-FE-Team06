@@ -24,6 +24,6 @@ import {MoreButtonModule} from '../more-button/more-button.module';
         ContainerModule,
         MoreButtonModule,
     ],
-    exports: [MainComponent],
+    exports: [MainComponent, SliderSectionComponent],
 })
 export class MainModule {}

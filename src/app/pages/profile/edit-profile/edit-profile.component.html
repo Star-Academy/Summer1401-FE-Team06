@@ -1,0 +1,149 @@
+<div class="edit-profile">
+    <form class="contact__form" (ngSubmit)="formSubmitHandler()">
+        <h2 class="contact__title">ویرایش پروفایل</h2>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="text"
+                id="firstName"
+                name="firstName"
+                autocomplete="on"
+                title="نام خود را وارد کنید"
+                oninvalid="this.setCustomValidity('نام خود را وارد کنید')"
+                oninput="this.setCustomValidity('')"
+                [placeholder]="this?.profileService?.user?.firstName"
+                [(ngModel)]="user!.firstName"
+            />
+            <label for="firstName">نام</label>
+            <i class="far fa-check-circle contact__group-icon"></i>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="text"
+                id="lastName"
+                name="lastName"
+                autocomplete="on"
+                title="نام خانوادگی خود را وارد کنید"
+                oninvalid="this.setCustomValidity('نام خانوادگی خود را وارد کنید')"
+                oninput="this.setCustomValidity('')"
+                [placeholder]="this?.profileService?.user?.lastName"
+                [(ngModel)]="user!.lastName"
+            />
+            <label for="lastName">نام خانوادگی</label>
+            <i class="far fa-check-circle contact__group-icon"></i>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="text"
+                id="username"
+                name="username"
+                autocomplete="on"
+                title="شامل حروف لاتین"
+                oninvalid="this.setCustomValidity('شامل حروف لاتین')"
+                oninput="this.setCustomValidity('')"
+                [placeholder]="this?.profileService?.user?.username"
+                pattern="([A-Za-z])\w+"
+                [(ngModel)]="user!.username"
+            />
+            <label for="username">نام کاربری (حرف لاتین)</label>
+            <i class="far fa-check-circle contact__group-icon"></i>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="on"
+                title="ایمیل خود را وارد کنید"
+                oninvalid="this.setCustomValidity('ایمیل خود را وارد کنید')"
+                oninput="this.setCustomValidity('')"
+                [placeholder]="this?.profileService?.user?.email"
+                [(ngModel)]="user!.email"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="email">ایمیل</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="on"
+                title="شماره تلفن همراه خود را وارد نمایید"
+                oninvalid="this.setCustomValidity('شماره تلفن همراه خود را وارد نمایید')"
+                oninput="this.setCustomValidity('')"
+                [placeholder]="this?.profileService?.user?.phone"
+                [(ngModel)]="user!.phone"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="phone">تلفن</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="date"
+                id="birthday"
+                name="birthday"
+                autocomplete="off"
+                [placeholder]="this?.profileService?.user?.dateOfBirth"
+                [(ngModel)]="user!.dateOfBirth"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="birthday">تاریخ تولد</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="password"
+                id="oldPassword"
+                placeholder="شامل حروف لاتین و عدد و نماد"
+                title="تکرار رمز عبور"
+                name="oldPassword"
+                autocomplete="off"
+                [(ngModel)]="changePassword!.currentPassword"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="oldPassword">رمز فعلی</label>
+        </div>
+
+        <div class="contact__group">
+            <input
+                class="contact__input"
+                type="password"
+                id="newPassword"
+                placeholder="شامل حروف لاتین و عدد و نماد"
+                title="تکرار رمز عبور"
+                oninvalid="this.setCustomValidity('شامل حروف لاتین و عدد و نماد')"
+                oninput="this.setCustomValidity('')"
+                name="newPassword"
+                autocomplete="off"
+                pattern="'^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'"
+                [(ngModel)]="changePassword!.newPassword"
+            />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="newPassword">رمز جدید</label>
+        </div>
+
+        <div class="contact__group">
+            <input class="contact__input" type="file" id="file" name="file" [(ngModel)]="user!.avatar" #imageUpload />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="file">عکس پروفایل</label>
+        </div>
+        <div class="contact__buttons">
+            <button type="submit" class="button active">تایید</button>
+        </div>
+    </form>
+
+    <app-result-message></app-result-message>
+</div>

@@ -1,0 +1,4 @@
+<div *ngIf="isShow" class="loading">
+    <div class="bg" [style.backdrop-filter]="filter"></div>
+    <div class="loading-text" [style.opacity]="opacity">{{ load }}%</div>
+</div>

@@ -23,3 +23,12 @@
     block-size: 0.1rem;
     inline-size: 2rem;
 }
+@media (max-width: 700px) {
+    .primary-title {
+        font-size: 0.7rem;
+        justify-content: center !important;
+    }
+    .underline{
+        inline-size: 1.2rem;
+    }
+}

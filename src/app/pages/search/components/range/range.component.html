@@ -1,0 +1,5 @@
+<div class="wrapper">
+    {{ title }}
+    <input type="range" [(ngModel)]="value" min="0" max="100" (ngModelChange)="valueChange.emit($event)" />
+    {{ value }}
+</div>

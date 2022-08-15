@@ -1,4 +1,7 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy} from '@angular/core';
+import {GameService} from '../../services/game.service';
+import {SlidebarImages} from '../../models/game/game-interface/slidebar-image.model';
+import {Router} from '@angular/router';
 
 interface Item {
     src: string;
@@ -10,14 +13,10 @@ interface Item {
     styleUrls: ['./slidebar.component.scss'],
 })
 export class SlidebarComponent implements AfterViewInit, OnDestroy {
+    public constructor(private gameService: GameService, private router: Router) {}
     public readonly INTERVAL_DELAY: number = 4_000;
 
-    public items: Item[] = [
-        {src: 'assets/images/slider1.webp'},
-        {src: 'assets/images/slider3.webp'},
-        {src: 'assets/images/slider4.webp'},
-    ];
-
+    @Input() public items: SlidebarImages[] = [];
     public activeIndex: number = 0;
 
     public interval!: number;
@@ -49,5 +48,8 @@ export class SlidebarComponent implements AfterViewInit, OnDestroy {
     public activeWithClickBullet(index: number): void {
         this.activeIndex = index;
         this.resetInterval();
+    }
+    public async searchWithFilter(id: number): Promise<void> {
+        await this.router.navigate(['/game', id]);
     }
 }

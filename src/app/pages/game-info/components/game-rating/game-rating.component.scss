@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    i {
+        color: var(--clr-gray-90);
+
+        &.active {
+            color: var(--secondary-color);
+        }
+    }
+    .count {
+        border-radius: var(--border-radius-card);
+        background-color: var(--clr-gray-70);
+        color: var(--clr-gray-20);
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 0.1rem 0.2rem;
+    }
+}

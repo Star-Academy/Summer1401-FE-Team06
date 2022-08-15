@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <div class="header">
+        <app-icon
+            (click)="addAndRemoveFavorite(gameInfo.id)"
+            [iconClass]="gameInfo.isFavorite ? IconType.WISH_LIST_SOLID : IconType.WISH_LIST"
+            [iconColor]="IconColor.ORANGE"
+            title="{{ gameInfo.isFavorite ? 'حذف از لیست علاقه مندی ها' : 'افزودن به لیست علاقه مندی ها' }}"
+        ></app-icon>
+        <div class="new-price">{{ gameInfo.priceOnSale | moneyFormat }}</div>
+        <div class="discount">
+            <div class="percent">{{ gameInfo.discount | percentPipe }}</div>
+            <div class="old-price">{{ gameInfo.price | moneyFormat }}</div>
+        </div>
+    </div>
+    <div class="footer" (click)="addAndRemoveWishlist(gameInfo.id)">
+        <p title="{{ gameInfo.isWishList ? 'حذف از سبد خرید' : 'افزودن به سبد خرید' }}">
+            {{ gameInfo.isWishList ? 'حذف از سبد خرید' : 'افزودن به سبد خرید' }}
+        </p>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.favorites {
+  h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    padding-block-end: 1.5rem;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, max-content));
+    gap: 1rem;
+  }
+}

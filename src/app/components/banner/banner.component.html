@@ -1,19 +1,30 @@
 <div class="banner">
-    <div class="wrapper">
-        <img src="../../../assets/images/banner.webp" alt="مجموعه ای از عکس بازی‌های برتر" />
-        <div>
-            <h2>ASSASSINS CREED</h2>
-            <span>تاریخ عرضه: سال 2007</span>
-            <span>سبک: نقش آفرینی و اکشن</span>
-            <span>محدودیت سنی: بالای 16 سال</span>
-            <ul>
-                <i class="fa-solid fa-star active"></i>
-                <i class="fa-solid fa-star active"></i>
-                <i class="fa-solid fa-star active"></i>
-                <i class="fa-solid fa-star active"></i>
-                <i class="fa-solid fa-star"></i>
-            </ul>
-            <app-more-button></app-more-button>
+    <div class="wrapper" [class.reverse]="isReverse">
+        <img src="{{ bannerItem?.src }}" alt="مجموعه ای از عکس بازی‌های برتر" />
+        <div class="container">
+            <div class="split">
+                <h2>{{ bannerItem?.name }}</h2>
+                <div class="subtitle">
+                    <h3>تاریخ عرضه:</h3>
+                    <p>سال {{ bannerItem?.releaseDate }}</p>
+                </div>
+                <div class="subtitle">
+                    <h3>سبک:</h3>
+                    <p>{{ bannerItem?.genre }}</p>
+                </div>
+                <div class="subtitle">
+                    <h3>محدودیت سنی:</h3>
+                    <p>بالای {{ bannerItem?.ageLimit }} سال</p>
+                </div>
+                <ul title="{{ bannerItem?.rating }}">
+                    <i class="fa-solid fa-star active"></i>
+                    <i class="fa-solid fa-star active"></i>
+                    <i class="fa-solid fa-star active"></i>
+                    <i class="fa-solid fa-star active"></i>
+                    <i class="fa-solid fa-star"></i>
+                </ul>
+                <app-more-button [isReverse]="isReverse" (click)="searchWithFilter(bannerItem?.id)"></app-more-button>
+            </div>
         </div>
     </div>
 </div>

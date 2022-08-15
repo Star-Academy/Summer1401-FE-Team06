@@ -21,6 +21,7 @@
         margin: 0 auto;
 
         li {
+            cursor: pointer;
             flex: 0 0 100%;
 
             inline-size: calc(100% - 2rem);
@@ -59,10 +60,10 @@
 
             justify-content: center;
 
-            block-size: 5rem;
-            inline-size: 3rem;
+            block-size: 3rem;
+            inline-size: 2rem;
 
-            border: 2px solid var(--clr-gray-20);
+            border: none;
             border-radius: var(--border-radius-card);
 
             transition: opacity 300ms ease;
@@ -92,7 +93,7 @@
     .bullets {
         position: absolute;
         bottom: 3rem;
-        left: 20%;
+        left: 50%;
 
         display: flex;
         gap: 1rem;
