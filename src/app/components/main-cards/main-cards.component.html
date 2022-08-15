@@ -3,5 +3,5 @@
     <div class="contain">
         <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
     </div>
-    <app-more-button></app-more-button>
+    <app-more-button (click)="searchWithFilter()"></app-more-button>
 </div>

@@ -23,7 +23,7 @@
 
         padding: 1rem 2rem 0;
 
-        cursor: pointer;
+
 
         app-more-button {
             margin-inline-start: var(--more-btn-padding);
@@ -41,7 +41,7 @@
                 border-radius: var(--border-radius-card);
 
                 font-size: 1.6rem;
-
+                cursor: pointer;
                 transition: opacity 300ms ease;
 
                 &:hover {
@@ -75,11 +75,6 @@
             }
         }
         .buttons {
-            //display: flex;
-            //align-items: center;
-
-            //justify-content: space-between;
-            //gap: 1rem;
             gap: 1rem;
             padding: 1rem 0 0 0;
             flex-direction: column;
@@ -87,8 +82,6 @@
             app-more-button {
                 margin: 0 !important;
             }
-
-            cursor: pointer;
 
             app-more-button {
                 margin-inline-start: var(--more-btn-padding);

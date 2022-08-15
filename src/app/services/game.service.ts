@@ -31,7 +31,7 @@ import {GameInfo} from '../models/game/game-info.model';
 })
 export class GameService {
     public readonly PAGE_SIZE: number = 21;
-    public games: Game[] = [];
+    public games: ProductNew[] = [];
 
     public favoriteListCount = new BehaviorSubject<number>(0);
     public favoriteList = new BehaviorSubject<ProductNew[]>([]);
@@ -103,60 +103,47 @@ export class GameService {
         return createdGameForGameInfo || null;
     }
 
-    public async topSellerGames(): Promise<ProductNew[] | null> {
+    public async topSellerGames(body: object): Promise<ProductNew[] | null> {
+        if (this.topSeller.length > 0) return this.topSeller;
         const response = await this.apiService.postRequest<{games: Game[]}>({
             url: API_GAME_SEARCH,
-            body: {
-                searchPhrase: '',
-                pageSize: 10,
-                offset: 0,
-                sort: Sort.TOP_SELLER,
-                filters: {
-                    minimumRating: 80,
-                    maximumRating: 99,
-                },
-            },
+            body,
         });
 
         this.topSeller = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
 
         return this.topSeller;
     }
-    public async mostPopularGames(): Promise<ProductNew[] | null> {
+    public async mostPopularGames(body: object): Promise<ProductNew[] | null> {
+        if (this.mostPopular.length > 0) return this.mostPopular;
         const response = await this.apiService.postRequest<{games: Game[]}>({
             url: API_GAME_SEARCH,
-            body: {
-                searchPhrase: '',
-                pageSize: 10,
-                offset: 0,
-                sort: Sort.MOST_POPULAR,
-                filters: {
-                    minimumRating: 80,
-                    maximumRating: 99,
-                },
-            },
+            body,
         });
 
         this.mostPopular = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
         return this.mostPopular;
     }
-    public async newestGames(): Promise<ProductNew[] | null> {
+    public async newestGames(body: object): Promise<ProductNew[] | null> {
+        if (this.newest.length > 0) return this.newest;
         const response = await this.apiService.postRequest<{games: Game[]}>({
             url: API_GAME_SEARCH,
-            body: {
-                searchPhrase: '',
-                pageSize: 10,
-                offset: 0,
-                sort: Sort.NEWEST,
-                filters: {
-                    minimumRating: 80,
-                    maximumRating: 99,
-                },
-            },
+            body,
         });
 
         this.newest = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
         return this.newest;
+    }
+
+    public async allGames(body: object): Promise<ProductNew[] | null> {
+        if (this.games.length > 0) return this.games;
+        const response = await this.apiService.postRequest<{games: Game[]}>({
+            url: API_GAME_SEARCH,
+            body,
+        });
+
+        this.games = response && Array.isArray(response?.games) ? this.convertToGameCard(response.games) : [];
+        return this.games;
     }
 
     public async relatedGames(genres: number[]): Promise<ProductNew[] | null> {
@@ -253,8 +240,8 @@ export class GameService {
             },
         });
 
-        this.games = response && Array.isArray(response?.games) ? response.games : [];
-        this.searchGames = this.convertToGameCard(this.games);
+        const gamesGet = response && Array.isArray(response?.games) ? response.games : [];
+        this.searchGames = this.convertToGameCard(gamesGet);
 
         this.countOfProducts = response?.count || 0;
         this.numberOfPages = ~~(this.countOfProducts / this.PAGE_SIZE) + 1;
@@ -323,26 +310,32 @@ export class GameService {
     private initializeObservers(): void {
         this.router.events.subscribe(async (value) => {
             if (value instanceof NavigationEnd) {
-                this.searchPhrase = this.getFilterByParam('searchPhrase') || this.searchPhrase;
-                this.onlyPublishedGames =
-                    this.getFilterByParam('onlyPublishedGames') === 'true' ? true : false || this.onlyPublishedGames;
-                this.sort = this.getFilterSort();
-                this.offset = Number(this.getFilterByParam('offset')) || this.offset;
-                this.numberOfPages = Number(this.getFilterByParam('numberOfPages')) || this.numberOfPages;
-                this.minimumRating = Number(this.getFilterByParam('minimumRating')) || this.minimumRating;
-                this.maximumRating = Number(this.getFilterByParam('maximumRating')) || this.maximumRating;
-                this.getFilterArray(this.getFilterByParamAll('genres'), 'genres');
-                this.getFilterArray(this.getFilterByParamAll('platforms'), 'platforms');
+                this.translateUrlToSearchGame();
 
                 if (value.url.startsWith('/search')) await this.search();
             }
         });
     }
+
+    private translateUrlToSearchGame(): void {
+        this.searchPhrase = this.getFilterByParam('searchPhrase') || this.searchPhrase;
+        this.onlyPublishedGames =
+            this.getFilterByParam('onlyPublishedGames') === 'true' ? true : false || this.onlyPublishedGames;
+        this.sort = this.getFilterSort();
+        this.offset = Number(this.getFilterByParam('offset')) || this.offset;
+        this.numberOfPages = Number(this.getFilterByParam('numberOfPages')) || this.numberOfPages;
+        this.minimumRating = Number(this.getFilterByParam('minimumRating')) || this.minimumRating;
+        this.maximumRating = Number(this.getFilterByParam('maximumRating')) || this.maximumRating;
+        this.getFilterArray(this.getFilterByParamAll('genres'), 'genres');
+        this.getFilterArray(this.getFilterByParamAll('platforms'), 'platforms');
+    }
+
     private getFilterByParam(param: string): string | null {
         const convertedToString = this.route.snapshot.queryParamMap.get(param);
         if (convertedToString) return convertedToString;
         return null;
     }
+
     private getFilterByParamAll(param: string): string[] | null {
         const convertedToString = this.route.snapshot.queryParamMap.getAll(param);
         if (convertedToString) return convertedToString;

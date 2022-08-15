@@ -8,7 +8,7 @@
         >
             <img [src]="item.artworks | sliderImageConverter" [alt]="item.name" />
         </li>
-        <li *ngIf="items[0]"><img [src]="items[0].artworks | sliderImageConverter" /></li>
+        <li *ngIf="items[0]"><img [src]="items[0].artworks | sliderImageConverter:'cover_big'" /></li>
     </ol>
 
     <div class="controls">

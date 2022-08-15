@@ -3,7 +3,7 @@
         <app-slider-card *ngFor="let card of cards" [product]="card"></app-slider-card>
     </div>
     <div class="buttons">
-        <app-more-button (btnClick)="searchPageWithParams()" [isReverse]="isReverse"></app-more-button>
+        <app-more-button (click)="searchWithFilter()" [isReverse]="isReverse"></app-more-button>
         <div class="buttons-controls">
             <button class="right" (click)="scrollToLeft()">
                 <i class="fa-solid fa-angle-right"></i>

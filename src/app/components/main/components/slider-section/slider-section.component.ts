@@ -5,6 +5,7 @@ import {GameService} from '../../../../services/game.service';
 import {Params, Router} from '@angular/router';
 import {ProductNew} from '../../../../models/productNew.model';
 import {AuthService} from '../../../../services/auth.service';
+import {SearchService} from '../../../../services/search.service';
 
 @Component({
     selector: 'app-slider-section',
@@ -17,7 +18,7 @@ export class SliderSectionComponent {
     @Input() public isReverse: boolean = false;
     public cardWidthConstant: number = 300;
 
-    public constructor(private router: Router) {}
+    public constructor(private searchService: SearchService) {}
 
     @ViewChild('slider') public sliderContainer!: ElementRef;
     public scrollToLeft(): void {
@@ -34,7 +35,7 @@ export class SliderSectionComponent {
         });
     }
 
-    public async searchPageWithParams(): Promise<void> {
-        await this.router.navigate(['/search'], {queryParams: this.queryParamsFilter});
+    public async searchWithFilter(): Promise<void> {
+        await this.searchService.searchWithFilter(this.queryParamsFilter);
     }
 }
