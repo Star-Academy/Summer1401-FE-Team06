@@ -11,12 +11,13 @@ import {ApiError} from '../models/api-error.model';
 })
 export class ProfileService {
     public user: User | null = this.authService.userInfo;
-
+    public birthday: string | null = null;
     public constructor(public authService: AuthService, private apiService: ApiService) {}
 
     public async getUserInfo(): Promise<void> {
         await this.authService.fetchLoggedInUserInfo();
         this.user = this.authService.userInfo;
+        if (this.user?.dateOfBirth) this.birthday = new Date(this.user?.dateOfBirth).toLocaleDateString();
     }
 
     public async allFavorites(): Promise<Game[] | ApiError | null> {

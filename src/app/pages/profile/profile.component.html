@@ -4,7 +4,7 @@
         <img class="object-fit-cover" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
         <img class="object-fit-contain" [src]="profileCover | sliderImageConverter | pickBestImage" alt="big cover" />
         <div>
-            <img src="assets/images/avatar.webp" alt="avatar" />
+            <img [src]="authService.userInfo?.avatar || 'assets/images/avatar.webp'" alt="avatar" />
             <div>
                 <h2>{{ this.profileService?.user?.firstName }} {{ this.profileService?.user?.lastName }}</h2>
                 <h3>{{ this.profileService?.user?.username }}</h3>
@@ -14,7 +14,7 @@
     <div class="wrapper">
         <aside>
             <div>
-                <img src="assets/images/avatar.webp" alt="avatar" />
+                <img [src]="authService.userInfo?.avatar || 'assets/images/avatar.webp'" alt="avatar" />
                 <h2>{{ this.profileService?.user?.username }}</h2>
                 <div>
                     <div class="info">
@@ -34,16 +34,22 @@
                     </div>
                     <div class="info">
                         <span>تاریخ تولد </span>
-                        <span>{{ this.profileService?.user?.dateOfBirth || '_' }}</span>
+                        <span>{{ this.profileService?.birthday || '_' }}</span>
                     </div>
                     <button routerLink="edit" routerLinkActive="is-active">
-                        ویرایش پروفایل <i class="fas fa-edit"></i>
+                        <i class="fas fa-edit"></i>
+                        ویرایش پروفایل
                     </button>
                     <button routerLink="wish-list" routerLinkActive="is-active">
-                        لیست خرید <i class="fas fa-cart-shopping"></i>
+                        <i class="fas fa-cart-shopping"></i>
+                        لیست خرید
                     </button>
                     <button routerLink="favorites" routerLinkActive="is-active" class="heartbtn">
-                        علاقه‌مندی‌ها <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        علاقه‌مندی‌ها
+                    </button>
+                    <button (click)="authService.logout()" class="exit-account">
+                        <i class="fa-solid fa-right-from-bracket"></i> خروج از حساب کاربری
                     </button>
                 </div>
             </div>
