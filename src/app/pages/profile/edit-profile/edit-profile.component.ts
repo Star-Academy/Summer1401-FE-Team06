@@ -3,6 +3,7 @@ import {User} from '../../../models/user.model';
 import {ProfileService} from '../../../services/profile.service';
 import {AuthService} from '../../../services/auth.service';
 import {ResultMessageService} from '../../../services/result-message.service';
+import {ChangePassword} from '../../../models/change-password.model';
 
 @Component({
     selector: 'app-edit-profile',
@@ -16,9 +17,14 @@ export class EditProfileComponent {
         lastName: '',
         username: '',
         email: '',
-        password: '',
         avatar: '',
         gender: true,
+        password: '',
+    };
+
+    public changePassword: ChangePassword = {
+        currentPassword: '',
+        newPassword: '',
     };
 
     public constructor(
@@ -35,13 +41,18 @@ export class EditProfileComponent {
         AuthService.isEditRequest = true;
         this.user.avatar = await this.convertImageToBase64(this.imageUpload.nativeElement.files);
         const response = await this.authService.alter(this.user);
-        if (!response?.message) {
+        const responseForPassword = await this.authService.changePassword(this.changePassword);
+
+        const showResultMessage = (message: string, color: string): void => {
+            this.resultMessageService.show(message, color);
+            AuthService.isEditRequest = false;
+        };
+
+        if (!response?.message && !responseForPassword?.message) {
             await this.profileService.getUserInfo();
-            this.resultMessageService.show('تغییرات با موفقیت انجام شد', 'success');
-            return;
-        }
-        this.resultMessageService.show(response.message, 'error');
-        AuthService.isEditRequest = false;
+            showResultMessage('تغییرات با موفقیت انجام شد', 'success');
+        } else if (response?.message) showResultMessage(response.message, 'error');
+        else if (responseForPassword?.message) showResultMessage(responseForPassword.message, 'error');
     }
 
     private async convertImageToBase64(files: FileList | null): Promise<string | undefined> {
