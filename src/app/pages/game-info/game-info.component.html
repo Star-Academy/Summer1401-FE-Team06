@@ -4,8 +4,9 @@
         <div class="section">
             <div class="game__header">
                 <div class="game__title">
-                    <div class="game__title-left">
+                    <div class="game__title-right">
                         <h2>{{ game.name }}</h2>
+                        <app-game-rating *ngIf="game.rating" [ratePoint]="game.rating"></app-game-rating>
                     </div>
                     <app-game-business [gameInfo]="game"></app-game-business>
                 </div>
@@ -20,10 +21,11 @@
                     </app-game-title>
                 </div>
 
-                <div class="game__details">
+                <div class="game__details" *ngIf="haveGameDetail()">
                     <app-game-detail *ngIf="game.genres" [list]="game.genres" title="Genres"></app-game-detail>
                     <app-game-detail *ngIf="game.keywords" [list]="game.keywords" title="Keywords"></app-game-detail>
                     <app-game-detail *ngIf="game.platforms" [list]="game.platforms" title="Platforms"></app-game-detail>
+                    <app-game-detail *ngIf="game.gameModes" [list]="game.gameModes" title="gameModes"></app-game-detail>
                     <app-game-detail
                         *ngIf="game.playerPerspectives"
                         [list]="game.playerPerspectives"

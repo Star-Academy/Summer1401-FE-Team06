@@ -44,4 +44,15 @@ export class GameInfoComponent implements OnInit {
         if (items) return items.map((item) => item.id);
         return [];
     }
+
+    public haveGameDetail(): boolean {
+        return this.game?.genres ||
+            this.game?.keywords ||
+            this.game?.platforms ||
+            this.game?.playerPerspectives ||
+            this.game?.gameModes ||
+            this.game?.themes
+            ? true
+            : false;
+    }
 }

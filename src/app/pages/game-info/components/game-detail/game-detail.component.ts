@@ -11,6 +11,7 @@ export class GameDetailComponent {
     @Input() public title: string = '';
 
     public convertDetailNameToList(): string {
+        console.log(this.list , this.title);
         const convertedList = this.list.map((gameList) => gameList.name).slice(0, 5);
         const convertToString = convertedList.join(', ');
         return convertToString;

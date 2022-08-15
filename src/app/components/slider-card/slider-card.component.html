@@ -1,4 +1,4 @@
-<div class="card" [routerLink]="['game', product.id]">
+<div class="card" [routerLink]="['/game', product.id]">
     <div class="card_img" [class.fade]="!product.isFavorite">
         <img [src]="product.cover | sliderImageConverter: 'cover_big'" [alt]="product.name" />
         <div class="overlay">

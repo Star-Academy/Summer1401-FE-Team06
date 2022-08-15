@@ -15,6 +15,7 @@ import {GameBusinessComponent} from './components/game-business/game-business.co
 import {IconModule} from '../../components/icon/icon.module';
 import {ConvertMoneyTypeModule} from '../../pipes/convert-money-type/convert-money-type.module';
 import {PercentPipeModule} from '../../pipes/percent-pipe/percent-pipe.module';
+import { GameRatingComponent } from './components/game-rating/game-rating.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import {PercentPipeModule} from '../../pipes/percent-pipe/percent-pipe.module';
         GameTitleComponent,
         GameDetailComponent,
         GameBusinessComponent,
+        GameRatingComponent,
     ],
     imports: [
         CommonModule,

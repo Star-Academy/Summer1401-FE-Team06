@@ -1,0 +1,8 @@
+<div class="wrapper" [title]="ratePoint">
+    <ng-container *ngFor="let count of createStars(5, ratePoint)">
+        <i class="fa-solid fa-star" [class.active]="count === 1"></i>
+    </ng-container>
+    <div class="count">
+        {{ ratePoint }}
+    </div>
+</div>
