@@ -24,6 +24,7 @@ import {AuthService} from './auth.service';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {SlidebarImages} from '../models/game/game-interface/slidebar-image.model';
 import {LoadingService} from './loading.service';
+import {GameInfo} from '../models/game/game-info.model';
 
 @Injectable({
     providedIn: 'root',
@@ -80,11 +81,24 @@ export class GameService {
         this.initializeObservers();
     }
 
-    public async searchById(id: number): Promise<Game | null> {
+    public async searchById(id: number): Promise<GameInfo | null> {
         const response = await this.apiService.getRequest<{game: Game}>({
             url: `${API_GAME_ONE}/${id}`,
         });
-        return response?.game || null;
+        const game = response?.game || null;
+
+        let createdGameForGameInfo;
+
+        if (game) {
+            createdGameForGameInfo = {
+                ...game,
+                discount: (game.price / game.priceOnSale) * 100,
+                isFavorite: this.favoriteListId.some((gameId) => gameId === game.id),
+                isWishList: this.wishlistListId.some((gameId) => gameId === game.id),
+            };
+        }
+
+        return createdGameForGameInfo || null;
     }
 
     public async topSellerGames(): Promise<ProductNew[] | null> {
@@ -200,10 +214,10 @@ export class GameService {
                 id: game.id,
                 price: game.price,
                 priceOnSale: game.priceOnSale,
-                discount: (game.price / game.priceOnSale) * 100,
                 cover: game.cover,
                 artworks: game.artworks,
                 screenshots: game.screenshots,
+                discount: (game.price / game.priceOnSale) * 100,
                 isFavorite: this.favoriteListId.some((gameId) => gameId === game.id),
                 isWishList: this.wishlistListId.some((gameId) => gameId === game.id),
             };

@@ -5,6 +5,7 @@ import {IconColor} from '../../enum/icon-color.enum';
 import {ProductNew} from '../../models/productNew.model';
 import {GameService} from '../../services/game.service';
 import {AuthService} from '../../services/auth.service';
+import {FavoriteWishlistService} from '../../services/favorite-wishlist.service';
 
 @Component({
     selector: 'app-slider-card',
@@ -16,41 +17,16 @@ export class SliderCardComponent {
     public IconType = IconType;
     public IconColor = IconColor;
 
-    public constructor(private gameService: GameService, private authService: AuthService) {}
+    public constructor(
+        private gameService: GameService,
+        private authService: AuthService,
+        private favoriteWishlistService: FavoriteWishlistService
+    ) {}
     public addAndRemoveFavorite(gameId: number): void {
-        console.log('kar mikone!!');
-        if (this.authService.token) {
-            if (!this.product.isFavorite) this.addFavorite(gameId);
-            else this.removeFavorite(gameId);
-        }
-    }
-    private addFavorite(gameId: number): void {
-        this.gameService.addGameToFavoriteList(gameId);
-        this.product.isFavorite = true;
-    }
-    private removeFavorite(gameId: number): void {
-        this.gameService.removeGameFromFavoriteList(gameId);
-        this.product.isFavorite = false;
+        this.product.isFavorite = this.favoriteWishlistService.addAndRemoveFavorite(this.product.isFavorite, gameId);
     }
 
     public addAndRemoveWishlist(gameId: number): void {
-        if (this.authService.token) {
-            if (!this.product.isWishList) this.addWishlist(gameId);
-            else this.removeWishlist(gameId);
-        } else {
-            //    TODO / resultMessage begim sabt nam kone
-        }
-    }
-    private addWishlist(gameId: number): void {
-        this.gameService.addGameToWishlistList(gameId);
-        this.product.isWishList = true;
-    }
-    private removeWishlist(gameId: number): void {
-        this.gameService.removeGameFromWishlistList(gameId);
-        this.product.isWishList = false;
-    }
-    public salamEl(): void {
-        console.log(this.product);
-        console.log('salam');
+        this.product.isWishList = this.favoriteWishlistService.addAndRemoveWishlist(this.product.isWishList, gameId);
     }
 }

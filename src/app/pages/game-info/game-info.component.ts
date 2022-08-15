@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 
 import {GameService} from '../../services/game.service';
-import {Game} from '../../models/game/game.model';
+
 import {ActivatedRoute, Params} from '@angular/router';
 import {UtilityService} from '../../services/utility.service';
 import {ProductNew} from '../../models/productNew.model';
-import {LoadingService} from '../../services/loading.service';
+
 import {Item} from '../../models/game/game-interface/item.model';
+import {GameInfo} from '../../models/game/game-info.model';
 
 @Component({
     selector: 'app-game-info',
@@ -15,15 +16,14 @@ import {Item} from '../../models/game/game-interface/item.model';
 })
 export class GameInfoComponent implements OnInit {
     public isFetching = false;
-    public game: Game | null = null;
+    public game: GameInfo | null = null;
     public relatedGames!: ProductNew[] | null;
     public gameImages: string[] = [];
     private id!: number;
     public constructor(
         private gameService: GameService,
         private route: ActivatedRoute,
-        private utilityService: UtilityService,
-        private loadingService: LoadingService
+        private utilityService: UtilityService
     ) {}
 
     public async ngOnInit(): Promise<void> {
