@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
                     return {
                         id: game.id,
                         artworks: game.artworks[0],
+                        name: game.name,
                     };
                 })
                 .slice(1, 5);

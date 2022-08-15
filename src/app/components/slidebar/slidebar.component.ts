@@ -17,8 +17,6 @@ export class SlidebarComponent implements AfterViewInit, OnDestroy {
     public readonly INTERVAL_DELAY: number = 4_000;
 
     @Input() public items: SlidebarImages[] = [];
-    @Input() public leftItem: SlidebarImages | string = '';
-    @Input() public rightItem: SlidebarImages | string = '';
     public activeIndex: number = 0;
 
     public interval!: number;
