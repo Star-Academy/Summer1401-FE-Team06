@@ -25,6 +25,7 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {SlidebarImages} from '../models/game/game-interface/slidebar-image.model';
 import {LoadingService} from './loading.service';
 import {GameInfo} from '../models/game/game-info.model';
+import {SearchService} from './search.service';
 
 @Injectable({
     providedIn: 'root',
@@ -74,7 +75,8 @@ export class GameService {
         private apiService: ApiService,
         private authService: AuthService,
         private route: ActivatedRoute,
-        private loadingService: LoadingService
+        private loadingService: LoadingService,
+        private searchService: SearchService
     ) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
@@ -94,7 +96,7 @@ export class GameService {
         if (game) {
             createdGameForGameInfo = {
                 ...game,
-                discount: (game.price / game.priceOnSale) * 100,
+                discount: ((game.price - game.priceOnSale) / game.price) * 100,
                 isFavorite: this.favoriteListId.some((gameId) => gameId === game.id),
                 isWishList: this.wishlistListId.some((gameId) => gameId === game.id),
             };
@@ -227,8 +229,11 @@ export class GameService {
         await this.search();
     }
 
-    public async search(): Promise<void> {
+    public async search(saveInUrl?: boolean): Promise<void> {
         this.loadingService.show();
+        const filterParams = this.generateFilters();
+        if (saveInUrl)
+            await this.searchService.searchWithFilter({searchPhrase: this.searchPhrase, filters: filterParams});
         const response = await this.apiService.postRequest<{count: number; games: Game[]}>({
             url: API_GAME_SEARCH,
             body: {
@@ -236,7 +241,7 @@ export class GameService {
                 pageSize: this.PAGE_SIZE,
                 offset: this.offset,
                 sort: this.sort,
-                filters: this.generateFilters(),
+                filters: filterParams,
             },
         });
 
