@@ -17,6 +17,7 @@ export class FirstNavbarComponent {
     public constructor(private router: Router, private authService: AuthService) {
         this.initializeVariables().then();
     }
+
     public async submitSearchPhrase(sentence: string): Promise<void> {
         await this.router.navigate(['/search'], {queryParams: {searchPhrase: sentence}});
     }

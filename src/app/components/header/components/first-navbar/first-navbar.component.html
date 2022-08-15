@@ -9,8 +9,16 @@
         <div class="container-left">
             <app-search-box (searchPhraseEnter)="submitSearchPhrase($event)"></app-search-box>
             <div class="icons" *ngIf="isLoggedIn">
-                <app-icon [iconClass]="IconType.WISH_LIST" [iconColor]="IconColor.ORANGE"></app-icon>
-                <app-icon [iconClass]="IconType.SHOP" [iconColor]="IconColor.ORANGE"></app-icon>
+                <app-icon
+                    [routerLink]="['/profile', 'favorites']"
+                    [iconClass]="IconType.WISH_LIST"
+                    [iconColor]="IconColor.ORANGE"
+                ></app-icon>
+                <app-icon
+                    [routerLink]="['/profile', 'wish-list']"
+                    [iconClass]="IconType.SHOP"
+                    [iconColor]="IconColor.ORANGE"
+                ></app-icon>
             </div>
 
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
