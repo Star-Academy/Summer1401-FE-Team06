@@ -29,7 +29,7 @@ export class MainComponent implements OnInit {
                         artworks: game.artworks[0],
                     };
                 })
-                .slice(4);
+                .slice(1, 5);
 
         this.mostPopularGames = (await this.gameService.mostPopularGames()) || null;
         this.newestGames = (await this.gameService.newestGames()) || null;

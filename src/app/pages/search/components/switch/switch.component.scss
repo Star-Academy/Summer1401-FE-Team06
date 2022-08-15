@@ -26,7 +26,7 @@ label {
     margin-inline-start: auto;
     padding: 0.2em;
 
-    border: 0.2rem solid var(--clr-gray-50);
+    border: 0.1rem solid var(--clr-gray-50);
     border-radius: 999rem;
 
     cursor: pointer;
@@ -40,7 +40,7 @@ label {
     &::before {
       content: "";
 
-      background-color: hsl(200deg 84% 58%);
+      background-color: var(--secondary-color);
       opacity: 0;
 
       position: absolute;

@@ -33,12 +33,14 @@ export class GameService {
     public readonly PAGE_SIZE: number = 21;
     public games: Game[] = [];
 
+    public favoriteListCount = new BehaviorSubject<number>(0);
     public favoriteList = new BehaviorSubject<ProductNew[]>([]);
     public favoriteListId: number[] = [];
     public get currentFavoriteList(): ProductNew[] {
         return this.favoriteList.value;
     }
 
+    public wishlistListCount = new BehaviorSubject<number>(0);
     public wishlistList = new BehaviorSubject<ProductNew[]>([]);
     public wishlistListId: number[] = [];
     public get currentWishlistList(): ProductNew[] {

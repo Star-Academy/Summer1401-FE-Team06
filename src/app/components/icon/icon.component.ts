@@ -11,4 +11,5 @@ export class IconComponent {
     @Input() public iconClass: IconType = IconType.SHOP;
     @Input() public iconColor: IconColor = IconColor.WHITE;
     @Input() public haveBackgroundColor: boolean = true;
+    @Input() public count: number = 0;
 }

@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
 import {AuthService} from './auth.service';
 import {GameService} from './game.service';
+import {BehaviorSubject} from 'rxjs';
+import {ProductNew} from '../models/productNew.model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class FavoriteWishlistService {
+
     public constructor(private authService: AuthService, private gameService: GameService) {}
     public addAndRemoveFavorite(isFavorite: boolean, gameId: number): boolean {
         if (this.authService.token) {
@@ -17,6 +20,17 @@ export class FavoriteWishlistService {
         //message
         return isFavorite;
     }
+
+    public get countFavorite(): number {
+        if (!this.authService.token) return 0;
+        return this.gameService.favoriteListId.length;
+    }
+
+    public get countWishlists(): number {
+        if (!this.authService.token) return 0;
+        return this.gameService.wishlistListId.length;
+    }
+
     private addFavorite(gameId: number): boolean {
         this.gameService.addGameToFavoriteList(gameId);
         return true;

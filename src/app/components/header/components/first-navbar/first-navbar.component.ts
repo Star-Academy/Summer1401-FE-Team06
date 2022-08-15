@@ -14,7 +14,7 @@ export class FirstNavbarComponent {
     public IconType = IconType;
     public IconColor = IconColor;
 
-    public constructor(private router: Router, private authService: AuthService) {
+    public constructor(private router: Router, private authService: AuthService, private ) {
         this.initializeVariables().then();
     }
     public async submitSearchPhrase(sentence: string): Promise<void> {

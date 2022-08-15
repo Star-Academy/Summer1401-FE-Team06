@@ -83,6 +83,10 @@
         .game {
             &__title {
                 flex-direction: column;
+                &-right{
+                    text-align: center;
+                    align-items: center;
+                }
             }
         }
     }

@@ -9,7 +9,7 @@
         <div class="container-left">
             <app-search-box (searchPhraseEnter)="submitSearchPhrase($event)"></app-search-box>
             <div class="icons" *ngIf="isLoggedIn">
-                <app-icon [iconClass]="IconType.WISH_LIST" [iconColor]="IconColor.ORANGE"></app-icon>
+                <app-icon [count]="" [iconClass]="IconType.WISH_LIST" [iconColor]="IconColor.ORANGE"></app-icon>
                 <app-icon [iconClass]="IconType.SHOP" [iconColor]="IconColor.ORANGE"></app-icon>
             </div>
 

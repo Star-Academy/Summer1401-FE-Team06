@@ -32,7 +32,6 @@ export class SlidebarComponent implements AfterViewInit, OnDestroy {
     }
 
     public changeActiveIndex(index: number): void {
-        console.log(this.items);
         if (index < 0) index = this.items.length - 1;
         else if (index >= this.items.length) index = 0;
 

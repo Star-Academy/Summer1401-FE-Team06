@@ -1,3 +1,4 @@
 <div [class]="iconColor" [class.no-bg]="!haveBackgroundColor" class="icon-container">
     <i [class]="iconClass"></i>
+    <span *ngIf="count">{{ count }}</span>
 </div>
