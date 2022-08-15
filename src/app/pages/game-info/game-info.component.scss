@@ -88,6 +88,14 @@
                     align-items: center;
                 }
             }
+            &__description{
+                flex-direction: column;
+            }
+            &__details{
+                flex: 1;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
         }
     }
 }
