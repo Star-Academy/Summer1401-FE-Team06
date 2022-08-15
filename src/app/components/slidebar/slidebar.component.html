@@ -1,22 +1,22 @@
 <div class="slideshow" [style.--active-index]="activeIndex + 1">
     <ol>
-        <li><img src="assets/images/slider4.webp" alt="" /></li>
+        <li *ngIf="items[items.length - 1]"><img [src]="items[items.length - 1].artworks | sliderImageConverter" /></li>
         <li
             (click)="searchWithFilter(item.id)"
             *ngFor="let item of items; index as index"
             [class.active]="index === activeIndex"
         >
-            <img [src]="item.artworks | sliderImageConverter" alt="" />
+            <img [src]="item.artworks | sliderImageConverter" [alt]="item.name" />
         </li>
-        <li><img src="assets/images/slider1.webp" alt="" /></li>
+        <li *ngIf="items[0]"><img [src]="items[0].artworks | sliderImageConverter" /></li>
     </ol>
 
     <div class="controls">
         <button class="right" (click)="changeActiveIndex(activeIndex - 1)">
-            <i class="fa-solid fa-caret-right"></i>
+            <i class="fa-solid fa-angle-right"></i>
         </button>
         <button class="left" (click)="changeActiveIndex(activeIndex + 1)">
-            <i class="fa-solid fa-caret-left"></i>
+            <i class="fa-solid fa-angle-left"></i>
         </button>
     </div>
 

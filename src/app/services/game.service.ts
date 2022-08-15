@@ -297,6 +297,7 @@ export class GameService {
 
             this.favoriteListId = favoriteList.map((game) => game.id);
             if (saveToFavoriteList) this.favoriteList.next(this.convertToGameCard(favoriteList));
+            if (saveToFavoriteList) this.favoriteListCount.next(favoriteList.length);
         }
     }
 
@@ -310,6 +311,7 @@ export class GameService {
 
             this.wishlistListId = wishlistList.map((game) => game.id);
             if (saveToWishlistList) this.wishlistList.next(this.convertToGameCard(wishlistList));
+            if (saveToWishlistList) this.wishlistListCount.next(this.wishlistListId.length);
         }
     }
 

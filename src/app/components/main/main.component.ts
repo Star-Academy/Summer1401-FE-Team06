@@ -20,6 +20,7 @@ export class MainComponent implements OnInit {
     public games: ProductNew[] | null = null;
     public slidebarImages: SlidebarImages[] = [];
     public async ngOnInit(): Promise<void> {
+        this.loadingService.show();
         this.topSellerGames = (await this.gameService.topSellerGames()) || null;
         if (this.topSellerGames)
             this.slidebarImages = this.topSellerGames
@@ -27,12 +28,14 @@ export class MainComponent implements OnInit {
                     return {
                         id: game.id,
                         artworks: game.artworks[0],
+                        name: game.name,
                     };
                 })
                 .slice(1, 5);
-
+        this.loadingService.hide();
         this.mostPopularGames = (await this.gameService.mostPopularGames()) || null;
         this.newestGames = (await this.gameService.newestGames()) || null;
+
         await this.gameService.search();
         this.games = this.gameService.searchGames;
     }
