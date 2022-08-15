@@ -1,6 +1,13 @@
-<div class="card">
+<div class="card" (click)="salamEl()">
     <div class="card_img">
         <img [src]="product.cover | sliderImageConverter: 'cover_big'" [alt]="product.name" />
+        <div class="overlay">
+            <app-icon
+                [iconClass]="product.isFavorite ? IconType.WISH_LIST_SOLID : IconType.WISH_LIST"
+                [iconColor]="IconColor.ORANGE"
+                (click)="addAndRemoveFavorite(product.id); $event.stopPropagation()"
+            ></app-icon>
+        </div>
     </div>
     <div class="card_desc">
         <h2>{{ product.name }}</h2>
@@ -12,17 +19,8 @@
                 [haveBackgroundColor]="false"
             ></app-icon>
         </p>
-        <ng-container *ngIf="product.isFavorite">added to your favorite list</ng-container>
-        <br />
-        <ng-container *ngIf="product.isWishList">added to your wishlist list</ng-container>
     </div>
-    <div class="overlay">
-        <app-icon
-            [iconClass]="IconType.WISH_LIST"
-            [iconColor]="IconColor.ORANGE"
-            (click)="addAndRemoveFavorite(product.id)"
-        ></app-icon>
-        <button class="more" [routerLink]="['/game', product.id]">مشاهده جزئیات</button>
-        <button class="buy" (click)="addAndRemoveWishlist(product.id)">خرید</button>
-    </div>
+    <button class="buy" (click)="addAndRemoveWishlist(product.id); $event.stopPropagation()">
+        {{ product.isWishList ? 'حذف از سبد خرید' : 'افزودن به سبد خرید' }}
+    </button>
 </div>

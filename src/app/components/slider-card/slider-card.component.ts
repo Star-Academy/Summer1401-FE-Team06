@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {IconType} from '../../enum/icon-type.enum';
 import {Product} from '../main-cards/models/product';
 import {IconColor} from '../../enum/icon-color.enum';
@@ -47,5 +47,8 @@ export class SliderCardComponent {
     private removeWishlist(gameId: number): void {
         this.gameService.removeGameFromWishlistList(gameId);
         this.product.isWishList = false;
+    }
+    public salamEl(): void {
+        console.log('salam');
     }
 }
