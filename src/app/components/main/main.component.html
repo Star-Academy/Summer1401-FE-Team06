@@ -1,8 +1,6 @@
-<app-slidebar
-    [items]="slidebarImages"
-></app-slidebar>
+<app-slidebar [items]="slidebarImages"></app-slidebar>
 <app-container>
-    <ng-template #loader>loading</ng-template>
+    <ng-template #loader class="loading"><h2>... LOADING ...</h2></ng-template>
     <app-section
         *ngIf="topSellerGames; else loader"
         primaryTitle="پرفروش‌ترین بازی‌ها"
