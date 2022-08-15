@@ -27,9 +27,11 @@ export class GameInfoComponent implements OnInit {
     ) {}
 
     public async ngOnInit(): Promise<void> {
+
         this.route.params.subscribe(async (params: Params) => {
             this.id = +params['id'];
             this.game = (await this.gameService.searchById(this.id)) || null;
+            console.log(this.game?.rating);
             if (this.game) {
                 this.gameImages = this.utilityService.gameImageGenerate(
                     this.game.artworks,
@@ -39,6 +41,7 @@ export class GameInfoComponent implements OnInit {
             }
             this.relatedGames = await this.gameService.relatedGames(this.extractID(this.game?.genres));
         });
+
     }
     public extractID(items?: Item[]): number[] {
         if (items) return items.map((item) => item.id);

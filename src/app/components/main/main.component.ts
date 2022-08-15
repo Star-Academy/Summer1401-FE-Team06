@@ -33,10 +33,10 @@ export class MainComponent implements OnInit {
                 })
                 .slice(1, 5);
         this.loadingService.hide();
+        await this.gameService.search();
+        this.games = this.gameService.searchGames;
         this.mostPopularGames = (await this.gameService.mostPopularGames()) || null;
         this.newestGames = (await this.gameService.newestGames()) || null;
 
-        await this.gameService.search();
-        this.games = this.gameService.searchGames;
     }
 }

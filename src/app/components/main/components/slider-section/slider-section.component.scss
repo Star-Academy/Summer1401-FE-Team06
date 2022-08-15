@@ -36,7 +36,7 @@
             button {
                 color: var(--clr-gray-95);
                 opacity: 0.8;
-                background:none;
+                background: none;
                 border: none;
                 border-radius: var(--border-radius-card);
 
@@ -61,6 +61,37 @@
 
             app-more-button {
                 margin-inline-end: var(--more-btn-padding);
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        .slider {
+            app-slider-card {
+                flex: 0 0 15rem;
+                width: 15rem;
+            }
+        }
+        .buttons {
+            //display: flex;
+            //align-items: center;
+
+            //justify-content: space-between;
+            //gap: 1rem;
+            gap: 1rem;
+            padding: 1rem 0 0 0;
+            flex-direction: column;
+            flex-flow: column !important;
+            app-more-button {
+                margin: 0 !important;
+            }
+
+            cursor: pointer;
+
+            app-more-button {
+                margin-inline-start: var(--more-btn-padding);
             }
         }
     }
