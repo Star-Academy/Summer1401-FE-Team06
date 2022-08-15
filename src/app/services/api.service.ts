@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {DEFAULT_DELETE_REQUEST_INIT, DEFAULT_POST_REQUEST_INIT} from '../utils/api.utils';
 import {GetRequestOptions, PostRequestOptions, RequestOptions} from '../models/api/request-options.model';
+import {AuthService} from "./auth.service";
 @Injectable({
     providedIn: 'root',
 })
@@ -40,6 +41,7 @@ export class ApiService {
         try {
             const data = await response.json();
             if (response.ok) return data as T;
+            if (AuthService.isEditRequest) return data;
             return null;
         } catch (err) {
             return null;

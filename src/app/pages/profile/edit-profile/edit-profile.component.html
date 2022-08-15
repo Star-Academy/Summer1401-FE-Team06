@@ -65,7 +65,7 @@
                 [(ngModel)]="user!.phone"
             />
             <i class="far fa-check-circle contact__group-icon"></i>
-            <label for="email">تلفن</label>
+            <label for="phone">تلفن</label>
         </div>
 
         <div class="contact__group">
@@ -78,7 +78,7 @@
                 [(ngModel)]="user!.dateOfBirth"
             />
             <i class="far fa-check-circle contact__group-icon"></i>
-            <label for="email">تاریخ تولد</label>
+            <label for="birthday">تاریخ تولد</label>
         </div>
 
         <div class="contact__group">
@@ -92,6 +92,12 @@
             />
             <i class="far fa-check-circle contact__group-icon"></i>
             <label for="password">رمز عبور</label>
+        </div>
+
+        <div class="contact__group">
+            <input class="contact__input" type="file" id="file" name="file" [(ngModel)]="user!.avatar" #imageUpload />
+            <i class="far fa-check-circle contact__group-icon"></i>
+            <label for="file">عکس پروفایل</label>
         </div>
         <div class="contact__buttons">
             <button type="submit" class="button active">تایید</button>

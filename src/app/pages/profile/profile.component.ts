@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     public constructor(
         public profileService: ProfileService,
-        private authService: AuthService,
+        public authService: AuthService,
         private resultMessageService: ResultMessageService,
         private gameService: GameService,
         private utilityService: UtilityService,

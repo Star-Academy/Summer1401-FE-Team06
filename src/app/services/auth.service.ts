@@ -13,6 +13,7 @@ import {ProfileService} from './profile.service';
     providedIn: 'root',
 })
 export class AuthService {
+    public static isEditRequest: boolean = false;
     public cachedIsLoggedIn: boolean | null = null;
     public cachedUserId: number | null = null;
     public cachedUser: User | null = null;
@@ -49,8 +50,6 @@ export class AuthService {
     public async fetchLoggedInUserInfo(): Promise<User | null> {
         const response = await this.apiService.getRequest<{user: User}>({url: `${API_USER_ONE}/${this.cachedUserId}`});
         this.userInfo = response?.user || null;
-        if (this.userInfo?.dateOfBirth)
-            this.userInfo.dateOfBirth = new Date(this.userInfo?.dateOfBirth).toLocaleDateString();
         return response?.user || null;
     }
 
