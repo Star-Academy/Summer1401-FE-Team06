@@ -31,17 +31,13 @@
 
         &-controls {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
 
             button {
-                background-color: var(--clr-gray-70);
-                color: var(--clr-gray-5);
+                color: var(--clr-gray-95);
                 opacity: 0.8;
-
-                block-size: 2rem;
-                inline-size: 2rem;
-
-                border: 1px solid var(--clr-gray-5);
+                background:none;
+                border: none;
                 border-radius: var(--border-radius-card);
 
                 font-size: 1.6rem;
