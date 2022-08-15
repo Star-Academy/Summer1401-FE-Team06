@@ -5,7 +5,7 @@ import {GameImage} from '../../../models/game/game-interface/game-image.model';
     name: 'sliderImageConverter',
 })
 export class SliderImageConverterPipe implements PipeTransform {
-    private defualtImage = ['../../../../assets/images/not-found-image.webp'];
+    private defualtImage = ['assets/images/not-found-image.webp'];
     public transform(sliderUrlList: string[] | GameImage | string, format?: string): string[] {
         let convertedImageUrl;
         // console.log(format);
